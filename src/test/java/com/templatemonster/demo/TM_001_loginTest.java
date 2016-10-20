@@ -1,7 +1,12 @@
 package com.templatemonster.demo;
 
+import com.codeborne.selenide.Selenide;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 
 /**
  * Тестовый сценарий:
@@ -21,10 +26,16 @@ public class TM_001_loginTest extends BaseTest {
 
     @Test(groups = {"checkintest", "functionalTests"})
     public void tm_001_loginTest() throws InterruptedException {
+        //Test data
         String validUserLogin = propertyManager.getProperty("validUserLogin");
         String validUserPassword = propertyManager.getProperty("validUserPassword");
 
-        driver.manage().deleteAllCookies();
+        //Test steps
+
+        open("https://www.gismeteo.ua/");
+
+        $(By.id("ya")).setValue("kyiv");
+
         homePage = basePage.navigateToHomePage();
         loginPage = homePage.navigateToLoginPage();
         Assert.assertTrue(loginPage.isLoginPageOpened(), "Login page was not opened");
@@ -33,4 +44,5 @@ public class TM_001_loginTest extends BaseTest {
         Assert.assertTrue(basePage.isUserLoggedIn(), "User is not logged into the system");
         Assert.assertEquals(basePage.getValueOfCookie("wac"), "1", "'wac' cookie value is not correct");
     }
+
 }

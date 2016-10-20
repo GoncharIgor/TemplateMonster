@@ -6,6 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.collections.Lists;
+
+import java.util.List;
 
 /**
  * Created by i.gonchar on 29.09.2016.
@@ -67,7 +70,7 @@ public class CheckoutPage extends BasePage {
         return this;
     }
 
-    public boolean addInvalidEmailsToCheckout(String... invalidEmails) {
+    public boolean addInvalidEmailsToCheckout(List<String> invalidEmails) {
         int alertNotificationsAmount = 0;
         for (String email : invalidEmails) {
             addInvalidEmailToCheckout(email);
@@ -75,7 +78,7 @@ public class CheckoutPage extends BasePage {
                 alertNotificationsAmount++;
             }
         }
-        return alertNotificationsAmount == 10;
+        return alertNotificationsAmount == invalidEmails.size();
     }
 
     private void addInvalidEmailToCheckout(String email) {

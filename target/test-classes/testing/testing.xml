@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite" parallel="false" verbose="1" preserve-order="true">
+
+    <test name="FirefoxTest">
+        <classes>
+            <class name="com.templatemonster.demo.TM_001_loginTest"/>
+        </classes>
+    </test>
+
+</suite>

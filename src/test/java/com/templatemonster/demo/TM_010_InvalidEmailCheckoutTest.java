@@ -1,9 +1,15 @@
 package com.templatemonster.demo;
 
 
-import com.templatemonster.demo.dataProviders.TestDataProvider;
-import org.testng.Assert;
+import com.codeborne.selenide.Selenide;
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.codeborne.selenide.Selenide.$;
+import static org.testng.Assert.assertTrue;
 
 /**
  * Тестовый сценарий:
@@ -15,22 +21,25 @@ import org.testng.annotations.Test;
  */
 public class TM_010_InvalidEmailCheckoutTest extends BaseTest {
 
+    List<String> invalidEmails = new ArrayList<String>() {{
+        add("");
+        add("aaaaaa");
+        add("aaaaa@");
+        add("aaaaa@com");
+        add("aaaaa@.com");
+    }};
+    String templateId = "52293";
+
     @Test
     public void tm_010_InvalidEmailCheckoutTest() throws InterruptedException {
-        String templateId = propertyManager.getProperty("environmentalThemeID");
+        templateSearchResultPage = onHomePage()
+                .searchForTemplate(templateId);
 
-        String[] invalidEmails = new String[10];
+        assertTrue(templateSearchResultPage.isTemplateOpened(templateId), "Needed template was not opened");
 
-        for (int i = 0; i < 10; i++) {
-            String invalidEmail = propertyManager.getProperty("invalidUserEmail" + i);
-            invalidEmails[i] = invalidEmail;
-        }
-
-        homePage = basePage.navigateToHomePage();
-        templateSearchResultPage = homePage.searchForTemplate(templateId);
-        Assert.assertTrue(templateSearchResultPage.isTemplateOpened(templateId), "Needed template was not opened");
         checkoutPage = templateSearchResultPage.addOpenedTemplateToCartAndCheckout();
-        Assert.assertTrue(checkoutPage.isCheckoutPageOpened(), "Checkout page was not opened");
-        Assert.assertTrue(checkoutPage.addInvalidEmailsToCheckout(invalidEmails), "Not all emails were correctly validated");
+
+        assertTrue(checkoutPage.isCheckoutPageOpened(), "Checkout page was not opened");
+        assertTrue(checkoutPage.addInvalidEmailsToCheckout(invalidEmails), "Not all emails were correctly validated");
     }
 }

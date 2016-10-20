@@ -17,7 +17,7 @@ import static com.codeborne.selenide.Selenide.$;
 /**
  * Created by i.gonchar on 28.09.2016.
  */
-public class BasePage {
+public abstract class BasePage {
     private static final Logger LOGGER = Logger.getLogger(WaitHelper.class);
     protected WebDriver driver;
 

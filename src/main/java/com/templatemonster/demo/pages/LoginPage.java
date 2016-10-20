@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
  * Created by i.gonchar on 29.09.2016.
  */
 public class LoginPage extends BasePage {
+
     private final By LOGIN_FORM_SUBMIT_BUTTON_LOCATOR = By.id("login_button");
     private final By USER_LOGIN_INPUT_LOCATOR = By.id("edtLogin");
     private final By USER_PASSWORD_INPUT_LOCATOR = By.id("edtPassword");
