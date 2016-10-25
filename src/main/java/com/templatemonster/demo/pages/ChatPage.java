@@ -4,6 +4,8 @@ import com.templatemonster.demo.pages.basePages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static com.codeborne.selenide.Selenide.$;
+
 /**
  * Created by i.gonchar on 29.09.2016.
  */
@@ -20,7 +22,7 @@ public class ChatPage extends BasePage {
     }
 
     public boolean isChatPreSalesRoomOpened() {
-        String actualChatRoomHeader = driver.findElement(CHAT_ROOM_HEADER).getText();
+        String actualChatRoomHeader = $(CHAT_ROOM_HEADER).getText();
         return actualChatRoomHeader.equals("Welcome to Pre-sales Chat");
     }
 }

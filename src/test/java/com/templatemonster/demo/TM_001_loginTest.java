@@ -2,6 +2,7 @@ package com.templatemonster.demo;
 
 import com.templatemonster.demo.pages.LoginPage;
 import org.testng.annotations.Test;
+
 import static org.testng.Assert.*;
 
 /**
@@ -19,19 +20,19 @@ import static org.testng.Assert.*;
 public class TM_001_loginTest extends BaseTest {
     private LoginPage loginPage;
 
-    @Test(groups = {"checkintest", "functionalTests"})
+    @Test
     public void tm_001_loginTest() {
         //Test data
         String validUserLogin = propertyManager.getProperty("validUserLogin");
         String validUserPassword = propertyManager.getProperty("validUserPassword");
 
         //Test steps
-        driver.manage().deleteAllCookies();
-        homePage = basePage.navigateToHomePage();
-        loginPage = homePage.navigateToLoginPage();
+        loginPage = basePage.navigateToHomePage()
+                .navigateToLoginPage();
         assertTrue(loginPage.isLoginPageOpened(), "Login page was not opened");
-        loginPage = loginPage.fillLoginFormWithAnyCredentials(validUserLogin, validUserPassword);
-        homePage = loginPage.submitLoginForm();
+
+        homePage = loginPage.fillLoginFormWithAnyCredentials(validUserLogin, validUserPassword)
+                .submitLoginForm();
         assertTrue(basePage.isUserLoggedIn(), "User is not logged into the system");
         assertEquals(basePage.getValueOfCookie("wac"), "1", "'wac' cookie value is not correct");
     }

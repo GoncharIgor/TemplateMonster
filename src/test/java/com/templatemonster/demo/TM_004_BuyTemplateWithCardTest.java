@@ -2,9 +2,10 @@ package com.templatemonster.demo;
 
 import com.templatemonster.demo.pages.CardPaymentPage;
 import com.templatemonster.demo.pages.CheckoutPage;
-import com.templatemonster.demo.pages.TemplateSearchResultPage;
 import com.templatemonster.demo.util.WaitHelper;
+
 import static org.testng.Assert.*;
+
 import org.testng.annotations.Test;
 
 /**
@@ -18,7 +19,6 @@ import org.testng.annotations.Test;
  * 2. Открывается страница платёжки
  */
 public class TM_004_BuyTemplateWithCardTest extends BaseTest {
-    private TemplateSearchResultPage templateSearchResultPage;
     private CheckoutPage checkoutPage;
     private CardPaymentPage cardPaymentPage;
 
@@ -30,13 +30,10 @@ public class TM_004_BuyTemplateWithCardTest extends BaseTest {
         String validUserPassword = propertyManager.getProperty("validUserPassword");
 
         //Test steps
-        driver.manage().deleteAllCookies();
-        homePage = basePage.navigateToHomePage();
-        templateSearchResultPage = homePage.searchForTemplate(templateId);
-        assertTrue(templateSearchResultPage.isTemplateOpened(templateId), "Needed template was not opened");
-        checkoutPage = templateSearchResultPage.addOpenedTemplateToCartAndCheckout();
-        assertTrue(checkoutPage.isCheckoutPageOpened(), "Checkout page was not opened");
-        checkoutPage = checkoutPage.checkoutUserAuthorization(validUserLogin, validUserPassword);
+        checkoutPage = basePage.navigateToHomePage()
+                .searchForTemplate(templateId)
+                .addOpenedTemplateToCartAndCheckout()
+                .checkoutUserAuthorization(validUserLogin, validUserPassword);
         WaitHelper.waitAdditional(5);
         assertEquals(basePage.getValueOfCookie("wac"), "1", "'wac' cookie value is not correct");
         cardPaymentPage = checkoutPage.payCheckoutViaCard();

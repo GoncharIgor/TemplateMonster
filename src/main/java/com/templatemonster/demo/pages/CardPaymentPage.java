@@ -13,7 +13,7 @@ public class CardPaymentPage extends BasePage {
     }
 
     public boolean isCardpaymentPageOpened() {
-        WaitHelper.waitAdditional(10);
+        WaitHelper.waitAdditional(12);
         String currentUrl = driver.getCurrentUrl();
         return currentUrl.contains("https://www2.1stpayments.net/");
     }

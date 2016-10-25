@@ -13,6 +13,7 @@ import org.testng.log4testng.Logger;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 /**
  * Created by i.gonchar on 28.09.2016.
@@ -26,7 +27,7 @@ public class BasePage {
     }
 
     public HomePage navigateToHomePage() {
-        driver.navigate().to("http://www.templatemonster.com/");
+        open("http://www.templatemonster.com/");
         return new HomePage(driver);
     }
 

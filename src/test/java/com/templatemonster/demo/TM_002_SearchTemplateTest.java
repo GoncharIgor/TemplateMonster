@@ -3,6 +3,8 @@ package com.templatemonster.demo;
 import com.templatemonster.demo.pages.TemplateSearchResultPage;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+
+import static com.codeborne.selenide.Selenide.$;
 import static org.testng.Assert.*;
 
 
@@ -19,16 +21,15 @@ public class TM_002_SearchTemplateTest extends BaseTest {
     private By TEMPLATE_SEARCH_FIELD_LOCATOR = By.name("keywords");
     private TemplateSearchResultPage templateSearchResultPage;
 
-    @Test(groups = {"functionalTests"})
+    @Test
     public void tm_002_SearchTemplateTest() {
         //Test data
         String templateId = propertyManager.getProperty("environmentalThemeID");
 
         //Test steps
-        homePage = basePage.navigateToHomePage();
-        assertTrue(homePage.isHomePageOpened(), "Home page was not opened");
-        templateSearchResultPage = homePage.searchForTemplate(templateId);
+        templateSearchResultPage = basePage.navigateToHomePage()
+                .searchForTemplate(templateId);
         assertTrue(templateSearchResultPage.isTemplateOpened(templateId), "Needed template was not opened");
-        assertEquals("", driver.findElement(TEMPLATE_SEARCH_FIELD_LOCATOR).getAttribute("value"), "Template search field is not empty");
+        assertEquals("", $(TEMPLATE_SEARCH_FIELD_LOCATOR).getAttribute("value"), "Template search field is not empty");
     }
 }

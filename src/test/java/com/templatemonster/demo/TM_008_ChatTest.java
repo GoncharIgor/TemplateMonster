@@ -24,9 +24,8 @@ public class TM_008_ChatTest extends BaseTest {
         String userName = propertyManager.getProperty("userName");
 
         //Test steps
-        homePage = basePage.navigateToHomePage();
-        assertTrue(homePage.isHomePageOpened(), "Home page was not opened");
-        chatPage = homePage.navigateToChatPage(userName, userEmail);
+        chatPage = basePage.navigateToHomePage()
+        .navigateToChatPage(userName, userEmail);
         WaitHelper.waitAdditional(3);
         assertTrue(chatPage.isChatPageOpened(), "Chat pop up was not opened");
         assertTrue(chatPage.isChatPreSalesRoomOpened(), "Chat Pre sales room was not opened");

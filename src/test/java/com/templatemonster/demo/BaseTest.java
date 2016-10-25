@@ -1,5 +1,6 @@
 package com.templatemonster.demo;
 
+import com.codeborne.selenide.WebDriverRunner;
 import com.templatemonster.demo.pages.*;
 import com.templatemonster.demo.pages.basePages.BasePage;
 import com.templatemonster.demo.util.PropertyManager;
@@ -43,8 +44,6 @@ public class BaseTest {
 
     @AfterClass
     public void tearDown() {
-        driver.manage().deleteAllCookies();
-
         if (driver != null) {
             try {
                 driver.quit();
@@ -70,6 +69,7 @@ public class BaseTest {
                 System.setProperty("webdriver.ie.driver", IEXPLORER_DRIVER_PATH);
                 driver = new InternetExplorerDriver();
             }
+            WebDriverRunner.setWebDriver(driver);
         } else {
             LOGGER.error("Incorrect browser was passed");
         }

@@ -2,9 +2,10 @@ package com.templatemonster.demo;
 
 import com.templatemonster.demo.pages.CheckoutPage;
 import com.templatemonster.demo.pages.PayPalPage;
-import com.templatemonster.demo.pages.TemplateSearchResultPage;
 import com.templatemonster.demo.util.MailGenerator;
-import org.junit.Test;
+import org.testng.annotations.Test;
+
+
 import static org.testng.Assert.assertTrue;
 
 
@@ -20,7 +21,6 @@ import static org.testng.Assert.assertTrue;
  */
 public class TM_003_BuyTemplateWithPayPalTest extends BaseTest {
     private String generatedUniqueEmail = MailGenerator.generateNewEmail();
-    private TemplateSearchResultPage templateSearchResultPage;
     private CheckoutPage checkoutPage;
     private PayPalPage payPalPage;
 
@@ -34,15 +34,14 @@ public class TM_003_BuyTemplateWithPayPalTest extends BaseTest {
         String userZipCode = propertyManager.getProperty("userZipCode");
 
         //Test steps
-        driver.manage().deleteAllCookies();
-        homePage = basePage.navigateToHomePage();
-        templateSearchResultPage = homePage.searchForTemplate(templateId);
-        assertTrue(templateSearchResultPage.isTemplateOpened(templateId), "Needed template was not opened");
-        checkoutPage = templateSearchResultPage.addOpenedTemplateToCartAndCheckout();
+        checkoutPage = basePage.navigateToHomePage()
+                .searchForTemplate(templateId)
+                .addOpenedTemplateToCartAndCheckout();
         assertTrue(checkoutPage.isCheckoutPageOpened(), "Checkout page was not opened");
-        checkoutPage = checkoutPage.addEmailToCheckout(generatedUniqueEmail);
-        checkoutPage = checkoutPage.addValidBillingInformation(userName, userSurname, userPhoneNumber, userZipCode);
-        payPalPage = checkoutPage.payCheckoutViaPayPal();
+
+        payPalPage = checkoutPage.addEmailToCheckout(generatedUniqueEmail)
+                .addValidBillingInformation(userName, userSurname, userPhoneNumber, userZipCode)
+                .payCheckoutViaPayPal();
         assertTrue(payPalPage.isPayPalPageOpened(), "PayPal page was not opened");
     }
 }
