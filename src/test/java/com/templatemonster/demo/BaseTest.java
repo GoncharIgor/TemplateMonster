@@ -25,12 +25,6 @@ public class BaseTest {
 
     protected BasePage basePage;
     protected HomePage homePage;
-    protected LoginPage loginPage;
-    protected TemplateSearchResultPage templateSearchResultPage;
-    protected ChatPage chatPage;
-    protected CheckoutPage checkoutPage;
-    protected PayPalPage payPalPage;
-    protected CardPaymentPage cardPaymentPage;
 
 
     @BeforeTest
@@ -77,8 +71,7 @@ public class BaseTest {
                 driver = new InternetExplorerDriver();
             }
         } else {
-            // set Default browser
-            driver = new FirefoxDriver();
+            LOGGER.error("Incorrect browser was passed");
         }
     }
 }

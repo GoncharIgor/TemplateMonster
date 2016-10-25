@@ -16,7 +16,7 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public LoginPage fillLoginFormWithAnyCredentials(String login, String password) throws InterruptedException {
+    public LoginPage fillLoginFormWithAnyCredentials(String login, String password) {
         driver.findElement(USER_LOGIN_INPUT_LOCATOR).sendKeys(login);
         driver.findElement(USER_PASSWORD_INPUT_LOCATOR).sendKeys(password);
         return this;

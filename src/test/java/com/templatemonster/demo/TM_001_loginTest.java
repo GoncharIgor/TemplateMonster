@@ -1,7 +1,8 @@
 package com.templatemonster.demo;
 
-import org.testng.Assert;
+import com.templatemonster.demo.pages.LoginPage;
 import org.testng.annotations.Test;
+import static org.testng.Assert.*;
 
 /**
  * Тестовый сценарий:
@@ -16,21 +17,22 @@ import org.testng.annotations.Test;
 
 
 public class TM_001_loginTest extends BaseTest {
-    //  private String validUserLogin = propertyManager.getProperty("validUserLogin");
-    //  private String validUserPassword = propertyManager.getProperty("validUserPassword");
+    private LoginPage loginPage;
 
     @Test(groups = {"checkintest", "functionalTests"})
-    public void tm_001_loginTest() throws InterruptedException {
+    public void tm_001_loginTest() {
+        //Test data
         String validUserLogin = propertyManager.getProperty("validUserLogin");
         String validUserPassword = propertyManager.getProperty("validUserPassword");
 
+        //Test steps
         driver.manage().deleteAllCookies();
         homePage = basePage.navigateToHomePage();
         loginPage = homePage.navigateToLoginPage();
-        Assert.assertTrue(loginPage.isLoginPageOpened(), "Login page was not opened");
+        assertTrue(loginPage.isLoginPageOpened(), "Login page was not opened");
         loginPage = loginPage.fillLoginFormWithAnyCredentials(validUserLogin, validUserPassword);
         homePage = loginPage.submitLoginForm();
-        Assert.assertTrue(basePage.isUserLoggedIn(), "User is not logged into the system");
-        Assert.assertEquals(basePage.getValueOfCookie("wac"), "1", "'wac' cookie value is not correct");
+        assertTrue(basePage.isUserLoggedIn(), "User is not logged into the system");
+        assertEquals(basePage.getValueOfCookie("wac"), "1", "'wac' cookie value is not correct");
     }
 }

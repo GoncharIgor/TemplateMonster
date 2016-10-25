@@ -22,7 +22,7 @@ public class TemplateSearchResultPage extends BasePage {
         return currentUrl.equals(expectedUrl);
     }
 
-    public CheckoutPage addOpenedTemplateToCartAndCheckout() throws InterruptedException {
+    public CheckoutPage addOpenedTemplateToCartAndCheckout() {
         driver.findElement(ADD_TO_CART_BUTTON_LOCATOR).click();
         driver.switchTo().activeElement();
         //TO ADD: CHECK IF TEMPLATE WAS ADDED TO CART

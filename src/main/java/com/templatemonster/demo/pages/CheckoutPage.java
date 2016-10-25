@@ -75,7 +75,7 @@ public class CheckoutPage extends BasePage {
                 alertNotificationsAmount++;
             }
         }
-        return alertNotificationsAmount == 10;
+        return alertNotificationsAmount == invalidEmails.length;
     }
 
     private void addInvalidEmailToCheckout(String email) {

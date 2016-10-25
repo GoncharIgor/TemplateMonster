@@ -1,8 +1,11 @@
 package com.templatemonster.demo;
 
+import com.templatemonster.demo.pages.CheckoutPage;
+import com.templatemonster.demo.pages.PayPalPage;
+import com.templatemonster.demo.pages.TemplateSearchResultPage;
 import com.templatemonster.demo.util.MailGenerator;
 import org.junit.Test;
-import org.testng.Assert;
+import static org.testng.Assert.assertTrue;
 
 
 /**
@@ -17,24 +20,29 @@ import org.testng.Assert;
  */
 public class TM_003_BuyTemplateWithPayPalTest extends BaseTest {
     private String generatedUniqueEmail = MailGenerator.generateNewEmail();
+    private TemplateSearchResultPage templateSearchResultPage;
+    private CheckoutPage checkoutPage;
+    private PayPalPage payPalPage;
 
     @Test
-    public void tm_003_BuyTemplateWithPayPalTest() throws InterruptedException {
+    public void tm_003_BuyTemplateWithPayPalTest() {
+        //Test data
         String templateId = propertyManager.getProperty("environmentalThemeID");
         String userName = propertyManager.getProperty("userName");
         String userSurname = propertyManager.getProperty("userSurname");
         String userPhoneNumber = propertyManager.getProperty("userPhoneNumber");
         String userZipCode = propertyManager.getProperty("userZipCode");
 
+        //Test steps
         driver.manage().deleteAllCookies();
         homePage = basePage.navigateToHomePage();
         templateSearchResultPage = homePage.searchForTemplate(templateId);
-        Assert.assertTrue(templateSearchResultPage.isTemplateOpened(templateId), "Needed template was not opened");
+        assertTrue(templateSearchResultPage.isTemplateOpened(templateId), "Needed template was not opened");
         checkoutPage = templateSearchResultPage.addOpenedTemplateToCartAndCheckout();
-        Assert.assertTrue(checkoutPage.isCheckoutPageOpened(), "Checkout page was not opened");
+        assertTrue(checkoutPage.isCheckoutPageOpened(), "Checkout page was not opened");
         checkoutPage = checkoutPage.addEmailToCheckout(generatedUniqueEmail);
         checkoutPage = checkoutPage.addValidBillingInformation(userName, userSurname, userPhoneNumber, userZipCode);
         payPalPage = checkoutPage.payCheckoutViaPayPal();
-        Assert.assertTrue(payPalPage.isPayPalPageOpened(), "PayPal page was not opened");
+        assertTrue(payPalPage.isPayPalPageOpened(), "PayPal page was not opened");
     }
 }

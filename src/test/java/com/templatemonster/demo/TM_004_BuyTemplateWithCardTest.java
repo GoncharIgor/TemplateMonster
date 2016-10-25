@@ -1,7 +1,10 @@
 package com.templatemonster.demo;
 
+import com.templatemonster.demo.pages.CardPaymentPage;
+import com.templatemonster.demo.pages.CheckoutPage;
+import com.templatemonster.demo.pages.TemplateSearchResultPage;
 import com.templatemonster.demo.util.WaitHelper;
-import org.testng.Assert;
+import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
 /**
@@ -15,23 +18,28 @@ import org.testng.annotations.Test;
  * 2. Открывается страница платёжки
  */
 public class TM_004_BuyTemplateWithCardTest extends BaseTest {
+    private TemplateSearchResultPage templateSearchResultPage;
+    private CheckoutPage checkoutPage;
+    private CardPaymentPage cardPaymentPage;
 
     @Test
-    public void tm_004_BuyTemplateWithTransactProTest() throws InterruptedException {
+    public void tm_004_BuyTemplateWithTransactProTest() {
+        //Test data
         String templateId = propertyManager.getProperty("environmentalThemeID");
         String validUserLogin = propertyManager.getProperty("validUserLogin");
         String validUserPassword = propertyManager.getProperty("validUserPassword");
 
+        //Test steps
         driver.manage().deleteAllCookies();
         homePage = basePage.navigateToHomePage();
         templateSearchResultPage = homePage.searchForTemplate(templateId);
-        Assert.assertTrue(templateSearchResultPage.isTemplateOpened(templateId), "Needed template was not opened");
+        assertTrue(templateSearchResultPage.isTemplateOpened(templateId), "Needed template was not opened");
         checkoutPage = templateSearchResultPage.addOpenedTemplateToCartAndCheckout();
-        Assert.assertTrue(checkoutPage.isCheckoutPageOpened(), "Checkout page was not opened");
+        assertTrue(checkoutPage.isCheckoutPageOpened(), "Checkout page was not opened");
         checkoutPage = checkoutPage.checkoutUserAuthorization(validUserLogin, validUserPassword);
         WaitHelper.waitAdditional(5);
-        Assert.assertEquals(basePage.getValueOfCookie("wac"), "1", "'wac' cookie value is not correct");
+        assertEquals(basePage.getValueOfCookie("wac"), "1", "'wac' cookie value is not correct");
         cardPaymentPage = checkoutPage.payCheckoutViaCard();
-        Assert.assertTrue(cardPaymentPage.isCardpaymentPageOpened(), "CardPayment page was not opened");
+        assertTrue(cardPaymentPage.isCardpaymentPageOpened(), "CardPayment page was not opened");
     }
 }

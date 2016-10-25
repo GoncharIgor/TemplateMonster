@@ -34,7 +34,7 @@ public class HomePage extends BasePage {
         return new LoginPage(driver);
     }
 
-    public ChatPage navigateToChatPage(String name, String email) throws InterruptedException {
+    public ChatPage navigateToChatPage(String name, String email) {
         driver.findElement(CHAT_IMAGE_LOCATOR).click();
         driver.findElement(CHAT_NAME_INPUT_LOCATOR).sendKeys(name);
         driver.findElement(CHAT_PASSWORD_INPUT_LOCATOR).sendKeys(email);

@@ -1,7 +1,8 @@
 package com.templatemonster.demo;
 
+import com.templatemonster.demo.pages.ChatPage;
 import com.templatemonster.demo.util.WaitHelper;
-import org.testng.Assert;
+import static org.testng.Assert.assertTrue;
 import org.testng.annotations.Test;
 
 /**
@@ -14,17 +15,20 @@ import org.testng.annotations.Test;
  * 1. Успешное подключение к чату (открылся попап http://chat.template-help.com/chat.jsp и произошел коннект (комната Pre-sales Chat))
  */
 public class TM_008_ChatTest extends BaseTest {
+    private ChatPage chatPage;
 
     @Test
-    public void tm_008_ChatTest() throws InterruptedException {
+    public void tm_008_ChatTest() {
+        //Test data
         String userEmail = propertyManager.getProperty("validUserLogin");
         String userName = propertyManager.getProperty("userName");
 
+        //Test steps
         homePage = basePage.navigateToHomePage();
-        Assert.assertTrue(homePage.isHomePageOpened(), "Home page was not opened");
+        assertTrue(homePage.isHomePageOpened(), "Home page was not opened");
         chatPage = homePage.navigateToChatPage(userName, userEmail);
         WaitHelper.waitAdditional(3);
-        Assert.assertTrue(chatPage.isChatPageOpened(), "Chat pop up was not opened");
-        Assert.assertTrue(chatPage.isChatPreSalesRoomOpened(), "Chat Pre sales room was not opened");
+        assertTrue(chatPage.isChatPageOpened(), "Chat pop up was not opened");
+        assertTrue(chatPage.isChatPreSalesRoomOpened(), "Chat Pre sales room was not opened");
     }
 }
