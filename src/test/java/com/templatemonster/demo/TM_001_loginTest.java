@@ -19,7 +19,6 @@ import static org.testng.Assert.*;
 
 
 public class TM_001_loginTest extends BaseTest {
-    private LoginPage loginPage;
     private HomePage homePage;
 
     @Test

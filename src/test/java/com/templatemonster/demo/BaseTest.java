@@ -4,6 +4,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import com.templatemonster.demo.pages.*;
 import com.templatemonster.demo.util.PropertyManager;
 import com.templatemonster.demo.util.WaitHelper;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -34,6 +35,8 @@ public class BaseTest {
     @BeforeClass
     public void setUp(@Optional String browser, @Optional("prod") String environment) {
         initializeWebDriver(browser);
+        driver.manage().window().setPosition(new Point(1920, 24)); //to start tests in right monitor when 2 are available
+        driver.manage().window().maximize();
         WaitHelper.setImplicitWaitDefault(driver);
     }
 
@@ -51,11 +54,15 @@ public class BaseTest {
     private void initializeWebDriver(String browser) {
         if (browser != null) {
             if (browser.equalsIgnoreCase("firefox")) {
+               /*
+                To run with Selenium 3.0
+                File resourcesDirectory = new File("src/test/resources/webdriver/geckodriver.exe");
+                String GECKO_DRIVER_PATH = resourcesDirectory.getAbsolutePath();
+                System.setProperty("webdriver.gecko.driver", GECKO_DRIVER_PATH);*/
                 driver = new FirefoxDriver();
             } else if (browser.equalsIgnoreCase("chrome")) {
                 File resourcesDirectory = new File("src/test/resources/webdriver/chromedriver_win32.exe");
                 String CHROME_DRIVER_PATH = resourcesDirectory.getAbsolutePath();
-                System.out.println(CHROME_DRIVER_PATH);
                 System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_PATH);
                 driver = new ChromeDriver();
             } else if (browser.equalsIgnoreCase("ie")) {
@@ -70,7 +77,7 @@ public class BaseTest {
         }
     }
 
-    public HomePage openHomePage(){
+    public HomePage openHomePage() {
         open("http://www.templatemonster.com/");
         return new HomePage(driver);
     }

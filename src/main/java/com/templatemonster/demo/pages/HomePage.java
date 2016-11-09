@@ -1,9 +1,11 @@
 package com.templatemonster.demo.pages;
 
+import com.codeborne.selenide.Condition;
 import com.templatemonster.demo.pages.basePages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+
 import java.util.ArrayList;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -18,7 +20,7 @@ public class HomePage extends BasePage {
     private By CHAT_NAME_INPUT_LOCATOR = By.id("live-chat-consultant-form-fullname");
     private By CHAT_PASSWORD_INPUT_LOCATOR = By.id("live-chat-consultant-form-email");
     private By START_CHAT_BUTTON_LOCATOR = By.xpath("//button[contains(.,'Start Chat')]");
-    private By INDEX_PAGE_BODY_LOCATOR = By.id("index-page");
+    private By CART_COUNT_LOCATOR = By.id("cart-count");
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -30,7 +32,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public LoginPage navigateToLoginPage(){
+    public LoginPage navigateToLoginPage() {
         $(accountHeaderLocator).click();
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
@@ -42,14 +44,24 @@ public class HomePage extends BasePage {
         $(CHAT_NAME_INPUT_LOCATOR).sendKeys(name);
         $(CHAT_PASSWORD_INPUT_LOCATOR).sendKeys(email);
         $(START_CHAT_BUTTON_LOCATOR).click();
-        for (String currentWindow: driver.getWindowHandles()){
+        for (String currentWindow : driver.getWindowHandles()) {
             driver.switchTo().window(currentWindow);
         }
         return new ChatPage(driver);
     }
 
-    public TemplateSearchResultPage searchForTemplate(String templateId){
+    public TemplateSearchResultPage searchForTemplate(String templateId) {
         driver.findElement(TEMPLATE_SEARCH_FIELD_LOCATOR).sendKeys(templateId, Keys.ENTER);
         return new TemplateSearchResultPage(driver);
     }
+
+    public HomePage checkCartCount(int expectedCount) {
+        if (expectedCount == 0){
+            $(CART_COUNT_LOCATOR).shouldHave(Condition.text(""));
+        } else {
+            $(CART_COUNT_LOCATOR).shouldHave(Condition.text(String.valueOf(expectedCount)));
+        }
+        return this;
+    }
+
 }
