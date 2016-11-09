@@ -28,7 +28,7 @@ public class TM_010_InvalidEmailCheckoutTest extends BaseTest {
         }
 
         //Test steps
-        checkoutPage = basePage.navigateToHomePage()
+        checkoutPage = openHomePage()
                 .searchForTemplate(templateId)
                 .addOpenedTemplateToCartAndCheckout();
         assertTrue(checkoutPage.addInvalidEmailsToCheckout(invalidEmails), "Not all emails were correctly validated");

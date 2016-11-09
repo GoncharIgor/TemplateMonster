@@ -30,12 +30,12 @@ public class TM_004_BuyTemplateWithCardTest extends BaseTest {
         String validUserPassword = propertyManager.getProperty("validUserPassword");
 
         //Test steps
-        checkoutPage = basePage.navigateToHomePage()
+        checkoutPage = openHomePage()
                 .searchForTemplate(templateId)
                 .addOpenedTemplateToCartAndCheckout()
                 .checkoutUserAuthorization(validUserLogin, validUserPassword);
         WaitHelper.waitAdditional(5);
-        assertEquals(basePage.getValueOfCookie("wac"), "1", "'wac' cookie value is not correct");
+        assertEquals(checkoutPage.getValueOfCookie("wac"), "1", "'wac' cookie value is not correct");
         cardPaymentPage = checkoutPage.payCheckoutViaCard();
         assertTrue(cardPaymentPage.isCardpaymentPageOpened(), "CardPayment page was not opened");
     }

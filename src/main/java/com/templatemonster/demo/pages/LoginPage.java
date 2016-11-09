@@ -1,8 +1,11 @@
 package com.templatemonster.demo.pages;
 
+import com.codeborne.selenide.Condition;
 import com.templatemonster.demo.pages.basePages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import static com.codeborne.selenide.Selenide.$;
 
 /**
  * Created by i.gonchar on 29.09.2016.
@@ -17,8 +20,8 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage fillLoginFormWithAnyCredentials(String login, String password) {
-        driver.findElement(USER_LOGIN_INPUT_LOCATOR).sendKeys(login);
-        driver.findElement(USER_PASSWORD_INPUT_LOCATOR).sendKeys(password);
+        $(USER_LOGIN_INPUT_LOCATOR).shouldBe(Condition.visible).sendKeys(login);
+        $(USER_PASSWORD_INPUT_LOCATOR).shouldBe(Condition.visible).sendKeys(password);
         return this;
     }
 

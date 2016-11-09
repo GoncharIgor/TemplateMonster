@@ -2,7 +2,6 @@ package com.templatemonster.demo;
 
 import com.codeborne.selenide.WebDriverRunner;
 import com.templatemonster.demo.pages.*;
-import com.templatemonster.demo.pages.basePages.BasePage;
 import com.templatemonster.demo.util.PropertyManager;
 import com.templatemonster.demo.util.WaitHelper;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +13,8 @@ import org.testng.log4testng.Logger;
 
 import java.io.File;
 
-import static org.apache.logging.log4j.core.util.Loader.getClassLoader;
+import static com.codeborne.selenide.Selenide.open;
+
 
 /**
  * Created by i.gonchar on 28.09.2016.
@@ -23,10 +23,6 @@ public class BaseTest {
     private static final Logger LOGGER = Logger.getLogger(BaseTest.class);
     protected static PropertyManager propertyManager;
     protected WebDriver driver;
-
-    protected BasePage basePage;
-    protected HomePage homePage;
-
 
     @BeforeTest
     static void generateProperties() {
@@ -39,7 +35,6 @@ public class BaseTest {
     public void setUp(@Optional String browser, @Optional("prod") String environment) {
         initializeWebDriver(browser);
         WaitHelper.setImplicitWaitDefault(driver);
-        basePage = new BasePage(driver);
     }
 
     @AfterClass
@@ -73,5 +68,10 @@ public class BaseTest {
         } else {
             LOGGER.error("Incorrect browser was passed");
         }
+    }
+
+    public HomePage openHomePage(){
+        open("http://www.templatemonster.com/");
+        return new HomePage(driver);
     }
 }

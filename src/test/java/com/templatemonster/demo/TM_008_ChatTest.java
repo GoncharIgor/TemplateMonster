@@ -2,7 +2,9 @@ package com.templatemonster.demo;
 
 import com.templatemonster.demo.pages.ChatPage;
 import com.templatemonster.demo.util.WaitHelper;
+
 import static org.testng.Assert.assertTrue;
+
 import org.testng.annotations.Test;
 
 /**
@@ -24,8 +26,8 @@ public class TM_008_ChatTest extends BaseTest {
         String userName = propertyManager.getProperty("userName");
 
         //Test steps
-        chatPage = basePage.navigateToHomePage()
-        .navigateToChatPage(userName, userEmail);
+        chatPage = openHomePage()
+                .navigateToChatPage(userName, userEmail);
         WaitHelper.waitAdditional(3);
         assertTrue(chatPage.isChatPageOpened(), "Chat pop up was not opened");
         assertTrue(chatPage.isChatPreSalesRoomOpened(), "Chat Pre sales room was not opened");

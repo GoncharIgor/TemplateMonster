@@ -17,7 +17,7 @@ public class WaitHelper {
     public static void setImplicitWaitDefault(WebDriver driver) {
         int implicit = 15;
         driver.manage().timeouts().implicitlyWait(implicit, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(implicit, TimeUnit.SECONDS);
     }
 
     public static void setImplicitWait(WebDriver driver, double seconds) {

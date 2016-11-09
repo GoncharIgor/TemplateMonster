@@ -34,7 +34,7 @@ public class TM_003_BuyTemplateWithPayPalTest extends BaseTest {
         String userZipCode = propertyManager.getProperty("userZipCode");
 
         //Test steps
-        checkoutPage = basePage.navigateToHomePage()
+        checkoutPage = openHomePage()
                 .searchForTemplate(templateId)
                 .addOpenedTemplateToCartAndCheckout();
         assertTrue(checkoutPage.isCheckoutPageOpened(), "Checkout page was not opened");

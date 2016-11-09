@@ -27,7 +27,7 @@ public class TM_002_SearchTemplateTest extends BaseTest {
         String templateId = propertyManager.getProperty("environmentalThemeID");
 
         //Test steps
-        templateSearchResultPage = basePage.navigateToHomePage()
+        templateSearchResultPage = openHomePage()
                 .searchForTemplate(templateId);
         assertTrue(templateSearchResultPage.isTemplateOpened(templateId), "Needed template was not opened");
         assertEquals("", $(TEMPLATE_SEARCH_FIELD_LOCATOR).getAttribute("value"), "Template search field is not empty");

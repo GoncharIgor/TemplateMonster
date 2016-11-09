@@ -18,6 +18,7 @@ public class HomePage extends BasePage {
     private By CHAT_NAME_INPUT_LOCATOR = By.id("live-chat-consultant-form-fullname");
     private By CHAT_PASSWORD_INPUT_LOCATOR = By.id("live-chat-consultant-form-email");
     private By START_CHAT_BUTTON_LOCATOR = By.xpath("//button[contains(.,'Start Chat')]");
+    private By INDEX_PAGE_BODY_LOCATOR = By.id("index-page");
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -45,11 +46,6 @@ public class HomePage extends BasePage {
             driver.switchTo().window(currentWindow);
         }
         return new ChatPage(driver);
-    }
-
-    public boolean isHomePageOpened(){
-        String currentUrl = driver.getCurrentUrl();
-        return currentUrl.equals("http://www.templatemonster.com/");
     }
 
     public TemplateSearchResultPage searchForTemplate(String templateId){

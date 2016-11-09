@@ -11,10 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.log4testng.Logger;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-
 /**
  * Created by i.gonchar on 28.09.2016.
  */
@@ -24,11 +20,6 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-    }
-
-    public HomePage navigateToHomePage() {
-        open("http://www.templatemonster.com/");
-        return new HomePage(driver);
     }
 
     public boolean isUserLoggedIn() {
