@@ -20,9 +20,11 @@ public class BasePage {
     private static final Logger LOGGER = Logger.getLogger(WaitHelper.class);
     protected WebDriver driver;
     private By userAccountHeaderLocator = By.id("menu-account-block");
+    protected JavascriptExecutor javaScriptExecutor;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
+        javaScriptExecutor = (JavascriptExecutor) driver;
     }
 
     public boolean isUserLoggedIn() {
@@ -67,5 +69,10 @@ public class BasePage {
             }
         }
         return result;
+    }
+
+    public boolean isImageLoaded(By imageLocator) {
+        boolean isImagePresent = (Boolean) javaScriptExecutor.executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", $(imageLocator));
+        return true;
     }
 }

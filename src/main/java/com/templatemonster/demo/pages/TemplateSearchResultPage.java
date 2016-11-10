@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.templatemonster.demo.pages.basePages.BasePage;
 import com.templatemonster.demo.util.WaitHelper;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
@@ -56,5 +57,11 @@ public class TemplateSearchResultPage extends BasePage {
         driver.switchTo().window(tabs.get(0));
         driver.findElement(By.id("preview-download-free-tmpl-51682")).click();
         return new TemplateDownloadPage(driver);
+    }
+
+    public TemplateSearchResultPage scrollPageDownToImageNumber(int imageNumber) {
+        javaScriptExecutor.executeScript("arguments[0].scrollIntoView(true);", $(By.xpath(".//*[@id='tab-overview']//span[" + imageNumber + "]/img")));
+        $(By.xpath(".//*[@id='tab-overview']//span[" + imageNumber + "]/img")).shouldBe(Condition.visible);
+        return this;
     }
 }

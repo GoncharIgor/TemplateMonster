@@ -30,7 +30,7 @@ public class TM_005_DownloadSampleAsGuest extends BaseTest {
     private String generatedUniqueEmail = MailGenerator.generateNewEmail();
 
     @Test
-    public void tm_005_DownloadSampleAsGuest() throws InterruptedException {
+    public void tm_005_DownloadSampleAsGuest() {
         //Test data
         String templateId = propertyManager.getProperty("freeHtml5ThemeID");
         String userName = propertyManager.getProperty("userName");
