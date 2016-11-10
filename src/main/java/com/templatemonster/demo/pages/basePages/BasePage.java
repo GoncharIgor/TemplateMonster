@@ -1,7 +1,6 @@
 package com.templatemonster.demo.pages.basePages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.templatemonster.demo.pages.HomePage;
 import com.templatemonster.demo.util.StatusWebElem;
 import com.templatemonster.demo.util.WaitHelper;
 import org.openqa.selenium.*;

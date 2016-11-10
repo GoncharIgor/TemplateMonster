@@ -1,6 +1,5 @@
 package com.templatemonster.demo.pages;
 
-import com.codeborne.selenide.Condition;
 import com.templatemonster.demo.pages.basePages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -9,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import java.util.ArrayList;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Condition.text;
 
 /**
  * Created by i.gonchar on 28.09.2016.
@@ -56,10 +56,10 @@ public class HomePage extends BasePage {
     }
 
     public HomePage checkCartCount(int expectedCount) {
-        if (expectedCount == 0){
-            $(CART_COUNT_LOCATOR).shouldHave(Condition.text(""));
+        if (expectedCount == 0) {
+            $(CART_COUNT_LOCATOR).shouldHave(text(""));
         } else {
-            $(CART_COUNT_LOCATOR).shouldHave(Condition.text(String.valueOf(expectedCount)));
+            $(CART_COUNT_LOCATOR).shouldHave(text(String.valueOf(expectedCount)));
         }
         return this;
     }

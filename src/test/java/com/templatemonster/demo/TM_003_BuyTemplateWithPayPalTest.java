@@ -20,9 +20,9 @@ import static org.testng.Assert.assertTrue;
  * 2. Открывается страница платёжки
  */
 public class TM_003_BuyTemplateWithPayPalTest extends BaseTest {
-    private String generatedUniqueEmail = MailGenerator.generateNewEmail();
     private CheckoutPage checkoutPage;
     private PayPalPage payPalPage;
+    private String generatedUniqueEmail = MailGenerator.generateNewEmail();
 
     @Test
     public void tm_003_BuyTemplateWithPayPalTest() {

@@ -2,10 +2,12 @@ package com.templatemonster.demo;
 
 import com.templatemonster.demo.pages.HomePage;
 import com.templatemonster.demo.pages.TemplateDownloadPage;
-import com.templatemonster.demo.pages.TemplateSearchResultPage;
+import com.templatemonster.demo.util.MailGenerator;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
 
 
 /**
@@ -25,11 +27,16 @@ import static org.testng.Assert.assertFalse;
 public class TM_005_DownloadSampleAsGuest extends BaseTest {
     private HomePage homePage;
     private TemplateDownloadPage templateDownloadPage;
+    private String generatedUniqueEmail = MailGenerator.generateNewEmail();
 
     @Test
     public void tm_005_DownloadSampleAsGuest() throws InterruptedException {
         //Test data
         String templateId = propertyManager.getProperty("freeHtml5ThemeID");
+        String userName = propertyManager.getProperty("userName");
+        String userSurname = propertyManager.getProperty("userSurname");
+        String userFullName = userName + " " + userSurname;
+        String userPhoneNumber = propertyManager.getProperty("userPhoneNumber");
 
         //Test steps
         homePage = openHomePage();
@@ -37,7 +44,14 @@ public class TM_005_DownloadSampleAsGuest extends BaseTest {
         templateDownloadPage = homePage.checkCartCount(0)
                 .searchForTemplate(templateId)
                 .hoverShareAndDownloadButton()
-                .shareTemplateWithTwitter();
+                .shareTemplateWithTwitter()
+                .continueAsAGuest()
+                .fillUSerDetailsForm(userFullName, generatedUniqueEmail, userPhoneNumber)
+                .submitUserDetailsForm();
+        assertTrue(templateDownloadPage.checkOrderStatus(generatedUniqueEmail), "Order was not accomplished");
 
+        homePage = openHomePage();
+        assertTrue(homePage.isUserLoggedIn(), "User is logged into the system");
+        assertEquals(homePage.getValueOfCookie("wac"), "1", "'wac' cookie value is not correct");
     }
 }
