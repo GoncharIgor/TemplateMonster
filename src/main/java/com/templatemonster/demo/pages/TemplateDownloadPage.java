@@ -1,9 +1,15 @@
 package com.templatemonster.demo.pages;
 
 import com.codeborne.selenide.Condition;
+import com.google.common.base.Predicate;
 import com.templatemonster.demo.pages.basePages.BasePage;
+import com.templatemonster.demo.util.WaitHelper;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -18,7 +24,7 @@ public class TemplateDownloadPage extends BasePage {
     private By FIELD_USER_EMAIL_LOCATOR = By.id("freeinfo-form-email");
     private By FIELD_USER_PHONE_NUMBER_LOCATOR = By.id("freeinfo-form-contactphone");
     private By HEADER_ORDER_STATUS_LOCATOR = By.className("order-status-approved");
-    private By ORDER_MESSAGE_LOCATOR = By.cssSelector(".block-heading>p");
+    private By ORDER_MESSAGE_LOCATOR = By.xpath(".//*[@id='content']/div/div/div/div[2]/div/div[1]/div[1]/p");
 
     public TemplateDownloadPage(WebDriver driver) {
         super(driver);
@@ -43,11 +49,13 @@ public class TemplateDownloadPage extends BasePage {
     }
 
     public boolean checkOrderStatus(String email) {
-        $(HEADER_ORDER_STATUS_LOCATOR).shouldBe(Condition.visible);
+        waitForLoad(driver);
+        WaitHelper.waitAdditional(7);
         $(ORDER_MESSAGE_LOCATOR).shouldHave(Condition.text(email));
         return driver.findElement(HEADER_ORDER_STATUS_LOCATOR).getText().equalsIgnoreCase("Order is successfully accomplished");
 
 
     }
+
 
 }

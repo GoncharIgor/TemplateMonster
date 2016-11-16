@@ -6,14 +6,15 @@
         <parameter name="browser" value="firefox"/>
 
         <classes>
-            <class name="com.templatemonster.demo.TM_001_loginTest"/>
-            <class name="com.templatemonster.demo.TM_002_SearchTemplateTest"/>
-            <class name="com.templatemonster.demo.TM_003_BuyTemplateWithPayPalTest"/>
-            <class name="com.templatemonster.demo.TM_004_BuyTemplateWithCardTest"/>
-            <class name="com.templatemonster.demo.TM_005_DownloadSampleAsGuest"/>
-            <class name="com.templatemonster.demo.TM_008_ChatTest"/>
-            <class name="com.templatemonster.demo.TM_009_PageScrollTest"/>
-            <class name="com.templatemonster.demo.TM_010_InvalidEmailCheckoutTest"/>
+            <!--         <class name="com.templatemonster.demo.TM_001_loginTest"/>
+                     <class name="com.templatemonster.demo.TM_002_SearchTemplateTest"/>
+                     <class name="com.templatemonster.demo.TM_003_BuyTemplateWithPayPalTest"/>
+                     <class name="com.templatemonster.demo.TM_004_BuyTemplateWithCardTest"/>-->
+            <!--<class name="com.templatemonster.demo.TM_005_DownloadSampleAsGuest"/>-->
+         <!--   <class name="com.templatemonster.demo.TM_008_ChatTest"/>-->
+            <!-- <class name="com.templatemonster.demo.TM_009_PageScrollTest"/>
+             <class name="com.templatemonster.demo.TM_010_InvalidEmailCheckoutTest"/>-->
+            <class name="com.templatemonster.demo.TM_011_OpenWordPressTemplates"/>
         </classes>
     </test>
 

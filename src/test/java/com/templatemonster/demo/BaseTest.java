@@ -21,7 +21,7 @@ import static com.codeborne.selenide.Selenide.open;
  * Created by i.gonchar on 28.09.2016.
  */
 public class BaseTest {
-    private static final Logger LOGGER = Logger.getLogger(BaseTest.class);
+    protected static final Logger LOGGER = Logger.getLogger(BaseTest.class);
     protected static PropertyManager propertyManager;
     protected WebDriver driver;
 
@@ -81,4 +81,11 @@ public class BaseTest {
         open("http://www.templatemonster.com/");
         return new HomePage(driver);
     }
+
+    public TemplateSearchResultPage openWordPressTemplate(String templateId) {
+        open("http://www.templatemonster.com/wordpress-templates/" + templateId + ".html");
+        return new TemplateSearchResultPage(driver);
+    }
+
+
 }

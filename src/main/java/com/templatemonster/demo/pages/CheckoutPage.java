@@ -1,5 +1,6 @@
 package com.templatemonster.demo.pages;
 
+import com.codeborne.selenide.Condition;
 import com.templatemonster.demo.pages.basePages.BasePage;
 import com.templatemonster.demo.util.WaitHelper;
 import org.openqa.selenium.By;
@@ -18,6 +19,8 @@ public class CheckoutPage extends BasePage {
     private final By CHECKOUT_PHONE_NUMBER_LOCATOR = By.id("billinginfo3-form-phone");
     private final By CHECKOUT_ZIP_CODE_LOCATOR = By.id("billinginfo3-form-postalcode");
     private final By CHECKOUT_CITY_LOCATOR = By.id("billinginfo3-form-cityname");
+    private final By PAYPAL_BUTTON_LOCATOR = By.id("checkout-payment-buy-PayPal");
+    private final By TRANSACTPRO_BUTTON_LOCATOR = By.id("checkout-payment-buy-TransactPro");
 
     public CheckoutPage(WebDriver driver) {
         super(driver);
@@ -48,19 +51,19 @@ public class CheckoutPage extends BasePage {
 
     public PayPalPage payCheckoutViaPayPal() {
         WaitHelper.waitAdditional(5);
-        driver.findElement(By.id("checkout-payment-buy-PayPal")).click();
+        $(PAYPAL_BUTTON_LOCATOR).click();
         return new PayPalPage(driver);
     }
 
     public CardPaymentPage payCheckoutViaCard() {
         WaitHelper.waitAdditional(3);
-        driver.findElement(By.id("checkout-payment-buy-TransactPro")).click();
+        $(TRANSACTPRO_BUTTON_LOCATOR).click();
         return new CardPaymentPage(driver);
     }
 
     public CheckoutPage checkoutUserAuthorization(String email, String password) {
         $(CHECKOUT_EMAIL_LOCATOR).clear();
-        driver.findElement(CHECKOUT_EMAIL_LOCATOR).sendKeys(email, Keys.ENTER);
+        $(CHECKOUT_EMAIL_LOCATOR).shouldBe(Condition.visible).sendKeys(email, Keys.ENTER);
         WaitHelper.waitAdditional(3);
         $(CHECKOUT_PASSWORD_LOCATOR).sendKeys(password, Keys.ENTER);
         WaitHelper.waitAdditional(2);

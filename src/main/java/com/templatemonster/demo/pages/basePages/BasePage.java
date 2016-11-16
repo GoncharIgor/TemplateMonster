@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import com.templatemonster.demo.util.StatusWebElem;
 import com.templatemonster.demo.util.WaitHelper;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -74,5 +75,16 @@ public class BasePage {
     public boolean isImageLoaded(By imageLocator) {
         boolean isImagePresent = (Boolean) javaScriptExecutor.executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", $(imageLocator));
         return true;
+    }
+
+    public void waitForLoad(WebDriver driver) {
+        ExpectedCondition<Boolean> pageLoadCondition = new
+                ExpectedCondition<Boolean>() {
+                    public Boolean apply(WebDriver driver) {
+                        return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
+                    }
+                };
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(pageLoadCondition);
     }
 }
