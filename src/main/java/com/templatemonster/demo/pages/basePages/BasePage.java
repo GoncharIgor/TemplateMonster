@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.log4testng.Logger;
 
+import java.util.ArrayList;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.templatemonster.demo.util.StatusWebElem.*;
@@ -77,14 +79,28 @@ public class BasePage {
         return true;
     }
 
+    public void switchToWindow(int number) {
+        WaitHelper.waitAdditional(0.5);
+        ArrayList<String> windows = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(windows.get(number));
+    }
+
     public void waitForLoad(WebDriver driver) {
         ExpectedCondition<Boolean> pageLoadCondition = new
                 ExpectedCondition<Boolean>() {
                     public Boolean apply(WebDriver driver) {
-                        return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
+                        return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
                     }
                 };
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(pageLoadCondition);
+    }
+
+    public boolean isElementDisplayed(WebElement webElement) {
+        try {
+            return webElement.isDisplayed();
+        } catch (Throwable e) {
+            return false;
+        }
     }
 }

@@ -1,18 +1,25 @@
 package com.templatemonster.demo.pages;
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import com.templatemonster.demo.pages.basePages.BasePage;
 import com.templatemonster.demo.util.WaitHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 /**
  * Created by i.gonchar on 29.09.2016.
@@ -22,6 +29,9 @@ public class TemplateSearchResultPage extends BasePage {
     private By CHECKOUT_NOW_BUTTON_LOCATOR = By.xpath("//button[contains(.,'Checkout Now ')]");
     private By SHARE_AND_DOWNLOAD_BUTTON_LOCATOR = By.className("download-outer");
     private By TWITTER_LOGO_LOCATOR = By.className("onp-sl-feature-overlay");
+    private By TEMPLATE_HEADING_LOCATOR = By.cssSelector(".preview-heading.overflowed-hidden");
+    private By PREVIEW_IMAGE_LOCATOR = By.className("js-preview-scr");
+    private By TEMPLATE_INFORMATION_TABS_LOCATOR = By.cssSelector("#previewTab li");
 
     public TemplateSearchResultPage(WebDriver driver) {
         super(driver);
@@ -51,10 +61,9 @@ public class TemplateSearchResultPage extends BasePage {
 
     public TemplateDownloadPage shareTemplateWithTwitter() {
         $(TWITTER_LOGO_LOCATOR).click();
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
+        switchToWindow(1);
         driver.close();
-        driver.switchTo().window(tabs.get(0));
+        switchToWindow(0);
         driver.findElement(By.id("preview-download-free-tmpl-51682")).click();
         return new TemplateDownloadPage(driver);
     }
@@ -62,6 +71,33 @@ public class TemplateSearchResultPage extends BasePage {
     public TemplateSearchResultPage scrollPageDownToImageNumber(int imageNumber) {
         javaScriptExecutor.executeScript("arguments[0].scrollIntoView(true);", $(By.xpath(".//*[@id='tab-overview']//span[" + imageNumber + "]/img")));
         $(By.xpath(".//*[@id='tab-overview']//span[" + imageNumber + "]/img")).shouldBe(Condition.visible);
+        return this;
+    }
+
+    public TemplateSearchResultPage checkTemplateHeading(String heading) {
+        $(TEMPLATE_HEADING_LOCATOR).shouldHave(text(heading));
+        return this;
+    }
+
+    public TemplateSearchResultPage checkPrevievImage() {
+        $(PREVIEW_IMAGE_LOCATOR).shouldBe(Condition.visible);
+        return this;
+    }
+
+    public TemplateSearchResultPage checkWhatTemplateInfoTabIsSelected(int tabNumber) {
+        int selectedTab = 0;
+        $$(TEMPLATE_INFORMATION_TABS_LOCATOR).shouldHave(CollectionCondition.size(3));
+        for (int i = 1; i <= $$(TEMPLATE_INFORMATION_TABS_LOCATOR).size(); i++) {
+            if ($$(TEMPLATE_INFORMATION_TABS_LOCATOR).get(i - 1).getAttribute("class").equals("active")) {
+                selectedTab = i;
+            }
+        }
+        Assert.assertEquals(selectedTab, tabNumber, "Incorrect tab was opened");
+        return this;
+    }
+
+    public TemplateSearchResultPage selectTemplateInfoTab(int tabNumber) {
+        driver.findElement(By.cssSelector("#previewTab li:nth-child(" + tabNumber + ")")).click();
         return this;
     }
 }

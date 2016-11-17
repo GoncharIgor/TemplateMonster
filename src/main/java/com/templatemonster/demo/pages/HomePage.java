@@ -6,6 +6,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Condition.text;
@@ -22,6 +24,18 @@ public class HomePage extends BasePage {
     private By START_CHAT_BUTTON_LOCATOR = By.xpath("//button[contains(.,'Start Chat')]");
     private By CART_COUNT_LOCATOR = By.id("cart-count");
 
+    private final HashMap<Integer, String> THEMES_TYPES = new HashMap<>();
+
+    {
+        THEMES_TYPES.put(1, "WordPress Themes");
+        THEMES_TYPES.put(2, "Website Templates");
+        THEMES_TYPES.put(3, "Joomla Templates");
+        THEMES_TYPES.put(4, "PrestaShop Themes");
+        THEMES_TYPES.put(5, "Magento Themes");
+        THEMES_TYPES.put(6, "WooCommerce Themes");
+        THEMES_TYPES.put(7, "Moto CMS Templates");
+    }
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -34,8 +48,7 @@ public class HomePage extends BasePage {
 
     public LoginPage navigateToLoginPage() {
         $(accountHeaderLocator).click();
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
+        switchToWindow(1);
         return new LoginPage(driver);
     }
 
@@ -64,4 +77,10 @@ public class HomePage extends BasePage {
         return this;
     }
 
+    public HomePage checkThemeTypes() {
+        for (Map.Entry<Integer, String> entry : THEMES_TYPES.entrySet()) {
+            $(By.cssSelector(".sub-menu-1.js-sub-menu-1 ul li:nth-child(" + entry.getKey() + ") a")).shouldHave(text(entry.getValue()));
+        }
+        return this;
+    }
 }

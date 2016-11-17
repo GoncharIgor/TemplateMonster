@@ -1,9 +1,11 @@
 package com.templatemonster.demo;
 
 import com.codeborne.selenide.WebDriverRunner;
+import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
 import com.templatemonster.demo.pages.*;
 import com.templatemonster.demo.util.PropertyManager;
 import com.templatemonster.demo.util.WaitHelper;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
