@@ -11,7 +11,7 @@ public class TM_012_TemplateSearchResultTest extends BaseTest {
     private TemplateSearchResultPage templateSearchResultPage;
 
     @Test
-    public void tm_012_TemplateSearchResultTest() throws InterruptedException {
+    public void tm_012_TemplateSearchResultTest() {
         templateSearchResultPage = openWordPressTemplate("59018")
                 .checkTemplateHeading("InMotion - Dance School WordPress Theme")
                 .checkPrevievImage()

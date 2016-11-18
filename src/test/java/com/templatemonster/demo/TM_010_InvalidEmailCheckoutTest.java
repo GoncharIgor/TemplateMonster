@@ -18,7 +18,7 @@ public class TM_010_InvalidEmailCheckoutTest extends BaseTest {
     private CheckoutPage checkoutPage;
 
     @Test
-    public void tm_010_InvalidEmailCheckoutTest() throws InterruptedException {
+    public void tm_010_InvalidEmailCheckoutTest() {
         //Test data
         String templateId = propertyManager.getProperty("environmentalThemeID");
         String[] invalidEmails = new String[10];

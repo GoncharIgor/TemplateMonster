@@ -16,7 +16,8 @@
             <!--<class name="com.templatemonster.demo.TM_010_InvalidEmailCheckoutTest"/>-->
             <!--<class name="com.templatemonster.demo.TM_011_OpenWordPressTemplates"/>-->
             <!--<class name="com.templatemonster.demo.TM_012_TemplateSearchResultTest"/>-->
-            <class name="com.templatemonster.demo.TM_013_CheckHomePageTest"/>
+            <!--<class name="com.templatemonster.demo.TM_013_CheckThemeTypesTest"/>-->
+            <class name="com.templatemonster.demo.TM_014_ChangeLocalizationTest"/>
         </classes>
     </test>
 

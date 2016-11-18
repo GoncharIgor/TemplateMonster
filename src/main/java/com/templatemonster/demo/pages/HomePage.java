@@ -1,5 +1,6 @@
 package com.templatemonster.demo.pages;
 
+import com.codeborne.selenide.ex.ElementNotFound;
 import com.templatemonster.demo.pages.basePages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -23,6 +24,8 @@ public class HomePage extends BasePage {
     private By CHAT_PASSWORD_INPUT_LOCATOR = By.id("live-chat-consultant-form-email");
     private By START_CHAT_BUTTON_LOCATOR = By.xpath("//button[contains(.,'Start Chat')]");
     private By CART_COUNT_LOCATOR = By.id("cart-count");
+    private By CATEGORY_LEFT_BLOCK_HEADING_LOCATOR = By.id("sf-category-cb");
+
 
     private final HashMap<Integer, String> THEMES_TYPES = new HashMap<>();
 
@@ -79,8 +82,32 @@ public class HomePage extends BasePage {
 
     public HomePage checkThemeTypes() {
         for (Map.Entry<Integer, String> entry : THEMES_TYPES.entrySet()) {
-            $(By.cssSelector(".sub-menu-1.js-sub-menu-1 ul li:nth-child(" + entry.getKey() + ") a")).shouldHave(text(entry.getValue()));
+            $(By.cssSelector(".sub-menu-1.js-sub-menu-1 ul li:nth-child(" + entry.getKey() + ") a")).shouldHave(text(entry.getValue())).click();
+            if (entry.getKey() < 7) {
+                $(CATEGORY_LEFT_BLOCK_HEADING_LOCATOR).shouldHave(text(entry.getValue() + " Categories"));
+            } else if (entry.getKey() == 7) {
+                $(CATEGORY_LEFT_BLOCK_HEADING_LOCATOR).shouldHave(text("Moto CMS 3 Templates Categories "));
+            }
+            if (entry.getKey() == 3) { // To close location modal window
+                try {
+                    $(By.id("close-popover-UA-switcher")).click();
+                } catch (ElementNotFound e) {
+                    LOGGER.info("Location modal window was not opened");
+                }
+
+            }
+
         }
+        return this;
+    }
+
+    public HomePage checkLocalizationIsSelected(String countryCode) {
+        $(By.cssSelector(".user-menu-element.language-pick.user-menu-dropdown span")).shouldHave(text(countryCode));
+        return this;
+    }
+
+    public HomePage changeLocalization(String countryCode) {
+        $(By.id("menu-" + countryCode + "-locale")).click();
         return this;
     }
 }

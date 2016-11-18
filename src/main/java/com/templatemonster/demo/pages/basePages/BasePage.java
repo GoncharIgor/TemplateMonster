@@ -20,7 +20,7 @@ import static com.templatemonster.demo.util.StatusWebElem.*;
  * Created by i.gonchar on 28.09.2016.
  */
 public class BasePage {
-    private static final Logger LOGGER = Logger.getLogger(WaitHelper.class);
+    protected static final Logger LOGGER = Logger.getLogger(WaitHelper.class);
     protected WebDriver driver;
     private By userAccountHeaderLocator = By.id("menu-account-block");
     protected JavascriptExecutor javaScriptExecutor;
