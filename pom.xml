@@ -18,6 +18,9 @@
         <testNG.version>6.9.6</testNG.version>
         <log4j.version>1.2.17</log4j.version>
         <application.environment>prod</application.environment>
+        <allure.version>1.4.23</allure.version>
+        <aspectj.version>1.7.4</aspectj.version>
+        <maven_plugin.version>2.2</maven_plugin.version>
     </properties>
 
     <dependencies>
@@ -61,6 +64,39 @@
             <artifactId>conductor</artifactId>
             <version>1.1</version>
         </dependency>
+
+        <dependency> <!--for reporting -->
+            <groupId>velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.5</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--REPORTING DEPENDENCIES-->
+        <dependency><!--Allure-->
+            <groupId>ru.yandex.qatools.allure</groupId>
+            <artifactId>allure-testng-adaptor</artifactId>
+            <version>1.4.14</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.yandex.qatools.allure</groupId>
+            <artifactId>allure-maven-plugin</artifactId>
+            <version>${maven_plugin.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.uncommons</groupId>
+            <artifactId>reportng</artifactId>
+            <version>1.1.4</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.testng</groupId>
+                    <artifactId>testng</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
 
     <profiles>
@@ -85,11 +121,33 @@
                 <configuration>
                     <testFailureIgnore>false</testFailureIgnore>
 
+                    <argLine>
+                        -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
+                    </argLine>
                     <!-- Suite testng xml file to consider for test execution -->
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testing/testing.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <properties>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>false</value>
+                        </property>
+                        <property>
+                            <name>listener</name>
+                            <value>org.uncommons.reportng.HTMLReporter</value>
+                            <name>listener</name>
+                            <value>org.uncommons.reportng.JUnitXMLReporter</value>
+                        </property>
+                    </properties>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
 
             <!-- Compiler plugin configures the java version to be used for compiling
@@ -105,5 +163,20 @@
 
         </plugins>
     </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <!--maven should be installed-->
+                <groupId>ru.yandex.qatools.allure</groupId>
+                <artifactId>allure-maven-plugin</artifactId>
+                <version>${maven_plugin.version}</version>
+                <configuration>
+                    <resultsPattern>target/allure-results</resultsPattern>
+                    <reportVersion>1.4.14</reportVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 
 </project>

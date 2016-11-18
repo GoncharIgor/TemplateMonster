@@ -1,12 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Suite" parallel="false" verbose="1" preserve-order="true">
+
+<suite name="SystemTestSuite" verbose="1">
     <parameter name="environment" value="prod"/>
 
-    <test name="SystemTest">
+    <test name="SystemTest" parallel="false" preserve-order="true">
         <parameter name="browser" value="firefox"/>
 
         <classes>
-            <!--<class name="com.templatemonster.demo.TM_001_loginTest"/>-->
+            <class name="com.templatemonster.demo.TM_001_loginTest"/>
             <!--<class name="com.templatemonster.demo.TM_002_SearchTemplateTest"/>-->
             <!--<class name="com.templatemonster.demo.TM_003_BuyTemplateWithPayPalTest"/>-->
             <!--<class name="com.templatemonster.demo.TM_004_BuyTemplateWithCardTest"/>-->
@@ -17,24 +18,9 @@
             <!--<class name="com.templatemonster.demo.TM_011_OpenWordPressTemplates"/>-->
             <!--<class name="com.templatemonster.demo.TM_012_TemplateSearchResultTest"/>-->
             <!--<class name="com.templatemonster.demo.TM_013_CheckThemeTypesTest"/>-->
-            <class name="com.templatemonster.demo.TM_014_ChangeLocalizationTest"/>
+            <!--  <class name="com.templatemonster.demo.TM_014_ChangeLocalizationTest"/>-->
         </classes>
     </test>
 
-    <!-- <test name="ChromeTest">
-         <parameter name="browser" value="chrome"/>
-         <classes>
-             <class name="com.templatemonster.demo.TM_001_loginTest"/>
-             <class name="com.templatemonster.demo.TM_002_SearchTemplateTest"/>
-             <class name="com.templatemonster.demo.TM_003_BuyTemplateWithPayPalTest"/>
-             <class name="com.templatemonster.demo.TM_004_BuyTemplateWithCardTest"/>
-             <class name="com.templatemonster.demo.TM_005_DownloadSampleAsGuest"/>
-             <class name="com.templatemonster.demo.TM_008_ChatTest"/>
-             <class name="com.templatemonster.demo.TM_009_PageScrollTest"/>
-             <class name="com.templatemonster.demo.TM_010_InvalidEmailCheckoutTest"/>
-             <class name="com.templatemonster.demo.TM_011_OpenWordPressTemplates"/>
-             <class name="com.templatemonster.demo.TM_012_TemplateSearchResultTest"/>
-         </classes>
-     </test>-->
 
 </suite>
