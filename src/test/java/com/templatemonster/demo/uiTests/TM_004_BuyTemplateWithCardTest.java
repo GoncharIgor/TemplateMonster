@@ -1,6 +1,7 @@
 package com.templatemonster.demo.uiTests;
 
-import com.templatemonster.demo.BaseTest;
+import com.templatemonster.demo.baseTests.BaseTest;
+import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.CardPaymentPage;
 import com.templatemonster.demo.pages.CheckoutPage;
 import com.templatemonster.demo.util.WaitHelper;
@@ -19,7 +20,7 @@ import org.testng.annotations.Test;
  * 1. Пользователь залогинен на степе 3)
  * 2. Открывается страница платёжки
  */
-public class TM_004_BuyTemplateWithCardTest extends BaseTest {
+public class TM_004_BuyTemplateWithCardTest extends TemplateMonsterBaseTest {
     private CheckoutPage checkoutPage;
     private CardPaymentPage cardPaymentPage;
 

@@ -1,6 +1,7 @@
 package com.templatemonster.demo.uiTests;
 
-import com.templatemonster.demo.BaseTest;
+import com.templatemonster.demo.baseTests.BaseTest;
+import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.ChatPage;
 import com.templatemonster.demo.util.WaitHelper;
 
@@ -17,7 +18,7 @@ import org.testng.annotations.Test;
  * Ожидаемый результат:
  * 1. Успешное подключение к чату (открылся попап http://chat.template-help.com/chat.jsp и произошел коннект (комната Pre-sales Chat))
  */
-public class TM_008_ChatTest extends BaseTest {
+public class TM_008_ChatTest extends TemplateMonsterBaseTest {
     private ChatPage chatPage;
 
     @Test

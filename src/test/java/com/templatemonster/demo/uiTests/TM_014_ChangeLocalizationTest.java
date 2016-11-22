@@ -1,13 +1,14 @@
 package com.templatemonster.demo.uiTests;
 
-import com.templatemonster.demo.BaseTest;
+import com.templatemonster.demo.baseTests.BaseTest;
+import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.HomePage;
 import org.testng.annotations.Test;
 
 /**
  * Created by i.gonchar on 18.11.2016.
  */
-public class TM_014_ChangeLocalizationTest extends BaseTest {
+public class TM_014_ChangeLocalizationTest extends TemplateMonsterBaseTest {
     private HomePage homePage;
 
     @Test

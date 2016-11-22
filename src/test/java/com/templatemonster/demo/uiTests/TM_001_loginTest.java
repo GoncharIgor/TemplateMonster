@@ -1,8 +1,8 @@
 package com.templatemonster.demo.uiTests;
 
-import com.templatemonster.demo.BaseTest;
+import com.templatemonster.demo.baseTests.BaseTest;
+import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.HomePage;
-import com.templatemonster.demo.pages.LoginPage;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
@@ -19,7 +19,7 @@ import static org.testng.Assert.*;
  */
 
 
-public class TM_001_loginTest extends BaseTest {
+public class TM_001_loginTest extends TemplateMonsterBaseTest {
     private HomePage homePage;
 
     @Test

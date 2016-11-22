@@ -1,6 +1,7 @@
 package com.templatemonster.demo.uiTests;
 
-import com.templatemonster.demo.BaseTest;
+import com.templatemonster.demo.baseTests.BaseTest;
+import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.HomePage;
 import com.templatemonster.demo.pages.TemplateDownloadPage;
 import com.templatemonster.demo.util.MailGenerator;
@@ -25,7 +26,7 @@ import static org.testng.Assert.assertTrue;
  * 3. “Бредкрам”: галочкой отмечены пукнты 1 - Signin, 2 – User Details, 3 – Confirm, выделен жирным 4 – Delivery
  * 4. Пользователь получает письма: на подтверждение регистрации, деливери письмо на скачивание фри шаблона
  */
-public class TM_005_DownloadSampleAsGuest extends BaseTest {
+public class TM_005_DownloadSampleAsGuest extends TemplateMonsterBaseTest {
     private HomePage homePage;
     private TemplateDownloadPage templateDownloadPage;
     private String generatedUniqueEmail = MailGenerator.generateNewEmail();

@@ -12,4 +12,6 @@ public class ShoppingCartPage extends BasePage {
         super(driver);
     }
 
+
+
 }

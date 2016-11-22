@@ -3,7 +3,8 @@ package com.templatemonster.demo.uiTests;
 
 import static org.testng.Assert.assertTrue;
 
-import com.templatemonster.demo.BaseTest;
+import com.templatemonster.demo.baseTests.BaseTest;
+import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.CheckoutPage;
 import org.testng.annotations.Test;
 
@@ -15,7 +16,7 @@ import org.testng.annotations.Test;
  * Ожидаемый результат:
  * Появляется сообщение о ошибке “Please specify a valid email”
  */
-public class TM_010_InvalidEmailCheckoutTest extends BaseTest {
+public class TM_010_InvalidEmailCheckoutTest extends TemplateMonsterBaseTest {
     private CheckoutPage checkoutPage;
 
     @Test

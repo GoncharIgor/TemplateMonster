@@ -1,6 +1,7 @@
 package com.templatemonster.demo.uiTests;
 
-import com.templatemonster.demo.BaseTest;
+import com.templatemonster.demo.baseTests.BaseTest;
+import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.CheckoutPage;
 import com.templatemonster.demo.pages.PayPalPage;
 import com.templatemonster.demo.util.MailGenerator;
@@ -20,7 +21,7 @@ import static org.testng.Assert.assertTrue;
  * 1. Создаётся новый аккаунт (пользователь залогинен на степе 3)
  * 2. Открывается страница платёжки
  */
-public class TM_003_BuyTemplateWithPayPalTest extends BaseTest {
+public class TM_003_BuyTemplateWithPayPalTest extends TemplateMonsterBaseTest {
     private CheckoutPage checkoutPage;
     private PayPalPage payPalPage;
     private String generatedUniqueEmail = MailGenerator.generateNewEmail();

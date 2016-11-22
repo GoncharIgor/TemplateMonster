@@ -1,11 +1,9 @@
-package com.templatemonster.demo;
+package com.templatemonster.demo.baseTests;
 
 import com.codeborne.selenide.WebDriverRunner;
-import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
-import com.templatemonster.demo.pages.*;
 import com.templatemonster.demo.util.PropertyManager;
 import com.templatemonster.demo.util.WaitHelper;
-import org.openqa.selenium.JavascriptExecutor;
+import org.apache.commons.lang.WordUtils;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,9 +13,6 @@ import org.testng.annotations.*;
 import org.testng.log4testng.Logger;
 
 import java.io.File;
-
-import static com.codeborne.selenide.Selenide.open;
-
 
 /**
  * Created by i.gonchar on 28.09.2016.
@@ -74,20 +69,10 @@ public class BaseTest {
                 driver = new InternetExplorerDriver();
             }
             WebDriverRunner.setWebDriver(driver);
+            LOGGER.error(WordUtils.capitalize(browser) + " browser was initialized");
         } else {
             LOGGER.error("Incorrect browser was passed");
         }
     }
-
-    public HomePage openHomePage() {
-        open("http://www.templatemonster.com/");
-        return new HomePage(driver);
-    }
-
-    public TemplateSearchResultPage openWordPressTemplate(String templateId) {
-        open("http://www.templatemonster.com/wordpress-templates/" + templateId + ".html");
-        return new TemplateSearchResultPage(driver);
-    }
-
 
 }

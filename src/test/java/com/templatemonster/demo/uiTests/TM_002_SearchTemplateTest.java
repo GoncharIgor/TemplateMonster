@@ -1,6 +1,7 @@
 package com.templatemonster.demo.uiTests;
 
-import com.templatemonster.demo.BaseTest;
+import com.templatemonster.demo.baseTests.BaseTest;
+import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.TemplateSearchResultPage;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
@@ -18,7 +19,7 @@ import static org.testng.Assert.*;
  * 1. Открывается страница превью соответствующего шаблона
  * 2. Поисковый запрос очищается
  */
-public class TM_002_SearchTemplateTest extends BaseTest {
+public class TM_002_SearchTemplateTest extends TemplateMonsterBaseTest {
     private By TEMPLATE_SEARCH_FIELD_LOCATOR = By.name("keywords");
     private TemplateSearchResultPage templateSearchResultPage;
 

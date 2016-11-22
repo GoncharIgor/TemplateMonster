@@ -1,6 +1,7 @@
 package com.templatemonster.demo.uiTests;
 
-import com.templatemonster.demo.BaseTest;
+import com.templatemonster.demo.baseTests.BaseTest;
+import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.TemplateSearchResultPage;
 import org.testng.annotations.Test;
 
@@ -8,7 +9,7 @@ import org.testng.annotations.Test;
 /**
  * Created by i.gonchar on 16.11.2016.
  */
-public class TM_012_TemplateSearchResultTest extends BaseTest {
+public class TM_012_TemplateSearchResultTest extends TemplateMonsterBaseTest {
     private TemplateSearchResultPage templateSearchResultPage;
 
     @Test

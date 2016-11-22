@@ -1,6 +1,7 @@
 package com.templatemonster.demo.uiTests;
 
-import com.templatemonster.demo.BaseTest;
+import com.templatemonster.demo.baseTests.BaseTest;
+import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.TemplateSearchResultPage;
 import org.testng.annotations.Test;
 
@@ -16,7 +17,7 @@ import static com.codeborne.selenide.Selenide.open;
  * Ожидаемый результат:
  * 1. Загрузка картинок в блоке происходит по мере скролла страницы
  */
-public class TM_009_PageScrollTest extends BaseTest {
+public class TM_009_PageScrollTest extends TemplateMonsterBaseTest {
     private TemplateSearchResultPage templateSearchResultPage;
 
 
