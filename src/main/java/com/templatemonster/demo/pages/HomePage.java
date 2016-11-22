@@ -25,6 +25,7 @@ public class HomePage extends BasePage {
     private By START_CHAT_BUTTON_LOCATOR = By.xpath("//button[contains(.,'Start Chat')]");
     private By CART_COUNT_LOCATOR = By.id("cart-count");
     private By CATEGORY_LEFT_BLOCK_HEADING_LOCATOR = By.id("sf-category-cb");
+    private By LOCALIZATION_COUNTRY_CODE_LOCATOR = By.cssSelector(".user-menu-element.language-pick.user-menu-dropdown span");
 
 
     private final HashMap<Integer, String> THEMES_TYPES = new HashMap<>();
@@ -82,7 +83,7 @@ public class HomePage extends BasePage {
 
     public HomePage checkThemeTypes() {
         for (Map.Entry<Integer, String> entry : THEMES_TYPES.entrySet()) {
-            $(By.cssSelector(".sub-menu-1.js-sub-menu-1 ul li:nth-child(" + entry.getKey() + ") a")).shouldHave(text(entry.getValue())).click();
+            $(By.cssSelector(".sub-menu-1.js-sub-menu-1>ul>li:nth-child(" + entry.getKey() + ") a")).shouldHave(text(entry.getValue())).click();
             if (entry.getKey() < 7) {
                 $(CATEGORY_LEFT_BLOCK_HEADING_LOCATOR).shouldHave(text(entry.getValue() + " Categories"));
             } else if (entry.getKey() == 7) {
@@ -101,12 +102,13 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage checkLocalizationIsSelected(String countryCode) {
-        $(By.cssSelector(".user-menu-element.language-pick.user-menu-dropdown span")).shouldHave(text(countryCode));
+    public HomePage checkLocalizationSelected(String countryCode) {
+        $(LOCALIZATION_COUNTRY_CODE_LOCATOR).shouldHave(text(countryCode));
         return this;
     }
 
     public HomePage changeLocalization(String countryCode) {
+        $(LOCALIZATION_COUNTRY_CODE_LOCATOR).click();
         $(By.id("menu-" + countryCode + "-locale")).click();
         return this;
     }

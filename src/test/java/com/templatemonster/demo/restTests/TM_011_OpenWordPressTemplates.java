@@ -1,15 +1,23 @@
-package com.templatemonster.demo;
+package com.templatemonster.demo.restTests;
 
+import com.templatemonster.demo.BaseTest;
 import com.templatemonster.demo.pages.basePages.BasePage;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.message.BasicNameValuePair;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,7 +31,7 @@ public class TM_011_OpenWordPressTemplates {
 
     @Test
     public void tm_011_OpenWordPressTemplatesSuccess() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 1; i++) {
             String templateId = listOfTemplates.get(i);
             HttpUriRequest request = new HttpGet("http://www.templatemonster.com/wordpress-templates/" + templateId + ".html");
             Assert.assertEquals(getRequestStatusCode(request), 200, "Incorrect status code was received");
@@ -43,6 +51,8 @@ public class TM_011_OpenWordPressTemplates {
         try {
             HttpResponse response = HttpClientBuilder.create().build().execute(request);
             statusCode = response.getStatusLine().getStatusCode();
+
+
         } catch (IOException e) {
             LOGGER.error("Could not execute Http reauest");
         }

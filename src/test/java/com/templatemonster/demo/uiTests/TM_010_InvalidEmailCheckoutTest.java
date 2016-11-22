@@ -1,8 +1,9 @@
-package com.templatemonster.demo;
+package com.templatemonster.demo.uiTests;
 
 
 import static org.testng.Assert.assertTrue;
 
+import com.templatemonster.demo.BaseTest;
 import com.templatemonster.demo.pages.CheckoutPage;
 import org.testng.annotations.Test;
 

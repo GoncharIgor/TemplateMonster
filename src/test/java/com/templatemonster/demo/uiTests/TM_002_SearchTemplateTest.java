@@ -1,5 +1,6 @@
-package com.templatemonster.demo;
+package com.templatemonster.demo.uiTests;
 
+import com.templatemonster.demo.BaseTest;
 import com.templatemonster.demo.pages.TemplateSearchResultPage;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;

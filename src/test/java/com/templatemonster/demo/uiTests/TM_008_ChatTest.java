@@ -1,5 +1,6 @@
-package com.templatemonster.demo;
+package com.templatemonster.demo.uiTests;
 
+import com.templatemonster.demo.BaseTest;
 import com.templatemonster.demo.pages.ChatPage;
 import com.templatemonster.demo.util.WaitHelper;
 

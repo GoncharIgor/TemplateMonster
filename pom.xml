@@ -78,13 +78,11 @@
             <artifactId>allure-testng-adaptor</artifactId>
             <version>1.4.14</version>
         </dependency>
-
         <dependency>
             <groupId>ru.yandex.qatools.allure</groupId>
             <artifactId>allure-maven-plugin</artifactId>
             <version>${maven_plugin.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.uncommons</groupId>
             <artifactId>reportng</artifactId>
@@ -128,7 +126,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testing/testing.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <properties>
+                    <properties> <!--For reporting-->
                         <property>
                             <name>usedefaultlisteners</name>
                             <value>false</value>
@@ -141,7 +139,7 @@
                         </property>
                     </properties>
                 </configuration>
-                <dependencies>
+                <dependencies> <!--Roporting-->
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>

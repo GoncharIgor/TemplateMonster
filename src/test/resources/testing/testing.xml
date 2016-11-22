@@ -7,18 +7,18 @@
         <parameter name="browser" value="firefox"/>
 
         <classes>
-            <class name="com.templatemonster.demo.TM_001_loginTest"/>
-            <!--<class name="com.templatemonster.demo.TM_002_SearchTemplateTest"/>-->
-            <!--<class name="com.templatemonster.demo.TM_003_BuyTemplateWithPayPalTest"/>-->
-            <!--<class name="com.templatemonster.demo.TM_004_BuyTemplateWithCardTest"/>-->
-            <!--<class name="com.templatemonster.demo.TM_005_DownloadSampleAsGuest"/>-->
-            <!--<class name="com.templatemonster.demo.TM_008_ChatTest"/>-->
-            <!--<class name="com.templatemonster.demo.TM_009_PageScrollTest"/>-->
-            <!--<class name="com.templatemonster.demo.TM_010_InvalidEmailCheckoutTest"/>-->
-            <!--<class name="com.templatemonster.demo.TM_011_OpenWordPressTemplates"/>-->
-            <!--<class name="com.templatemonster.demo.TM_012_TemplateSearchResultTest"/>-->
-            <!--<class name="com.templatemonster.demo.TM_013_CheckThemeTypesTest"/>-->
-            <!--  <class name="com.templatemonster.demo.TM_014_ChangeLocalizationTest"/>-->
+            <!--<class name="com.templatemonster.demo.uiTests.TM_001_loginTest"/>-->
+            <!--<class name="com.templatemonster.demo.uiTests.TM_002_SearchTemplateTest"/>-->
+            <!--<class name="com.templatemonster.demo.uiTests.TM_003_BuyTemplateWithPayPalTest"/>-->
+            <!--<class name="com.templatemonster.demo.uiTests.TM_004_BuyTemplateWithCardTest"/>-->
+            <!--<class name="com.templatemonster.demo.uiTests.TM_005_DownloadSampleAsGuest"/>-->
+            <!--<class name="com.templatemonster.demo.uiTests.TM_008_ChatTest"/>-->
+            <!--<class name="com.templatemonster.demo.uiTests.TM_009_PageScrollTest"/>-->
+            <!--<class name="com.templatemonster.demo.uiTests.TM_010_InvalidEmailCheckoutTest"/>-->
+            <!--<class name="com.templatemonster.demo.restTests.TM_011_OpenWordPressTemplates"/>-->
+            <!--<class name="com.templatemonster.demo.uiTests.TM_012_TemplateSearchResultTest"/>-->
+           <!-- <class name="com.templatemonster.demo.uiTests.TM_013_CheckThemeTypesTest"/>-->
+            <class name="com.templatemonster.demo.uiTests.TM_014_ChangeLocalizationTest"/>
         </classes>
     </test>
 

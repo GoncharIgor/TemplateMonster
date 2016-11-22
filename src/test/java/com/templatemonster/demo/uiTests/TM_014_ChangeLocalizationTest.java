@@ -1,5 +1,6 @@
-package com.templatemonster.demo;
+package com.templatemonster.demo.uiTests;
 
+import com.templatemonster.demo.BaseTest;
 import com.templatemonster.demo.pages.HomePage;
 import org.testng.annotations.Test;
 
@@ -12,7 +13,8 @@ public class TM_014_ChangeLocalizationTest extends BaseTest {
     @Test
     public void tm_014_ChangeLocalizationTest() throws InterruptedException {
         homePage = openHomePage()
-                .checkLocalizationIsSelected("US")
-                .changeLocalization("RU");
+                .checkLocalizationSelected("US")
+                .changeLocalization("RU")
+                .checkLocalizationSelected("RU");
     }
 }
