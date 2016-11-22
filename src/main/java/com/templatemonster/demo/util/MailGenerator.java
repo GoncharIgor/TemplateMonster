@@ -2,8 +2,6 @@ package com.templatemonster.demo.util;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
-import java.util.Random;
-
 /**
  * Created by i.gonchar on 29.09.2016.
  */

@@ -71,7 +71,7 @@ public class BaseTest {
             WebDriverRunner.setWebDriver(driver);
             LOGGER.error(WordUtils.capitalize(browser) + " browser was initialized");
         } else {
-            LOGGER.error("Incorrect browser was passed");
+            LOGGER.info("Incorrect browser was passed");
         }
     }
 

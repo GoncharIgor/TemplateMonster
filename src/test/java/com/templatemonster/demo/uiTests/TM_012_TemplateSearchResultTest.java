@@ -1,6 +1,5 @@
 package com.templatemonster.demo.uiTests;
 
-import com.templatemonster.demo.baseTests.BaseTest;
 import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.TemplateSearchResultPage;
 import org.testng.annotations.Test;

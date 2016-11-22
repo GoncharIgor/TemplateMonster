@@ -1,16 +1,10 @@
 package com.templatemonster.demo.pages;
 
 import com.codeborne.selenide.Condition;
-import com.google.common.base.Predicate;
 import com.templatemonster.demo.pages.basePages.BasePage;
 import com.templatemonster.demo.util.WaitHelper;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import static com.codeborne.selenide.Selenide.$;
 
 /**

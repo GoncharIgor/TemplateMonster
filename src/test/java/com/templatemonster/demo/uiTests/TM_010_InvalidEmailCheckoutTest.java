@@ -3,7 +3,6 @@ package com.templatemonster.demo.uiTests;
 
 import static org.testng.Assert.assertTrue;
 
-import com.templatemonster.demo.baseTests.BaseTest;
 import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.CheckoutPage;
 import org.testng.annotations.Test;
