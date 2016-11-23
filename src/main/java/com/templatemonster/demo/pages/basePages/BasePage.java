@@ -23,7 +23,6 @@ public class BasePage {
     protected static final Logger LOGGER = Logger.getLogger(WaitHelper.class);
     protected WebDriver driver;
     private By USER_ACCOUNT_HEADER_LOCATOR = By.id("menu-account-block");
-    private By CART_COUNT_LOCATOR = By.id("cart-count");
     protected JavascriptExecutor javaScriptExecutor;
 
     public BasePage(WebDriver driver) {
@@ -35,14 +34,6 @@ public class BasePage {
         WaitHelper.waitAdditional(7);
         String classAttributeValue = driver.findElement(USER_ACCOUNT_HEADER_LOCATOR).getAttribute("class");
         return !classAttributeValue.contains("hidden");
-    }
-
-    public void checkCartCount(int expectedCount) {
-        if (expectedCount == 0) {
-            $(CART_COUNT_LOCATOR).shouldHave(text(""));
-        } else {
-            $(CART_COUNT_LOCATOR).shouldHave(text(String.valueOf(expectedCount)));
-        }
     }
 
     public WebElement getElementUntilItIsLoaded(By locator, int time) {

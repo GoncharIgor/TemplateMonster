@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by i.gonchar on 30.09.2016.
  */
-public class CardPaymentPage extends BasePageHeader {
+public class CardPaymentPage extends BasePage {
     public CardPaymentPage(WebDriver driver) {
         super(driver);
     }

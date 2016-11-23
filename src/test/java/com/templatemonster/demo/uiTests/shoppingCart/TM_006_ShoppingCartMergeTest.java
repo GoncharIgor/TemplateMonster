@@ -1,6 +1,7 @@
 package com.templatemonster.demo.uiTests.shoppingCart;
 
 import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
+import com.templatemonster.demo.pages.pagesWithHeader.ShoppingCartPage;
 import com.templatemonster.demo.pages.pagesWithHeader.TemplateSearchResultPage;
 import org.testng.annotations.Test;
 
@@ -18,11 +19,15 @@ import org.testng.annotations.Test;
  */
 public class TM_006_ShoppingCartMergeTest extends TemplateMonsterBaseTest {
     private TemplateSearchResultPage templateSearchResultPage;
+    private ShoppingCartPage shoppingCartPage;
 
     @Test
-    public void tm_006_ShoppingCartMergeTest() {
+    public void tm_006_ShoppingCartMergeTest() throws InterruptedException {
         //Test data
         String templateId = propertyManager.getProperty("environmentalThemeID");
+        String templateId2 = propertyManager.getProperty("danceSchoolThemeID");
+        String validUserLogin = propertyManager.getProperty("validUserLogin");
+        String validUserPassword = propertyManager.getProperty("validUserPassword");
 
         //Precondition
         templateSearchResultPage = openHomePage()
@@ -31,6 +36,13 @@ public class TM_006_ShoppingCartMergeTest extends TemplateMonsterBaseTest {
         templateSearchResultPage.checkCartCount(1);
 
         //Test steps
+        templateSearchResultPage.searchForTemplate(templateId2)
+                .addToCartWithoutCheckout();
+        templateSearchResultPage.checkCartCount(2);
 
+        shoppingCartPage = templateSearchResultPage.navigateToLoginPage()
+                .fillLoginFormWithAnyCredentials(validUserLogin, validUserPassword)
+                .submitLoginForm()
+                .openShoppingCart();
     }
 }

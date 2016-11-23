@@ -17,8 +17,6 @@ import static com.codeborne.selenide.Condition.text;
  * Created by i.gonchar on 28.09.2016.
  */
 public class HomePage extends BasePageHeader {
-    private By accountHeaderLocator = By.id("header-signin-link");
-    private By TEMPLATE_SEARCH_FIELD_LOCATOR = By.name("keywords");
     private By CHAT_IMAGE_LOCATOR = By.cssSelector("img.girl");
     private By CHAT_NAME_INPUT_LOCATOR = By.id("live-chat-consultant-form-fullname");
     private By CHAT_PASSWORD_INPUT_LOCATOR = By.id("live-chat-consultant-form-email");
@@ -49,11 +47,6 @@ public class HomePage extends BasePageHeader {
         return this;
     }
 
-    public LoginPage navigateToLoginPage() {
-        $(accountHeaderLocator).click();
-        switchToWindow(1);
-        return new LoginPage(driver);
-    }
 
     public ChatPage navigateToChatPage(String name, String email) {
         $(CHAT_IMAGE_LOCATOR).click();
@@ -66,10 +59,7 @@ public class HomePage extends BasePageHeader {
         return new ChatPage(driver);
     }
 
-    public TemplateSearchResultPage searchForTemplate(String templateId) {
-        driver.findElement(TEMPLATE_SEARCH_FIELD_LOCATOR).sendKeys(templateId, Keys.ENTER);
-        return new TemplateSearchResultPage(driver);
-    }
+
 
     public HomePage checkThemeTypes() {
         for (Map.Entry<Integer, String> entry : THEMES_TYPES.entrySet()) {
