@@ -1,4 +1,4 @@
-package com.templatemonster.demo.pages;
+package com.templatemonster.demo.pages.paymentPages;
 
 import com.templatemonster.demo.pages.basePages.BasePage;
 import com.templatemonster.demo.util.WaitHelper;

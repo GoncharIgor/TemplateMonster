@@ -1,7 +1,7 @@
 package com.templatemonster.demo.uiTests;
 
 import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
-import com.templatemonster.demo.pages.ChatPage;
+import com.templatemonster.demo.pages.pagesWithHeader.ChatPage;
 import com.templatemonster.demo.util.WaitHelper;
 
 import static org.testng.Assert.assertTrue;

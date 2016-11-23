@@ -1,6 +1,6 @@
-package com.templatemonster.demo.pages;
+package com.templatemonster.demo.pages.pagesWithHeader;
 
-import com.templatemonster.demo.pages.basePages.BasePage;
+import com.templatemonster.demo.pages.basePages.BasePageHeader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 /**
  * Created by i.gonchar on 29.09.2016.
  */
-public class ChatPage extends BasePage {
+public class ChatPage extends BasePageHeader {
     private final By CHAT_ROOM_HEADER = By.className("header-panel");
 
     public ChatPage(WebDriver driver) {

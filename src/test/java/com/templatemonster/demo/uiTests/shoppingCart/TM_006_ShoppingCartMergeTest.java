@@ -1,6 +1,8 @@
-package com.templatemonster.demo.uiTests;
+package com.templatemonster.demo.uiTests.shoppingCart;
 
 import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
+import com.templatemonster.demo.pages.pagesWithHeader.TemplateSearchResultPage;
+import org.testng.annotations.Test;
 
 /**
  * Тестовый сценарий:
@@ -15,4 +17,20 @@ import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
  * 3. Subtotal: и Order Total: пересчитываются с учётом цен всех продуктов в корзине
  */
 public class TM_006_ShoppingCartMergeTest extends TemplateMonsterBaseTest {
+    private TemplateSearchResultPage templateSearchResultPage;
+
+    @Test
+    public void tm_006_ShoppingCartMergeTest() {
+        //Test data
+        String templateId = propertyManager.getProperty("environmentalThemeID");
+
+        //Precondition
+        templateSearchResultPage = openHomePage()
+                .searchForTemplate(templateId)
+                .addToCartWithoutCheckout();
+        templateSearchResultPage.checkCartCount(1);
+
+        //Test steps
+
+    }
 }

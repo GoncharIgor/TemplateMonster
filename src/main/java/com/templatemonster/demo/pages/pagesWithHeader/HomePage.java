@@ -1,7 +1,8 @@
-package com.templatemonster.demo.pages;
+package com.templatemonster.demo.pages.pagesWithHeader;
 
 import com.codeborne.selenide.ex.ElementNotFound;
-import com.templatemonster.demo.pages.basePages.BasePage;
+import com.templatemonster.demo.pages.LoginPage;
+import com.templatemonster.demo.pages.basePages.BasePageHeader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -15,14 +16,13 @@ import static com.codeborne.selenide.Condition.text;
 /**
  * Created by i.gonchar on 28.09.2016.
  */
-public class HomePage extends BasePage {
+public class HomePage extends BasePageHeader {
     private By accountHeaderLocator = By.id("header-signin-link");
     private By TEMPLATE_SEARCH_FIELD_LOCATOR = By.name("keywords");
     private By CHAT_IMAGE_LOCATOR = By.cssSelector("img.girl");
     private By CHAT_NAME_INPUT_LOCATOR = By.id("live-chat-consultant-form-fullname");
     private By CHAT_PASSWORD_INPUT_LOCATOR = By.id("live-chat-consultant-form-email");
     private By START_CHAT_BUTTON_LOCATOR = By.xpath("//button[contains(.,'Start Chat')]");
-    private By CART_COUNT_LOCATOR = By.id("cart-count");
     private By CATEGORY_LEFT_BLOCK_HEADING_LOCATOR = By.id("sf-category-cb");
     private By LOCALIZATION_COUNTRY_CODE_LOCATOR = By.cssSelector(".user-menu-element.language-pick.user-menu-dropdown span");
 
@@ -69,15 +69,6 @@ public class HomePage extends BasePage {
     public TemplateSearchResultPage searchForTemplate(String templateId) {
         driver.findElement(TEMPLATE_SEARCH_FIELD_LOCATOR).sendKeys(templateId, Keys.ENTER);
         return new TemplateSearchResultPage(driver);
-    }
-
-    public HomePage checkCartCount(int expectedCount) {
-        if (expectedCount == 0) {
-            $(CART_COUNT_LOCATOR).shouldHave(text(""));
-        } else {
-            $(CART_COUNT_LOCATOR).shouldHave(text(String.valueOf(expectedCount)));
-        }
-        return this;
     }
 
     public HomePage checkThemeTypes() {

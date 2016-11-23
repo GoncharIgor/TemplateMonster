@@ -1,8 +1,10 @@
-package com.templatemonster.demo.pages;
+package com.templatemonster.demo.pages.pagesWithHeader;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
-import com.templatemonster.demo.pages.basePages.BasePage;
+import com.templatemonster.demo.pages.CheckoutPage;
+import com.templatemonster.demo.pages.TemplateDownloadPage;
+import com.templatemonster.demo.pages.basePages.BasePageHeader;
 import com.templatemonster.demo.util.WaitHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +19,7 @@ import static com.codeborne.selenide.Selenide.$$;
 /**
  * Created by i.gonchar on 29.09.2016.
  */
-public class TemplateSearchResultPage extends BasePage {
+public class TemplateSearchResultPage extends BasePageHeader {
     private By ADD_TO_CART_BUTTON_LOCATOR = By.xpath("//button[contains(.,'Add to Cart')]");
     private By CHECKOUT_NOW_BUTTON_LOCATOR = By.xpath("//button[contains(.,'Checkout Now ')]");
     private By SHARE_AND_DOWNLOAD_BUTTON_LOCATOR = By.className("download-outer");
@@ -25,6 +27,7 @@ public class TemplateSearchResultPage extends BasePage {
     private By TEMPLATE_HEADING_LOCATOR = By.cssSelector(".preview-heading.overflowed-hidden");
     private By PREVIEW_IMAGE_LOCATOR = By.className("js-preview-scr");
     private By TEMPLATE_INFORMATION_TABS_LOCATOR = By.cssSelector("#previewTab li");
+    private By CLOSE_MODAL_WINDOW_LOCATOR = By.xpath(".//*[@id='cart-popup']/div/div/div[1]/a");
 
     public TemplateSearchResultPage(WebDriver driver) {
         super(driver);
@@ -38,13 +41,24 @@ public class TemplateSearchResultPage extends BasePage {
     }
 
     public CheckoutPage addOpenedTemplateToCartAndCheckout() {
-        driver.findElement(ADD_TO_CART_BUTTON_LOCATOR).click();
-        driver.switchTo().activeElement();
+        addToCart();
         //TO ADD: CHECK IF TEMPLATE WAS ADDED TO CART
         WaitHelper.waitAdditional(3);
         driver.findElement(CHECKOUT_NOW_BUTTON_LOCATOR).click();
         return new CheckoutPage(driver);
     }
+
+    public TemplateSearchResultPage addToCartWithoutCheckout() {
+        addToCart();
+        $(CLOSE_MODAL_WINDOW_LOCATOR).click();
+        return this;
+    }
+
+    private void addToCart(){
+        driver.findElement(ADD_TO_CART_BUTTON_LOCATOR).click();
+        driver.switchTo().activeElement();
+    }
+
 
     public TemplateSearchResultPage hoverShareAndDownloadButton() {
         Actions builder = new Actions(driver);
@@ -72,7 +86,7 @@ public class TemplateSearchResultPage extends BasePage {
         return this;
     }
 
-    public TemplateSearchResultPage checkPrevievImage() {
+    public TemplateSearchResultPage checkPrevievImageIsVisible() {
         $(PREVIEW_IMAGE_LOCATOR).shouldBe(Condition.visible);
         return this;
     }

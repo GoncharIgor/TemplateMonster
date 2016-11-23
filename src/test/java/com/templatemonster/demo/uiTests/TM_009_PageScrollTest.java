@@ -1,7 +1,7 @@
 package com.templatemonster.demo.uiTests;
 
 import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
-import com.templatemonster.demo.pages.TemplateSearchResultPage;
+import com.templatemonster.demo.pages.pagesWithHeader.TemplateSearchResultPage;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.open;

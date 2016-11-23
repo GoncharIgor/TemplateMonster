@@ -2,6 +2,7 @@ package com.templatemonster.demo.pages;
 
 import com.codeborne.selenide.Condition;
 import com.templatemonster.demo.pages.basePages.BasePage;
+import com.templatemonster.demo.pages.pagesWithHeader.HomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

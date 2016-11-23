@@ -1,8 +1,8 @@
-package com.templatemonster.demo.uiTests;
+package com.templatemonster.demo.uiTests.template;
 
 import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.CheckoutPage;
-import com.templatemonster.demo.pages.PayPalPage;
+import com.templatemonster.demo.pages.paymentPages.PayPalPage;
 import com.templatemonster.demo.util.MailGenerator;
 import org.testng.annotations.Test;
 

@@ -1,7 +1,7 @@
-package com.templatemonster.demo.uiTests;
+package com.templatemonster.demo.uiTests.general;
 
 import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
-import com.templatemonster.demo.pages.HomePage;
+import com.templatemonster.demo.pages.pagesWithHeader.HomePage;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;

@@ -23,7 +23,7 @@ public class BaseTest {
     protected WebDriver driver;
 
     @BeforeTest
-    static void generateProperties() {
+    public void generateProperties() {
         propertyManager = new PropertyManager();
         propertyManager.generateProperty();
     }
@@ -69,7 +69,7 @@ public class BaseTest {
                 driver = new InternetExplorerDriver();
             }
             WebDriverRunner.setWebDriver(driver);
-            LOGGER.error(WordUtils.capitalize(browser) + " browser was initialized");
+            LOGGER.info(WordUtils.capitalize(browser) + " browser was initialized");
         } else {
             LOGGER.info("Incorrect browser was passed");
         }

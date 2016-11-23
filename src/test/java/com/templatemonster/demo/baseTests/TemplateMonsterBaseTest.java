@@ -1,9 +1,8 @@
 package com.templatemonster.demo.baseTests;
 
-import com.templatemonster.demo.pages.HomePage;
-import com.templatemonster.demo.pages.ShoppingCartPage;
-import com.templatemonster.demo.pages.TemplateSearchResultPage;
-import com.templatemonster.demo.pages.basePages.BasePage;
+import com.templatemonster.demo.pages.pagesWithHeader.HomePage;
+import com.templatemonster.demo.pages.pagesWithHeader.ShoppingCartPage;
+import com.templatemonster.demo.pages.pagesWithHeader.TemplateSearchResultPage;
 
 import static com.codeborne.selenide.Selenide.open;
 

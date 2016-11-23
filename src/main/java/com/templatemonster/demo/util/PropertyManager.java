@@ -15,6 +15,7 @@ public class PropertyManager {
         try {
             properties.load(getClass().getClassLoader().getResourceAsStream("properties/environment.properties"));
         } catch (Exception e) {
+            System.out.println("Prop were NOT generated");
             LOGGER.info("Failed to load properties:" + e.getMessage());
         }
     }

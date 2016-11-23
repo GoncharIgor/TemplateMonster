@@ -1,7 +1,7 @@
-package com.templatemonster.demo.uiTests;
+package com.templatemonster.demo.uiTests.template;
 
 import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
-import com.templatemonster.demo.pages.HomePage;
+import com.templatemonster.demo.pages.pagesWithHeader.HomePage;
 import com.templatemonster.demo.pages.TemplateDownloadPage;
 import com.templatemonster.demo.util.MailGenerator;
 import org.testng.annotations.Test;
@@ -39,10 +39,13 @@ public class TM_005_DownloadSampleAsGuest extends TemplateMonsterBaseTest {
         String userFullName = userName + " " + userSurname;
         String userPhoneNumber = propertyManager.getProperty("userPhoneNumber");
 
-        //Test steps
+        //Precondition
         homePage = openHomePage();
         assertFalse(homePage.isUserLoggedIn(), "User is logged into the system");
-        templateDownloadPage = homePage.checkCartCount(0)
+        homePage.checkCartCount(0);
+
+        //Test steps
+        templateDownloadPage = homePage
                 .searchForTemplate(templateId)
                 .hoverShareAndDownloadButton()
                 .shareTemplateWithTwitter()
