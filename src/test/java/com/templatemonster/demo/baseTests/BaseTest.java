@@ -3,6 +3,9 @@ package com.templatemonster.demo.baseTests;
 import com.codeborne.selenide.WebDriverRunner;
 import com.templatemonster.demo.util.PropertyManager;
 import com.templatemonster.demo.util.WaitHelper;
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
 import org.apache.commons.lang.WordUtils;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +15,6 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.*;
 import org.testng.log4testng.Logger;
 
-import java.io.File;
 
 /**
  * Created by i.gonchar on 28.09.2016.
@@ -51,21 +53,13 @@ public class BaseTest {
     private void initializeWebDriver(String browser) {
         if (browser != null) {
             if (browser.equalsIgnoreCase("firefox")) {
-               /*
-                To run with Selenium 3.0
-                File resourcesDirectory = new File("src/test/resources/webdriver/geckodriver.exe");
-                String GECKO_DRIVER_PATH = resourcesDirectory.getAbsolutePath();
-                System.setProperty("webdriver.gecko.driver", GECKO_DRIVER_PATH);*/
+                FirefoxDriverManager.getInstance().setup();
                 driver = new FirefoxDriver();
             } else if (browser.equalsIgnoreCase("chrome")) {
-                File resourcesDirectory = new File("src/test/resources/webdriver/chromedriver_win32.exe");
-                String CHROME_DRIVER_PATH = resourcesDirectory.getAbsolutePath();
-                System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_PATH);
+                ChromeDriverManager.getInstance().setup();
                 driver = new ChromeDriver();
             } else if (browser.equalsIgnoreCase("ie")) {
-                File resourcesDirectory = new File("src/test/resources/webdriver/IEDriverServer_64.exe");
-                String IEXPLORER_DRIVER_PATH = resourcesDirectory.getAbsolutePath();
-                System.setProperty("webdriver.ie.driver", IEXPLORER_DRIVER_PATH);
+                InternetExplorerDriverManager.getInstance().setup();
                 driver = new InternetExplorerDriver();
             }
             WebDriverRunner.setWebDriver(driver);

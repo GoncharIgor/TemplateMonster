@@ -4,7 +4,7 @@
     <parameter name="environment" value="prod"/>
 
     <test name="SystemTest" parallel="false" preserve-order="true">
-        <parameter name="browser" value="firefox"/>
+        <parameter name="browser" value="chrome"/>
 
         <classes>
             <!--<class name="com.templatemonster.demo.uiTests.general.TM_001_loginTest"/>-->
@@ -12,8 +12,8 @@
             <!--<class name="com.templatemonster.demo.uiTests.template.TM_003_BuyTemplateWithPayPalTest"/>-->
             <!--<class name="com.templatemonster.demo.uiTests.template.TM_004_BuyTemplateWithCardTest"/>-->
             <!--<class name="com.templatemonster.demo.uiTests.template.TM_005_DownloadSampleAsGuest"/>-->
-            <class name="com.templatemonster.demo.uiTests.shoppingCart.TM_006_ShoppingCartMergeTest"/>
-            <!--<class name="com.templatemonster.demo.uiTests.TM_008_ChatTest"/>-->
+            <!-- <class name="com.templatemonster.demo.uiTests.shoppingCart.TM_006_ShoppingCartMergeTest"/>-->
+            <class name="com.templatemonster.demo.uiTests.TM_008_ChatTest"/>
             <!--<class name="com.templatemonster.demo.uiTests.TM_009_PageScrollTest"/>-->
             <!--<class name="com.templatemonster.demo.uiTests.TM_010_InvalidEmailCheckoutTest"/>-->
             <!--<class name="com.templatemonster.demo.restTests.TM_011_OpenWordPressTemplates"/>-->

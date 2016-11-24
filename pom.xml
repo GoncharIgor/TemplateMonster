@@ -65,6 +65,12 @@
             <version>1.1</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+
         <dependency> <!--for reporting -->
             <groupId>velocity</groupId>
             <artifactId>velocity</artifactId>
