@@ -21,30 +21,10 @@ public class HomePage extends BasePageHeader {
     private By CHAT_NAME_INPUT_LOCATOR = By.id("live-chat-consultant-form-fullname");
     private By CHAT_PASSWORD_INPUT_LOCATOR = By.id("live-chat-consultant-form-email");
     private By START_CHAT_BUTTON_LOCATOR = By.xpath("//button[contains(.,'Start Chat')]");
-    private By CATEGORY_LEFT_BLOCK_HEADING_LOCATOR = By.id("sf-category-cb");
     private By LOCALIZATION_COUNTRY_CODE_LOCATOR = By.cssSelector(".user-menu-element.language-pick.user-menu-dropdown span");
-
-
-    private final HashMap<Integer, String> THEMES_TYPES = new HashMap<>();
-
-    {
-        THEMES_TYPES.put(1, "WordPress Themes");
-        THEMES_TYPES.put(2, "Website Templates");
-        THEMES_TYPES.put(3, "Joomla Templates");
-        THEMES_TYPES.put(4, "PrestaShop Themes");
-        THEMES_TYPES.put(5, "Magento Themes");
-        THEMES_TYPES.put(6, "WooCommerce Themes");
-        THEMES_TYPES.put(7, "Moto CMS Templates");
-    }
 
     public HomePage(WebDriver driver) {
         super(driver);
-    }
-
-    public HomePage loginToSystem() throws InterruptedException {
-        LoginPage loginPage = navigateToLoginPage();
-        loginPage.fillLoginFormWithAnyCredentials("IgorGoncharUA@gmail.com", "Test_Test").submitLoginForm();
-        return this;
     }
 
 
@@ -57,29 +37,6 @@ public class HomePage extends BasePageHeader {
             driver.switchTo().window(currentWindow);
         }
         return new ChatPage(driver);
-    }
-
-
-
-    public HomePage checkThemeTypes() {
-        for (Map.Entry<Integer, String> entry : THEMES_TYPES.entrySet()) {
-            $(By.cssSelector(".sub-menu-1.js-sub-menu-1>ul>li:nth-child(" + entry.getKey() + ") a")).shouldHave(text(entry.getValue())).click();
-            if (entry.getKey() < 7) {
-                $(CATEGORY_LEFT_BLOCK_HEADING_LOCATOR).shouldHave(text(entry.getValue() + " Categories"));
-            } else if (entry.getKey() == 7) {
-                $(CATEGORY_LEFT_BLOCK_HEADING_LOCATOR).shouldHave(text("Moto CMS 3 Templates Categories "));
-            }
-            if (entry.getKey() == 3) { // To close location modal window
-                try {
-                    $(By.id("close-popover-UA-switcher")).click();
-                } catch (ElementNotFound e) {
-                    LOGGER.info("Location modal window was not opened");
-                }
-
-            }
-
-        }
-        return this;
     }
 
     public HomePage checkLocalizationSelected(String countryCode) {

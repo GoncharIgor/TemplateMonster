@@ -20,7 +20,7 @@ import static org.testng.Assert.assertTrue;
  * 1. Создаётся новый аккаунт (пользователь залогинен на степе 3)
  * 2. Открывается страница платёжки
  */
-public class TM_003_BuyTemplateWithPayPalTest extends TemplateMonsterBaseTest {
+public class TM_017_BuyTemplateWithPayPalTest extends TemplateMonsterBaseTest {
     private CheckoutPage checkoutPage;
     private PayPalPage payPalPage;
     private String generatedUniqueEmail = MailGenerator.generateNewEmail();

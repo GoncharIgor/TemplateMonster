@@ -2,6 +2,7 @@ package com.templatemonster.demo.uiTests.general;
 
 import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.pagesWithHeader.HomePage;
+import com.templatemonster.demo.pages.pagesWithHeader.MultiThemesPage;
 import org.testng.annotations.Test;
 
 /**
@@ -12,14 +13,13 @@ import org.testng.annotations.Test;
  * Ожидаемый результат:
  * 1. Открываются шаблоны по видам. Название вида отображается в левом хедере
  */
+
 public class TM_013_CheckThemeTypesTest extends TemplateMonsterBaseTest {
-    private HomePage homePage;
+    private MultiThemesPage multiThemesPage;
 
     @Test
     public void userOpensDifferentThemeTypes() {
-
-        homePage = openHomePage()
+        multiThemesPage = openHomePage()
                 .checkThemeTypes();
-
     }
 }

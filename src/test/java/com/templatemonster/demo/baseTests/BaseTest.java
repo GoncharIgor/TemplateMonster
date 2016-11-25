@@ -31,7 +31,7 @@ public class BaseTest {
     }
 
     @Parameters({"browser", "environment"})
-    @BeforeClass
+    @BeforeMethod
     public void setUp(@Optional String browser, @Optional("prod") String environment) {
         initializeWebDriver(browser);
         driver.manage().window().setPosition(new Point(1920, 24)); //to start tests in right monitor when 2 are available
@@ -39,7 +39,7 @@ public class BaseTest {
         WaitHelper.setImplicitWaitDefault(driver);
     }
 
-    @AfterClass
+    @AfterMethod
     public void tearDown() {
         if (driver != null) {
             try {

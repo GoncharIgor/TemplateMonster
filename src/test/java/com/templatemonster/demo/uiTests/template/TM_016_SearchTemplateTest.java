@@ -18,7 +18,7 @@ import static org.testng.Assert.*;
  * 1. Открывается страница превью соответствующего шаблона
  * 2. Поисковый запрос очищается
  */
-public class TM_002_SearchTemplateTest extends TemplateMonsterBaseTest {
+public class TM_016_SearchTemplateTest extends TemplateMonsterBaseTest {
     private By TEMPLATE_SEARCH_FIELD_LOCATOR = By.name("keywords");
     private TemplateSearchResultPage templateSearchResultPage;
 

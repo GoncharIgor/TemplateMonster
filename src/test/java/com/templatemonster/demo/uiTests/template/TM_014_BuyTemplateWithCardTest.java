@@ -19,7 +19,7 @@ import org.testng.annotations.Test;
  * 1. Пользователь залогинен на степе 3)
  * 2. Открывается страница платёжки
  */
-public class TM_004_BuyTemplateWithCardTest extends TemplateMonsterBaseTest {
+public class TM_014_BuyTemplateWithCardTest extends TemplateMonsterBaseTest {
     private CheckoutPage checkoutPage;
     private CardPaymentPage cardPaymentPage;
 

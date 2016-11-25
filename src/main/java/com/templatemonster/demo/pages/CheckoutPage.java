@@ -15,14 +15,14 @@ import static com.codeborne.selenide.Selenide.$;
  * Created by i.gonchar on 29.09.2016.
  */
 public class CheckoutPage extends BasePage {
-    private final By CHECKOUT_EMAIL_LOCATOR = By.id("signin3-form-email");
-    private final By CHECKOUT_PASSWORD_LOCATOR = By.xpath(".//*[@id='signin3-form-password']");
-    private final By CHECKOUT_NAME_AND_SURNAME_LOCATOR = By.id("billinginfo3-form-fullname");
-    private final By CHECKOUT_PHONE_NUMBER_LOCATOR = By.id("billinginfo3-form-phone");
-    private final By CHECKOUT_ZIP_CODE_LOCATOR = By.id("billinginfo3-form-postalcode");
-    private final By CHECKOUT_CITY_LOCATOR = By.id("billinginfo3-form-cityname");
-    private final By PAYPAL_BUTTON_LOCATOR = By.id("checkout-payment-buy-PayPal");
-    private final By TRANSACTPRO_BUTTON_LOCATOR = By.id("checkout-payment-buy-TransactPro");
+    private By CHECKOUT_EMAIL_LOCATOR = By.id("signin3-form-email");
+    private By CHECKOUT_PASSWORD_LOCATOR = By.xpath(".//*[@id='signin3-form-password']");
+    private By CHECKOUT_NAME_AND_SURNAME_LOCATOR = By.id("billinginfo3-form-fullname");
+    private By CHECKOUT_PHONE_NUMBER_LOCATOR = By.id("billinginfo3-form-phone");
+    private By CHECKOUT_ZIP_CODE_LOCATOR = By.id("billinginfo3-form-postalcode");
+    private By CHECKOUT_CITY_LOCATOR = By.id("billinginfo3-form-cityname");
+    private By PAYPAL_BUTTON_LOCATOR = By.id("checkout-payment-buy-PayPal");
+    private By TRANSACTPRO_BUTTON_LOCATOR = By.id("checkout-payment-buy-TransactPro");
 
     public CheckoutPage(WebDriver driver) {
         super(driver);

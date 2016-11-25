@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
  * Ожидаемый результат:
  * 1. Все ключевые элементы сайта переведены на русский язык
  */
-public class TM_014_ChangeLocalizationTest extends TemplateMonsterBaseTest {
+public class TM_004_ChangeLocalizationTest extends TemplateMonsterBaseTest {
     private HomePage homePage;
 
     @Test

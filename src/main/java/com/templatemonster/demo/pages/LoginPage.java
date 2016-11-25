@@ -12,9 +12,10 @@ import static com.codeborne.selenide.Selenide.$;
  * Created by i.gonchar on 29.09.2016.
  */
 public class LoginPage extends BasePage {
-    private final By LOGIN_FORM_SUBMIT_BUTTON_LOCATOR = By.id("login_button");
-    private final By USER_LOGIN_INPUT_LOCATOR = By.id("edtLogin");
-    private final By USER_PASSWORD_INPUT_LOCATOR = By.id("edtPassword");
+    private By LOGIN_FORM_SUBMIT_BUTTON_LOCATOR = By.id("login_button");
+    private By USER_LOGIN_INPUT_LOCATOR = By.id("edtLogin");
+    private By USER_PASSWORD_INPUT_LOCATOR = By.id("edtPassword");
+    private By LOGIN_ERROR_LABEL_LOCATOR = By.id("edtPassword");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -27,12 +28,26 @@ public class LoginPage extends BasePage {
     }
 
     public HomePage submitLoginForm() {
-        driver.findElement(LOGIN_FORM_SUBMIT_BUTTON_LOCATOR).click();
+        clickSubmitButton();
         return new HomePage(driver);
     }
 
-    public boolean isLoginPageOpened(){
+    public LoginPage clickSubmitButton() {
+        $(LOGIN_FORM_SUBMIT_BUTTON_LOCATOR).click();
+        return this;
+    }
+
+    public boolean isLoginPageOpened() {
         String currentUrl = driver.getCurrentUrl();
         return currentUrl.contains("https://wac.templatemonster.com/signin.html");
+    }
+
+    public LoginPage isLoginErrorLabelDisplayed(boolean toBeDisplayed) {
+        if (toBeDisplayed) {
+            $(LOGIN_ERROR_LABEL_LOCATOR).shouldBe(Condition.visible);
+        } else {
+            $(LOGIN_ERROR_LABEL_LOCATOR).shouldNotBe(Condition.visible);
+        }
+        return this;
     }
 }
