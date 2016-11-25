@@ -6,7 +6,12 @@ import org.testng.annotations.Test;
 
 
 /**
- * Created by i.gonchar on 16.11.2016.
+ * Тестовый сценарий:
+ * 1. Открыть найденный шаблон
+ * 2. По очереди открыть вкладки
+ * <p>
+ * Ожидаемый результат:
+ * 1.
  */
 public class TM_012_TemplateSearchResultTest extends TemplateMonsterBaseTest {
     private TemplateSearchResultPage templateSearchResultPage;

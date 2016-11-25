@@ -5,7 +5,12 @@ import com.templatemonster.demo.pages.pagesWithHeader.HomePage;
 import org.testng.annotations.Test;
 
 /**
- * Created by i.gonchar on 18.11.2016.
+ * Тестовый сценарий:
+ * Предусловие: выбрана английская локализация
+ * 1. Поменять локализацию на Русскую
+ * <p>
+ * Ожидаемый результат:
+ * 1. Все ключевые элементы сайта переведены на русский язык
  */
 public class TM_014_ChangeLocalizationTest extends TemplateMonsterBaseTest {
     private HomePage homePage;

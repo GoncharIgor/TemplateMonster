@@ -1,16 +1,10 @@
 package com.templatemonster.demo.restTests;
 
-import com.templatemonster.demo.baseTests.BaseTest;
 import com.templatemonster.demo.util.HttpManager;
-import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.log4testng.Logger;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

@@ -5,7 +5,12 @@ import com.templatemonster.demo.pages.pagesWithHeader.HomePage;
 import org.testng.annotations.Test;
 
 /**
- * Created by i.gonchar on 17.11.2016.
+ * Тестовый сценарий:
+ * 1. Открыть стартовую страницу
+ * 2. Открыть по очереди список шаблонов по видам в навигационном меню
+ * <p>
+ * Ожидаемый результат:
+ * 1. Открываются шаблоны по видам. Название вида отображается в левом хедере
  */
 public class TM_013_CheckThemeTypesTest extends TemplateMonsterBaseTest {
     private HomePage homePage;
