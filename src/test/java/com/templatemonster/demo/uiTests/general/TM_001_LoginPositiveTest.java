@@ -18,11 +18,11 @@ import static org.testng.Assert.*;
  */
 
 
-public class TM_001_loginTest extends TemplateMonsterBaseTest {
+public class TM_001_LoginPositiveTest extends TemplateMonsterBaseTest {
     private HomePage homePage;
 
-    @Test
-    public void tm_001_loginTest() {
+    @Test(groups = {"userLoginTests"})
+    public void userCanLoginWithValidEmailAndPassword() {
         //Test data
         String validUserLogin = propertyManager.getProperty("validUserLogin");
         String validUserPassword = propertyManager.getProperty("validUserPassword");

@@ -19,7 +19,7 @@ public class TM_010_InvalidEmailCheckoutTest extends TemplateMonsterBaseTest {
     private CheckoutPage checkoutPage;
 
     @Test
-    public void tm_010_InvalidEmailCheckoutTest() {
+    public void incorrectEmailsAreNorValidatedOnCheckoutPage() {
         //Test data
         String templateId = propertyManager.getProperty("environmentalThemeID");
         String[] invalidEmails = new String[10];

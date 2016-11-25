@@ -7,7 +7,7 @@
         <parameter name="browser" value="chrome"/>
 
         <classes>
-            <!--<class name="com.templatemonster.demo.uiTests.general.TM_001_loginTest"/>-->
+            <!--<class name="com.templatemonster.demo.uiTests.general.TM_001_LoginTestss"/>-->
             <!--<class name="com.templatemonster.demo.uiTests.template.TM_002_SearchTemplateTest"/>-->
             <!--<class name="com.templatemonster.demo.uiTests.template.TM_003_BuyTemplateWithPayPalTest"/>-->
             <!--<class name="com.templatemonster.demo.uiTests.template.TM_004_BuyTemplateWithCardTest"/>-->

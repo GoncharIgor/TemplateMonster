@@ -16,7 +16,7 @@ public class TM_014_ChangeLocalizationTest extends TemplateMonsterBaseTest {
     private HomePage homePage;
 
     @Test
-    public void tm_014_ChangeLocalizationTest() {
+    public void userChangesLocalizationToRu() {
 
         homePage = openHomePage()
                 .checkLocalizationSelected("US")

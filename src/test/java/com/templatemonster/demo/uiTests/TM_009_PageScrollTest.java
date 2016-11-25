@@ -21,7 +21,7 @@ public class TM_009_PageScrollTest extends TemplateMonsterBaseTest {
 
 
     @Test
-    public void tm_009_PageScrollTest() {
+    public void imagesAreLoadedWhilePageIsScrolledDown() {
         //Test steps
         open("http://www.templatemonster.com/wordpress-themes/52112.html");
         templateSearchResultPage = new TemplateSearchResultPage(driver)

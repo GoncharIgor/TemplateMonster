@@ -16,7 +16,7 @@ public class TM_013_CheckThemeTypesTest extends TemplateMonsterBaseTest {
     private HomePage homePage;
 
     @Test
-    public void tm_013_CheckHomePageTest() {
+    public void userOpensDifferentThemeTypes() {
 
         homePage = openHomePage()
                 .checkThemeTypes();

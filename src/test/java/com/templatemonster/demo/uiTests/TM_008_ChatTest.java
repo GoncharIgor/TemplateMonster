@@ -21,7 +21,7 @@ public class TM_008_ChatTest extends TemplateMonsterBaseTest {
     private ChatPage chatPage;
 
     @Test
-    public void tm_008_ChatTest() {
+    public void clickOnChatImageOpensChatWindow() {
         //Test data
         String userEmail = propertyManager.getProperty("validUserLogin");
         String userName = propertyManager.getProperty("userName");
