@@ -3,6 +3,7 @@ package com.templatemonster.demo.uiTests.general;
 import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.LoginPage;
 import org.testng.annotations.Test;
+
 import static org.testng.Assert.assertTrue;
 
 /**
@@ -18,8 +19,15 @@ public class TM_018_OpenLoginPageTest extends TemplateMonsterBaseTest {
     @Test
     public void opensLoginPageByClickingAccountButton() {
         loginPage = openHomePage()
-                .navigateToLoginPage();
+                .navigateToLoginPageByClickingAccountButton();
 
         assertTrue(loginPage.isLoginPageOpened(), "Login page was not opened");
     }
+
+    @Test
+    public void openLoginPageAndCheckItsInitialStatus() {
+        loginPage = openLoginPage()
+                .checkInitialStateOfLoginPage();
+    }
+
 }

@@ -1,12 +1,14 @@
 package com.templatemonster.demo.pages;
 
-import com.codeborne.selenide.Condition;
+import static com.codeborne.selenide.Condition.*;
 import com.templatemonster.demo.pages.basePages.BasePage;
 import com.templatemonster.demo.pages.pagesWithHeader.HomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.selectRadio;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 /**
@@ -23,8 +25,8 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage fillLoginFormWithAnyCredentials(String login, String password) {
-        $(USER_LOGIN_INPUT_LOCATOR).shouldBe(Condition.visible).sendKeys(login);
-        $(USER_PASSWORD_INPUT_LOCATOR).shouldBe(Condition.visible).sendKeys(password);
+        $(USER_LOGIN_INPUT_LOCATOR).shouldBe(visible).sendKeys(login);
+        $(USER_PASSWORD_INPUT_LOCATOR).shouldBe(visible).sendKeys(password);
         return this;
     }
 
@@ -39,16 +41,23 @@ public class LoginPage extends BasePage {
     }
 
     public boolean isLoginPageOpened() {
-        $(USER_LOGIN_INPUT_LOCATOR).shouldBe(Condition.visible);
+        $(USER_LOGIN_INPUT_LOCATOR).shouldBe(visible);
         return url().contains("https://wac.templatemonster.com/signin.html");
     }
 
     public LoginPage isLoginErrorLabelDisplayed(boolean toBeDisplayed) {
         if (toBeDisplayed) {
-            $(LOGIN_ERROR_LABEL_LOCATOR).shouldBe(Condition.visible);
+            $(LOGIN_ERROR_LABEL_LOCATOR).shouldBe(visible);
         } else {
-            $(LOGIN_ERROR_LABEL_LOCATOR).shouldNotBe(Condition.visible);
+            $(LOGIN_ERROR_LABEL_LOCATOR).shouldNotBe(visible);
         }
+        return this;
+    }
+
+    public LoginPage checkInitialStateOfLoginPage() {
+        $(USER_LOGIN_INPUT_LOCATOR).shouldBe(focused).shouldBe(empty);
+        $(USER_PASSWORD_INPUT_LOCATOR).shouldBe(empty);
+        $$(By.name("permanent")).get(2).shouldBe(selected);
         return this;
     }
 }

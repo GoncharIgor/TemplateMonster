@@ -39,4 +39,9 @@ public class TemplateMonsterBaseTest extends BaseTest {
         return new ShoppingCartPage(driver);
     }
 
+    public LoginPage openLoginPage() {
+        open(LOGIN_PAGE_URL);
+        return new LoginPage(driver);
+    }
+
 }

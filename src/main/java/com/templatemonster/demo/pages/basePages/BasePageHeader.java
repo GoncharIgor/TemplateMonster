@@ -60,7 +60,7 @@ public class BasePageHeader extends BasePage {
         }
     }
 
-    public LoginPage navigateToLoginPage() {
+    public LoginPage navigateToLoginPageByClickingAccountButton() {
         $(ACCOUNT_HEADER_LOCATOR).click();
         switchToWindow(1);
         return new LoginPage(driver);

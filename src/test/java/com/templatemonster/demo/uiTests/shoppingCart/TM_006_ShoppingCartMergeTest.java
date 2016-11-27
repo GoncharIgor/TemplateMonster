@@ -40,7 +40,7 @@ public class TM_006_ShoppingCartMergeTest extends TemplateMonsterBaseTest {
                 .addToCartWithoutCheckout();
         templateSearchResultPage.checkCartCount(2);
 
-        shoppingCartPage = templateSearchResultPage.navigateToLoginPage()
+        shoppingCartPage = templateSearchResultPage.navigateToLoginPageByClickingAccountButton()
                 .fillLoginFormWithAnyCredentials(validUserLogin, validUserPassword)
                 .submitLoginForm()
                 .openShoppingCart();

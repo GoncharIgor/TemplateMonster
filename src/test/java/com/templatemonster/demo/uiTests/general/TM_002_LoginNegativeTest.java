@@ -2,7 +2,6 @@ package com.templatemonster.demo.uiTests.general;
 
 import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.LoginPage;
-import com.templatemonster.demo.pages.pagesWithHeader.HomePage;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -23,7 +22,7 @@ public class TM_002_LoginNegativeTest extends TemplateMonsterBaseTest {
 
         //Test steps
         loginPage = openHomePage()
-                .navigateToLoginPage()
+                .navigateToLoginPageByClickingAccountButton()
                 .fillLoginFormWithAnyCredentials(invalidUserLogin, validUserPassword)
                 .clickSubmitButton()
                 .isLoginErrorLabelDisplayed(true);
@@ -39,7 +38,7 @@ public class TM_002_LoginNegativeTest extends TemplateMonsterBaseTest {
 
         //Test steps
         loginPage = openHomePage()
-                .navigateToLoginPage()
+                .navigateToLoginPageByClickingAccountButton()
                 .fillLoginFormWithAnyCredentials(validUserLogin, invalidUserPassword)
                 .clickSubmitButton()
                 .isLoginErrorLabelDisplayed(true);

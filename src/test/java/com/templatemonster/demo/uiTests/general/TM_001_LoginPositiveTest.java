@@ -28,7 +28,7 @@ public class TM_001_LoginPositiveTest extends TemplateMonsterBaseTest {
 
         //Test steps
         homePage = openHomePage()
-                .navigateToLoginPage()
+                .navigateToLoginPageByClickingAccountButton()
                 .fillLoginFormWithAnyCredentials(validUserLogin, validUserPassword)
                 .submitLoginForm();
         assertTrue(homePage.isUserLoggedIn(), "User is not logged into the system");
