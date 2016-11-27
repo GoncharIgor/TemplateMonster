@@ -13,7 +13,7 @@
          </groups>-->
 
         <classes>
-            <class name="com.templatemonster.demo.uiTests.general.TM_001_LoginPositiveTest"/>
+            <!--<class name="com.templatemonster.demo.uiTests.general.TM_001_LoginPositiveTest"/>-->
             <!--<class name="com.templatemonster.demo.uiTests.general.TM_002_LoginNegativeTest"/>-->
             <!--<class name="com.templatemonster.demo.uiTests.general.TM_003_LogoutTest"/>-->
             <!--<class name="com.templatemonster.demo.uiTests.template.TM_016_SearchTemplateTest"/>-->
@@ -30,6 +30,7 @@
             <!--<class name="com.templatemonster.demo.uiTests.general.TM_013_CheckThemeTypesTest"/>-->
             <!--<class name="com.templatemonster.demo.uiTests.general.TM_004_ChangeLocalizationTest"/>-->
             <!--<class name="com.templatemonster.demo.uiTests.shoppingCart.TM_0015_AddServicesToTemplate"/>-->
+            <class name="com.templatemonster.demo.uiTests.general.TM_018_OpenLoginPageTest"/>
         </classes>
 
     </test>

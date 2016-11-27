@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.WebDriverRunner.url;
 
 /**
  * Created by i.gonchar on 29.09.2016.
@@ -38,8 +39,8 @@ public class LoginPage extends BasePage {
     }
 
     public boolean isLoginPageOpened() {
-        String currentUrl = driver.getCurrentUrl();
-        return currentUrl.contains("https://wac.templatemonster.com/signin.html");
+        $(USER_LOGIN_INPUT_LOCATOR).shouldBe(Condition.visible);
+        return url().contains("https://wac.templatemonster.com/signin.html");
     }
 
     public LoginPage isLoginErrorLabelDisplayed(boolean toBeDisplayed) {
