@@ -84,4 +84,8 @@ public class BasePage {
             return false;
         }
     }
+
+    public boolean doesElementHasExpectedText (By locator, String expectedTest){
+        return $(locator).has(text(expectedTest));
+    }
 }

@@ -2,6 +2,8 @@ package com.templatemonster.demo.uiTests.general;
 
 import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.pages.UserRegistrationPage;
+import com.templatemonster.demo.util.WaitHelper;
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
@@ -24,9 +26,19 @@ public class TM_019_UserRegistrationTest extends TemplateMonsterBaseTest {
 
     @Test(groups = {"userLoginTests"})
     public void canNotRegisterWithAlreadyExistingEmail() {
+        //Test data
+        String validUserLogin = propertyManager.getProperty("validUserLogin");
+        String validUserPassword = propertyManager.getProperty("validUserPassword");
+        By emailErrorLocator = By.id("emailErrors");
+
+        //Test steps
         userRegistrationPage = openHomePage()
                 .navigateToLoginPage()
                 .navigateToUserRegistrationPage();
+        assertTrue(userRegistrationPage.doesElementHasExpectedText(emailErrorLocator, ""));
+
+        userRegistrationPage.fillUserRegistrationFormWithAnyCredentials(validUserLogin, validUserPassword);
+        assertTrue(userRegistrationPage.doesElementHasExpectedText(emailErrorLocator, "Account with such e-mail address already exists."));
 
     }
 }

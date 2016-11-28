@@ -4,6 +4,7 @@ import com.templatemonster.demo.pages.basePages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.WebDriverRunner.url;
@@ -28,6 +29,8 @@ public class UserRegistrationPage extends BasePage {
     public UserRegistrationPage fillUserRegistrationFormWithAnyCredentials(String login, String password) {
         $(USER_EMAIL_INPUT_LOCATOR).shouldBe(visible).sendKeys(login);
         enterAndReenterPassword(password, password);
+        $(SECURITY_ANSWER_INPUT_LOCATOR).shouldBe(visible).sendKeys("Secret Answer");
+        $(REGISTER_BUTTON_LOCATOR).click();
         return this;
     }
 
