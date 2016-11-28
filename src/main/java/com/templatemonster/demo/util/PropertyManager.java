@@ -4,9 +4,6 @@ import org.testng.log4testng.Logger;
 
 import java.util.Properties;
 
-/**
- * Created by i.gonchar on 28.09.2016.
- */
 public class PropertyManager {
     private static final Logger LOGGER = Logger.getLogger(WaitHelper.class);
     private Properties properties = new Properties();

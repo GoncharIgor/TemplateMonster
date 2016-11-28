@@ -15,10 +15,6 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.*;
 import org.testng.log4testng.Logger;
 
-
-/**
- * Created by i.gonchar on 28.09.2016.
- */
 public class BaseTest {
     protected static final Logger LOGGER = Logger.getLogger(BaseTest.class);
     protected static PropertyManager propertyManager;

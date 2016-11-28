@@ -18,9 +18,6 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-/**
- * Created by i.gonchar on 23.11.2016.
- */
 public class BasePageHeader extends BasePage {
     private By TEMPLATE_SEARCH_FIELD_LOCATOR = By.name("keywords");
     private By CART_COUNT_LOCATOR = By.id("cart-count");
@@ -60,7 +57,7 @@ public class BasePageHeader extends BasePage {
         }
     }
 
-    public LoginPage navigateToLoginPageByClickingAccountButton() {
+    public LoginPage navigateToLoginPage() {
         $(ACCOUNT_HEADER_LOCATOR).click();
         switchToWindow(1);
         return new LoginPage(driver);

@@ -6,9 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 import static com.codeborne.selenide.Selenide.$;
 
-/**
- * Created by i.gonchar on 29.09.2016.
- */
 public class ChatPage extends BasePageHeader {
     private By CHAT_ROOM_HEADER = By.className("header-panel");
 

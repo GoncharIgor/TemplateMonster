@@ -19,6 +19,7 @@ public class LoginPage extends BasePage {
     private By USER_LOGIN_INPUT_LOCATOR = By.id("edtLogin");
     private By USER_PASSWORD_INPUT_LOCATOR = By.id("edtPassword");
     private By LOGIN_ERROR_LABEL_LOCATOR = By.id("edtPassword");
+    private By USER_REGISTER_LINK_TEXT = By.linkText("register here for free");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -59,5 +60,10 @@ public class LoginPage extends BasePage {
         $(USER_PASSWORD_INPUT_LOCATOR).shouldBe(empty);
         $$(By.name("permanent")).get(2).shouldBe(selected);
         return this;
+    }
+
+    public UserRegistrationPage navigateToUserRegistrationPage(){
+        $(USER_REGISTER_LINK_TEXT).click();
+        return new UserRegistrationPage(driver);
     }
 }

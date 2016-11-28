@@ -13,9 +13,6 @@ import java.util.ArrayList;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
-/**
- * Created by i.gonchar on 28.09.2016.
- */
 public class BasePage {
     protected static final Logger LOGGER = Logger.getLogger(WaitHelper.class);
     protected WebDriver driver;

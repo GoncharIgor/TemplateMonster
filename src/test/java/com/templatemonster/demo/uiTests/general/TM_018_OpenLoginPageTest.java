@@ -19,7 +19,7 @@ public class TM_018_OpenLoginPageTest extends TemplateMonsterBaseTest {
     @Test
     public void opensLoginPageByClickingAccountButton() {
         loginPage = openHomePage()
-                .navigateToLoginPageByClickingAccountButton();
+                .navigateToLoginPage();
 
         assertTrue(loginPage.isLoginPageOpened(), "Login page was not opened");
     }

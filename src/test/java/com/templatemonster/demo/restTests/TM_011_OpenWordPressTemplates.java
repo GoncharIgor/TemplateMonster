@@ -9,9 +9,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by i.gonchar on 16.11.2016.
- */
 public class TM_011_OpenWordPressTemplates {
     private HttpManager httpManager = new HttpManager();
     private List<String> listOfTemplates = new ArrayList<>(Arrays.asList("59018", "59019", "59049", "53762"));

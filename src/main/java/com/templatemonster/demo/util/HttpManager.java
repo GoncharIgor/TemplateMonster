@@ -14,9 +14,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by i.gonchar on 23.11.2016.
- */
 public class HttpManager {
     private static final Logger LOGGER = Logger.getLogger(HttpManager.class);
 

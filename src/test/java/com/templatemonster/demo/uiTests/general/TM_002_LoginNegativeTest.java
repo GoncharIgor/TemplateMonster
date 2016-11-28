@@ -22,7 +22,7 @@ public class TM_002_LoginNegativeTest extends TemplateMonsterBaseTest {
 
         //Test steps
         loginPage = openHomePage()
-                .navigateToLoginPageByClickingAccountButton()
+                .navigateToLoginPage()
                 .fillLoginFormWithAnyCredentials(invalidUserLogin, validUserPassword)
                 .clickSubmitButton()
                 .isLoginErrorLabelDisplayed(true);
@@ -38,7 +38,7 @@ public class TM_002_LoginNegativeTest extends TemplateMonsterBaseTest {
 
         //Test steps
         loginPage = openHomePage()
-                .navigateToLoginPageByClickingAccountButton()
+                .navigateToLoginPage()
                 .fillLoginFormWithAnyCredentials(validUserLogin, invalidUserPassword)
                 .clickSubmitButton()
                 .isLoginErrorLabelDisplayed(true);

@@ -8,9 +8,6 @@ import org.openqa.selenium.WebDriver;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * Created by i.gonchar on 27.09.2016.
- */
 public class ScreenShotUtil {
     private WebDriver driver;
 

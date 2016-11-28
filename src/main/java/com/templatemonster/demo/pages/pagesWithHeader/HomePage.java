@@ -1,21 +1,12 @@
 package com.templatemonster.demo.pages.pagesWithHeader;
 
-import com.codeborne.selenide.ex.ElementNotFound;
-import com.templatemonster.demo.pages.LoginPage;
 import com.templatemonster.demo.pages.basePages.BasePageHeader;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Condition.text;
 
-/**
- * Created by i.gonchar on 28.09.2016.
- */
 public class HomePage extends BasePageHeader {
     private By CHAT_IMAGE_LOCATOR = By.cssSelector("img.girl");
     private By CHAT_NAME_INPUT_LOCATOR = By.id("live-chat-consultant-form-fullname");

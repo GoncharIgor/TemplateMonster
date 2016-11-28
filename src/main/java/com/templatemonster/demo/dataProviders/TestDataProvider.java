@@ -2,9 +2,6 @@ package com.templatemonster.demo.dataProviders;
 
 import org.testng.annotations.DataProvider;
 
-/**
- * Created by i.gonchar on 05.10.2016.
- */
 public class TestDataProvider {
 
     @DataProvider(name = "templates_examples")

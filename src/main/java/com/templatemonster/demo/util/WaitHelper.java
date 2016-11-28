@@ -7,9 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by i.gonchar on 28.09.2016.
- */
 public class WaitHelper {
     private static final Logger LOGGER = Logger.getLogger(WaitHelper.class);
 
