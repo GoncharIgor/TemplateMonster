@@ -26,7 +26,7 @@ public class TM_007_ShoppingCartDeleteTemplateTest extends TemplateMonsterBaseTe
         //Precondition
         templateSearchResultPage = openHomePage()
                 .searchForTemplate(templateId)
-                .addToCartWithoutCheckout();
+                .addTemplateToCartWithoutCheckout();
         templateSearchResultPage.checkCartCount(1);
 
         //Test steps

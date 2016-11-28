@@ -25,6 +25,7 @@ public class TemplateSearchResultPage extends BasePageHeader {
     private By PREVIEW_IMAGE_LOCATOR = By.className("js-preview-scr");
     private By TEMPLATE_INFORMATION_TABS_LOCATOR = By.cssSelector("#previewTab li");
     private By CLOSE_MODAL_WINDOW_LOCATOR = By.xpath(".//*[@id='cart-popup']/div/div/div[1]/a");
+    private By SERVICE_LOCATOR = By.cssSelector(".checkbox-list li a");
 
     public TemplateSearchResultPage(WebDriver driver) {
         super(driver);
@@ -45,9 +46,14 @@ public class TemplateSearchResultPage extends BasePageHeader {
         return new CheckoutPage(driver);
     }
 
-    public TemplateSearchResultPage addToCartWithoutCheckout() {
+    public TemplateSearchResultPage addTemplateToCartWithoutCheckout() {
         addToCart();
         $(CLOSE_MODAL_WINDOW_LOCATOR).click();
+        return this;
+    }
+
+    public TemplateSearchResultPage addServiceToTemplate(int serviceNumber){
+        $$(SERVICE_LOCATOR).get(serviceNumber - 1).click();
         return this;
     }
 

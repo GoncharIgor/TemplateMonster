@@ -29,9 +29,9 @@
             <!--<class name="com.templatemonster.demo.uiTests.template.TM_012_TemplateSearchResultTest"/>-->
             <!--<class name="com.templatemonster.demo.uiTests.general.TM_013_CheckThemeTypesTest"/>-->
             <!--<class name="com.templatemonster.demo.uiTests.general.TM_004_ChangeLocalizationTest"/>-->
-            <!--<class name="com.templatemonster.demo.uiTests.shoppingCart.TM_0015_AddServicesToTemplate"/>-->
+            <class name="com.templatemonster.demo.uiTests.shoppingCart.TM_0015_AddServicesToTemplate"/>
             <!--<class name="com.templatemonster.demo.uiTests.general.TM_018_OpenLoginPageTest"/>-->
-            <class name="com.templatemonster.demo.uiTests.general.TM_019_UserRegistrationTest"/>
+            <!--<class name="com.templatemonster.demo.uiTests.general.TM_019_UserRegistrationTest"/>-->
         </classes>
 
     </test>

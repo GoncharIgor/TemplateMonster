@@ -32,17 +32,17 @@ public class TM_006_ShoppingCartMergeTest extends TemplateMonsterBaseTest {
         //Precondition
         templateSearchResultPage = openHomePage()
                 .searchForTemplate(templateId)
-                .addToCartWithoutCheckout();
+                .addTemplateToCartWithoutCheckout();
         templateSearchResultPage.checkCartCount(1);
 
         //Test steps
         templateSearchResultPage.searchForTemplate(templateId2)
-                .addToCartWithoutCheckout();
+                .addTemplateToCartWithoutCheckout();
         templateSearchResultPage.checkCartCount(2);
 
         shoppingCartPage = templateSearchResultPage.navigateToLoginPage()
                 .fillLoginFormWithAnyCredentials(validUserLogin, validUserPassword)
                 .submitLoginForm()
-                .openShoppingCart();
+                .navigateToShoppingCart();
     }
 }

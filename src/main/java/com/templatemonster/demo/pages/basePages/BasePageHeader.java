@@ -49,12 +49,19 @@ public class BasePageHeader extends BasePage {
     }
 
     public void checkCartCount(int expectedCount) {
-        WaitHelper.waitAdditional(1);
+        WaitHelper.waitAdditional(2);
         if (expectedCount == 0) {
             $(CART_COUNT_LOCATOR).shouldHave(text(""));
         } else {
             $(CART_COUNT_LOCATOR).shouldHave(text(String.valueOf(expectedCount)));
         }
+    }
+
+    public int getCartCount( ) {
+        if ($(CART_COUNT_LOCATOR).has(text(""))){
+            return 0;
+        }
+        return Integer.parseInt($(CART_COUNT_LOCATOR).getText());
     }
 
     public LoginPage navigateToLoginPage() {
@@ -63,7 +70,7 @@ public class BasePageHeader extends BasePage {
         return new LoginPage(driver);
     }
 
-    public ShoppingCartPage openShoppingCart() {
+    public ShoppingCartPage navigateToShoppingCart() {
         $(SHOPPING_CART_LOCATOR).click();
         switchToWindow(1);
         return new ShoppingCartPage(driver);
