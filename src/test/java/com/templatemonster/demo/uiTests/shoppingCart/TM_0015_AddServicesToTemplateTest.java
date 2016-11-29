@@ -14,21 +14,26 @@ import org.testng.annotations.Test;
  * Ожидаемый результат:
  * 1. Общая сумма меняется в зависимости от стоимости сервисов
  */
-public class TM_0015_AddServicesToTemplate extends TemplateMonsterBaseTest {
-    private TemplateSearchResultPage templateSearchResultPage;
+public class TM_0015_AddServicesToTemplateTest extends TemplateMonsterBaseTest {
     private ShoppingCartPage shoppingCartPage;
+    private TemplateSearchResultPage templateSearchResultPage;
 
     @Test
-    public void tm_0015_AddServicesToTemplate(){
+    public void tm_0015_AddServicesToTemplate() {
         //Test data
         String templateId = propertyManager.getProperty("environmentalThemeID");
+        int environmentalThemePrice = Integer.parseInt(propertyManager.getProperty("environmentalThemePrice"));
 
         //Test steps
-        shoppingCartPage = openHomePage()
+        templateSearchResultPage = new TemplateSearchResultPage(driver);
+        int servicePrice = openHomePage()
                 .searchForTemplate(templateId)
                 .addServiceToTemplate(2)
-                .addTemplateToCartWithoutCheckout()
-                .navigateToShoppingCart();
+                .getServicePrice("2");
+
+        shoppingCartPage = templateSearchResultPage.addTemplateToCartWithoutCheckout()
+                .navigateToShoppingCart()
+                .checkOrderTotalProce(environmentalThemePrice + servicePrice);
 
     }
 }

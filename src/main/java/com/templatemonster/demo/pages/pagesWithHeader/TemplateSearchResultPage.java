@@ -1,5 +1,6 @@
 package com.templatemonster.demo.pages.pagesWithHeader;
 
+import com.beust.jcommander.converters.IntegerConverter;
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.templatemonster.demo.pages.CheckoutPage;
@@ -26,6 +27,7 @@ public class TemplateSearchResultPage extends BasePageHeader {
     private By TEMPLATE_INFORMATION_TABS_LOCATOR = By.cssSelector("#previewTab li");
     private By CLOSE_MODAL_WINDOW_LOCATOR = By.xpath(".//*[@id='cart-popup']/div/div/div[1]/a");
     private By SERVICE_LOCATOR = By.cssSelector(".checkbox-list li a");
+    private String SERVICE_PRICE_STRING_LOCATOR = ".checkbox-list li:nth-child(3) span";
 
     public TemplateSearchResultPage(WebDriver driver) {
         super(driver);
@@ -52,12 +54,18 @@ public class TemplateSearchResultPage extends BasePageHeader {
         return this;
     }
 
-    public TemplateSearchResultPage addServiceToTemplate(int serviceNumber){
+    public TemplateSearchResultPage addServiceToTemplate(int serviceNumber) {
         $$(SERVICE_LOCATOR).get(serviceNumber - 1).click();
         return this;
     }
 
-    private void addToCart(){
+    public int getServicePrice(String serviceNumber) {
+        String servicePriceLocator = SERVICE_PRICE_STRING_LOCATOR.replace("3", serviceNumber);
+        String res = $(By.cssSelector(servicePriceLocator)).getText().replaceAll("\\D", "");
+        return Integer.parseInt(res);
+    }
+
+    private void addToCart() {
         driver.findElement(ADD_TO_CART_BUTTON_LOCATOR).click();
         driver.switchTo().activeElement();
     }

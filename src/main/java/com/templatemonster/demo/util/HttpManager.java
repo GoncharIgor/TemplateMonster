@@ -17,6 +17,19 @@ import java.util.List;
 public class HttpManager {
     private static final Logger LOGGER = Logger.getLogger(HttpManager.class);
 
+    public int getRequestStatusCode(HttpUriRequest request) {
+        int statusCode = 0;
+        try {
+            HttpResponse response = HttpClientBuilder.create().build().execute(request);
+            statusCode = response.getStatusLine().getStatusCode();
+
+
+        } catch (IOException e) {
+            LOGGER.error("Could not execute Http reauest");
+        }
+        return statusCode;
+    }
+
     private void manageTestMethod () throws IOException {
         HttpPost post = new HttpPost("https://wac.templatemonster.com/signin.html");
 
@@ -38,19 +51,6 @@ public class HttpManager {
         while ((line = br.readLine()) != null) {
             System.out.println(line);
         }
-    }
-
-    public int getRequestStatusCode(HttpUriRequest request) {
-        int statusCode = 0;
-        try {
-            HttpResponse response = HttpClientBuilder.create().build().execute(request);
-            statusCode = response.getStatusLine().getStatusCode();
-
-
-        } catch (IOException e) {
-            LOGGER.error("Could not execute Http reauest");
-        }
-        return statusCode;
     }
 
 }

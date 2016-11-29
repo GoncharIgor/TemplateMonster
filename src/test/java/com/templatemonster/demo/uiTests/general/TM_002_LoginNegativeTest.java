@@ -5,12 +5,18 @@ import com.templatemonster.demo.pages.LoginPage;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
 
 /**
- * Created by i.gonchar on 25.11.2016.
+ * Тестовый сценарий:
+ * 1. Открыть форму Sign in в хедере
+ * 2. Ввести невалидный имейл
+ * 3. Нажать Enter/кнопку Sign in
+ * <p>
+ * Ожидаемый результат:
+ * 1. Пользователь не авторизован
+ * 2. Появляется сообщение об ошибке
  */
+
 public class TM_002_LoginNegativeTest extends TemplateMonsterBaseTest {
     private LoginPage loginPage;
 
@@ -29,6 +35,18 @@ public class TM_002_LoginNegativeTest extends TemplateMonsterBaseTest {
 
         assertEquals(loginPage.getValueOfCookie("wac"), "cookie not found", "'wac' cookie was created");
     }
+
+
+    /**
+     * Тестовый сценарий:
+     * 1. Открыть форму Sign in в хедере
+     * 2. Ввести неправильный пароль
+     * 3. Нажать Enter/кнопку Sign in
+     * <p>
+     * Ожидаемый результат:
+     * 1. Пользователь не авторизован
+     * 2. Появляется сообщение об ошибке
+     */
 
     @Test(groups = {"userLoginTests"})
     public void userCannotLoginWithInvalidPassword() {
