@@ -69,6 +69,11 @@
             <artifactId>webdrivermanager</artifactId>
             <version>1.5.0</version>
         </dependency>
+        <dependency> <!--Excell manager-->
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.15</version>
+        </dependency>
 
         <dependency> <!--for reporting -->
             <groupId>velocity</groupId>
