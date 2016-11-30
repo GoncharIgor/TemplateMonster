@@ -1,8 +1,10 @@
 package com.templatemonster.demo.uiTests.shoppingCart;
 
 import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
+import com.templatemonster.demo.pages.pagesWithHeader.HomePage;
 import com.templatemonster.demo.pages.pagesWithHeader.ShoppingCartPage;
 import com.templatemonster.demo.pages.pagesWithHeader.TemplateSearchResultPage;
+import com.templatemonster.demo.util.WaitHelper;
 import org.testng.annotations.Test;
 
 /**
@@ -19,6 +21,7 @@ import org.testng.annotations.Test;
  */
 public class TM_006_ShoppingCartMergeTest extends TemplateMonsterBaseTest {
     private TemplateSearchResultPage templateSearchResultPage;
+    private HomePage homePage;
     private ShoppingCartPage shoppingCartPage;
 
     @Test
@@ -40,9 +43,16 @@ public class TM_006_ShoppingCartMergeTest extends TemplateMonsterBaseTest {
                 .addTemplateToCartWithoutCheckout();
         templateSearchResultPage.checkCartCount(2);
 
-        shoppingCartPage = templateSearchResultPage.navigateToLoginPage()
+        homePage = templateSearchResultPage.navigateToLoginPage()
                 .fillLoginFormWithAnyCredentials(validUserLogin, validUserPassword)
-                .submitLoginForm()
-                .navigateToShoppingCart();
+                .submitLoginForm();
+
+        homePage.checkCartCount(2);
+
+        //After steps
+        shoppingCartPage = homePage.navigateToShoppingCart()
+                .deleteAllTemplatesFromCart();
+
+        WaitHelper.waitAdditional(5000);
     }
 }

@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+//.xls files are maneged
 public class ExcelUtils {
     private HSSFWorkbook excelWBook;
     private HSSFSheet excelWSheet;

@@ -33,7 +33,7 @@ public class TM_0015_AddServicesToTemplateTest extends TemplateMonsterBaseTest {
 
         shoppingCartPage = templateSearchResultPage.addTemplateToCartWithoutCheckout()
                 .navigateToShoppingCart()
-                .checkOrderTotalProce(environmentalThemePrice + servicePrice);
+                .checkOrderTotalPrice(environmentalThemePrice + servicePrice);
 
     }
 }

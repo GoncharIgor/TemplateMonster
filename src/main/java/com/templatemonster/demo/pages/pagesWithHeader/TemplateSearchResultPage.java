@@ -50,6 +50,7 @@ public class TemplateSearchResultPage extends BasePageHeader {
 
     public TemplateSearchResultPage addTemplateToCartWithoutCheckout() {
         addToCart();
+        WaitHelper.waitAdditional(3);
         $(CLOSE_MODAL_WINDOW_LOCATOR).click();
         return this;
     }
