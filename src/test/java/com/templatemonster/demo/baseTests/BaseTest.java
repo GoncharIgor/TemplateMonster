@@ -1,6 +1,7 @@
 package com.templatemonster.demo.baseTests;
 
 import com.codeborne.selenide.WebDriverRunner;
+import com.templatemonster.demo.util.FileUtils;
 import com.templatemonster.demo.util.PropertyManager;
 import com.templatemonster.demo.util.WaitHelper;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
@@ -19,11 +20,13 @@ public class BaseTest {
     protected static final Logger LOGGER = Logger.getLogger(BaseTest.class);
     protected static PropertyManager propertyManager;
     protected WebDriver driver;
+    protected FileUtils fileUtils;
 
     @BeforeTest
     public void generateProperties() {
         propertyManager = new PropertyManager();
         propertyManager.generateProperty();
+        fileUtils = new FileUtils();
     }
 
     @Parameters({"browser", "environment"})

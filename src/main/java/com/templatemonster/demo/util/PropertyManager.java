@@ -4,8 +4,7 @@ import org.testng.log4testng.Logger;
 
 import java.util.Properties;
 
-public class PropertyManager {
-    private static final Logger LOGGER = Logger.getLogger(WaitHelper.class);
+public class PropertyManager extends BaseUtils{
     private Properties properties = new Properties();
 
     public void generateProperty() {

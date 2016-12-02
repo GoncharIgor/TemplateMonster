@@ -14,8 +14,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HttpManager {
-    private static final Logger LOGGER = Logger.getLogger(HttpManager.class);
+public class HttpManager extends BaseUtils{
 
     public int getRequestStatusCode(HttpUriRequest request) {
         int statusCode = 0;

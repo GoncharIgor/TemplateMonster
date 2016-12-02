@@ -7,8 +7,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-public class WaitHelper {
-    private static final Logger LOGGER = Logger.getLogger(WaitHelper.class);
+public class WaitHelper extends BaseUtils{
+
 
     public static void setImplicitWaitDefault(WebDriver driver) {
         int implicit = 15;

@@ -49,6 +49,7 @@ public class TM_006_ShoppingCartMergeTest extends TemplateMonsterBaseTest {
 
         homePage.checkCartCount(2);
 
+        //TODO check and debug
         //After steps
         shoppingCartPage = homePage.navigateToShoppingCart()
                 .deleteAllTemplatesFromCart();

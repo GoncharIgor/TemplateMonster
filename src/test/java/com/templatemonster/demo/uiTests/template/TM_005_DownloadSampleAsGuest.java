@@ -57,5 +57,8 @@ public class TM_005_DownloadSampleAsGuest extends TemplateMonsterBaseTest {
         homePage = openHomePage();
         assertTrue(homePage.isUserLoggedIn(), "User is logged into the system");
         assertEquals(homePage.getValueOfCookie("wac"), "1", "'wac' cookie value is not correct");
+
+        //After steps
+        fileUtils.writeTextToTxtFile("./src/test/resources/history/allRandomEmailsThatWereRegistered.txt", generatedUniqueEmail);
     }
 }
