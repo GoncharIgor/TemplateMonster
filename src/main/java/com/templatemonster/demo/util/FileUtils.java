@@ -75,11 +75,4 @@ public class FileUtils extends BaseUtils {
             }
         }
     }
-
-    public static void main(String[] args) throws IOException {
-        FileUtils fileUtils = new FileUtils();
-        fileUtils.writeTextToTxtFile("./src/test/resources/history/allRandomEmailsThatWereRegistered.txt", "11111111");
-        String a = fileUtils.getTextFromTxtFile("./src/test/resources/history/allRandomEmailsThatWereRegistered.txt");
-        System.out.println(a);
-    }
 }
