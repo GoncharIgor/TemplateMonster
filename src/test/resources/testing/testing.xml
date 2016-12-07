@@ -13,24 +13,24 @@
          </groups>-->
 
         <classes>
-            <class name="com.templatemonster.demo.uiTests.general.TM_001_LoginPositiveTest"/>
-            <class name="com.templatemonster.demo.uiTests.general.TM_002_LoginNegativeTest"/>
+            <!--<class name="com.templatemonster.demo.uiTests.general.TM_001_LoginPositiveTest"/>-->
+            <!--<class name="com.templatemonster.demo.uiTests.general.TM_002_LoginNegativeTest"/>
             <class name="com.templatemonster.demo.uiTests.general.TM_003_LogoutTest"/>
             <class name="com.templatemonster.demo.uiTests.general.TM_004_ChangeLocalizationTest"/>
             <class name="com.templatemonster.demo.uiTests.template.TM_005_DownloadSampleAsGuest"/>
             <class name="com.templatemonster.demo.uiTests.shoppingCart.TM_006_ShoppingCartMergeTest"/>
             <class name="com.templatemonster.demo.uiTests.shoppingCart.TM_007_ShoppingCartDeleteTemplateTest"/>
             <class name="com.templatemonster.demo.uiTests.TM_008_ChatTest"/>
-            <class name="com.templatemonster.demo.uiTests.TM_009_PageScrollTest"/>
-            <class name="com.templatemonster.demo.uiTests.TM_010_InvalidEmailCheckoutTest"/>
-            <class name="com.templatemonster.demo.restTests.TM_011_OpenWordPressTemplates"/>
+            <class name="com.templatemonster.demo.uiTests.TM_009_PageScrollTest"/>-->
+            <!--<class name="com.templatemonster.demo.uiTests.TM_010_InvalidEmailCheckoutTest"/>-->
+            <!--<class name="com.templatemonster.demo.restTests.TM_011_OpenWordPressTemplates"/>
             <class name="com.templatemonster.demo.uiTests.template.TM_012_TemplateSearchResultTest"/>
             <class name="com.templatemonster.demo.uiTests.general.TM_013_CheckThemeTypesTest"/>
             <class name="com.templatemonster.demo.uiTests.template.TM_014_BuyTemplateWithCardTest"/>
             <class name="com.templatemonster.demo.uiTests.shoppingCart.TM_0015_AddServicesToTemplateTest"/>
             <class name="com.templatemonster.demo.uiTests.template.TM_016_SearchTemplateTest"/>
             <class name="com.templatemonster.demo.uiTests.template.TM_017_BuyTemplateWithPayPalTest"/>
-            <class name="com.templatemonster.demo.uiTests.general.TM_018_OpenLoginPageTest"/>
+            <class name="com.templatemonster.demo.uiTests.general.TM_018_OpenLoginPageTest"/>-->
             <class name="com.templatemonster.demo.uiTests.general.TM_019_UserRegistrationTest"/>
         </classes>
 

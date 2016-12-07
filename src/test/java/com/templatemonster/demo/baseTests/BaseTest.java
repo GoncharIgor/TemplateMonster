@@ -11,6 +11,7 @@ import org.apache.commons.lang.WordUtils;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.*;
@@ -56,7 +57,9 @@ public class BaseTest {
                 driver = new FirefoxDriver();
             } else if (browser.equalsIgnoreCase("chrome")) {
                 ChromeDriverManager.getInstance().setup();
-                driver = new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--lang=en");
+                driver = new ChromeDriver(options);
             } else if (browser.equalsIgnoreCase("ie")) {
                 InternetExplorerDriverManager.getInstance().setup();
                 driver = new InternetExplorerDriver();

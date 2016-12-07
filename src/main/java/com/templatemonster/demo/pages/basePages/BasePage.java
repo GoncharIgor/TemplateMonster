@@ -55,6 +55,11 @@ public class BasePage {
         return result;
     }
 
+    public void setCookie(String name, String value) {
+        Cookie cookie = new Cookie(name, value);
+        driver.manage().addCookie(cookie);
+    }
+
     public boolean isImageLoaded(By imageLocator) {
         boolean isImagePresent = (Boolean) javaScriptExecutor.executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", $(imageLocator));
         return true;
@@ -85,7 +90,7 @@ public class BasePage {
         }
     }
 
-    public boolean doesElementHasExpectedText (By locator, String expectedTest){
+    public boolean doesElementHasExpectedText(By locator, String expectedTest) {
         return $(locator).has(text(expectedTest));
     }
 }

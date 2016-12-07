@@ -32,9 +32,7 @@ public class TM_019_UserRegistrationTest extends TemplateMonsterBaseTest {
         By emailErrorLocator = By.id("emailErrors");
 
         //Test steps
-        userRegistrationPage = openHomePage()
-                .navigateToLoginPage()
-                .navigateToUserRegistrationPage();
+        userRegistrationPage = openUserRegistrationPage();
         assertTrue(userRegistrationPage.doesElementHasExpectedText(emailErrorLocator, ""));
 
         userRegistrationPage.fillUserRegistrationFormWithAnyCredentials(validUserLogin, validUserPassword);
