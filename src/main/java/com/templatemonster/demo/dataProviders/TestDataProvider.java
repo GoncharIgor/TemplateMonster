@@ -9,6 +9,7 @@ import java.util.List;
 
 public class TestDataProvider {
     public static final String TM_001_LOGIN_POSITIVE_TEST = "tm_001_login_positive_test";
+    public static final String TM_002_LOGIN_NEGATIVE_TEST = "tm_002_login_negative_test";
     public static final String TM_010_INVALID_EMAIL_CHECKOUT_TEST = "tm_010_invalid_email_checkout_test";
 
     @DataProvider(name = "templates_examples")
@@ -25,6 +26,13 @@ public class TestDataProvider {
         List<String> tm_001_testData = excelUtils.getDataFromOneRowInExcelFile(1);
 
         return new Object[][]{{tm_001_testData}};
+    }
+
+    @DataProvider(name = TM_002_LOGIN_NEGATIVE_TEST)
+    private static Object[][] tm_002_login_negative_test() {
+        ExcelUtils excelUtils = new ExcelUtils("./src/test/resources/testData/general.xls");
+        List<String> tm_002_testData = excelUtils.getDataFromOneRowInExcelFile(2);
+        return new Object[][]{{tm_002_testData}};
     }
 
     @DataProvider(name = TM_010_INVALID_EMAIL_CHECKOUT_TEST)

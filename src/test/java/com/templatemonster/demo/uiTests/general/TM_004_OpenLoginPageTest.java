@@ -13,7 +13,7 @@ import static org.testng.Assert.assertTrue;
  * Ожидаемый результат:
  * 1. Открывается страница с логин формой
  */
-public class TM_018_OpenLoginPageTest extends TemplateMonsterBaseTest {
+public class TM_004_OpenLoginPageTest extends TemplateMonsterBaseTest {
     private LoginPage loginPage;
 
     @Test
