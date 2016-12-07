@@ -5,12 +5,12 @@ import com.templatemonster.demo.pages.pagesWithHeader.HomePage;
 import org.testng.annotations.Test;
 
 /**
- * Тестовый сценарий:
- * Предусловие: выбрана английская локализация
- * 1. Поменять локализацию на Русскую
+ * Test case:
+ * Precondition: 'En' localization is selected
+ * 1. Change localization to 'Ru'
  * <p>
- * Ожидаемый результат:
- * 1. Все ключевые элементы сайта переведены на русский язык
+ * Expected result:
+ * 1. All major web-site elements are translated to Russian language
  */
 public class TM_018_ChangeLocalizationTest extends TemplateMonsterBaseTest {
     private HomePage homePage;

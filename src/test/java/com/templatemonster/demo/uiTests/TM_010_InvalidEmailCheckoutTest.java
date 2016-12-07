@@ -11,11 +11,11 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 /**
- * Тестовый сценарий:
+ * Test case:
  * 1. Добавить в корзину платный шаблон и перейти на чекаут
- * 2. Ввести невалидный email (мин. 10 вариантов)
+ * 2. Enter invalid email (min. 10 variants)
  * <p>
- * Ожидаемый результат:
+ * Expected result:
  * Появляется сообщение о ошибке “Please specify a valid email”
  */
 public class TM_010_InvalidEmailCheckoutTest extends TemplateMonsterBaseTest {

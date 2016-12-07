@@ -10,12 +10,12 @@ import java.util.List;
 import static org.testng.Assert.assertEquals;
 
 /**
- * Тестовый сценарий:
+ * Test case:
  * 1. Открыть форму Sign in в хедере
  * 2. Ввести невалидный имейл
  * 3. Нажать Enter/кнопку Sign in
  * <p>
- * Ожидаемый результат:
+ * Expected result:
  * 1. Пользователь не авторизован
  * 2. Появляется сообщение об ошибке
  */
@@ -35,12 +35,12 @@ public class TM_002_LoginNegativeTest extends TemplateMonsterBaseTest {
 
 
     /**
-     * Тестовый сценарий:
+     * Test case:
      * 1. Открыть форму Sign in в хедере
      * 2. Ввести неправильный пароль
      * 3. Нажать Enter/кнопку Sign in
      * <p>
-     * Ожидаемый результат:
+     * Expected result:
      * 1. Пользователь не авторизован
      * 2. Появляется сообщение об ошибке
      */
@@ -56,12 +56,12 @@ public class TM_002_LoginNegativeTest extends TemplateMonsterBaseTest {
     }
 
     /**
-     * Тестовый сценарий:
+     * Test case:
      * 1. Открыть форму Sign in в хедере
      * 2. Ввести неправильный имейл и пароль
      * 3. Нажать Enter/кнопку Sign in
      * <p>
-     * Ожидаемый результат:
+     * Expected result:
      * 1. Пользователь не авторизован
      * 2. Появляется сообщение об ошибке
      */

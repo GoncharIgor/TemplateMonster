@@ -6,12 +6,12 @@ import com.templatemonster.demo.pages.pagesWithHeader.TemplateSearchResultPage;
 import org.testng.annotations.Test;
 
 /**
- * Тестовый сценарий:
- * Предусловие: корзина пустая
+ * Test case:
+ * Precondition: Chart is empty
  * 1. Незалогиненным пользователем добавить шаблон в корзину
  * 2. Добавить 2 разных сервиса
  * <p>
- * Ожидаемый результат:
+ * Expected result:
  * 1. Общая сумма меняется в зависимости от стоимости сервисов
  */
 public class TM_0015_AddServicesToTemplateTest extends TemplateMonsterBaseTest {

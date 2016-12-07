@@ -10,14 +10,14 @@ import java.util.List;
 import static org.testng.Assert.*;
 
 /**
- * Тестовый сценарий:
- * 1. Открыть форму Sign in в хедере
- * 2. Заполнить поля формы данными существующего пользователя
- * 3. Нажать Enter/кнопку Sign in
+ * Test case:
+ * 1. Open 'Sign in' form header
+ * 2. Fill 'Sign in' form with existing user data
+ * 3. Click Enter/[Sign in] button
  * <p>
- * Ожидаемый результат:
- * 1. Пользователь успешно авторизован
- * 2. Установлена кука wac (значение =1)
+ * Expected result:
+ * 1. User is successfully authorized
+ * 2. Cookie 'wac' is set with value =1
  */
 
 public class TM_001_LoginPositiveTest extends TemplateMonsterBaseTest {

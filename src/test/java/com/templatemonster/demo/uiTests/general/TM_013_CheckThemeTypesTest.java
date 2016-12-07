@@ -5,11 +5,11 @@ import com.templatemonster.demo.pages.pagesWithHeader.MultiThemesPage;
 import org.testng.annotations.Test;
 
 /**
- * Тестовый сценарий:
+ * Test case:
  * 1. Открыть стартовую страницу
  * 2. Открыть по очереди список шаблонов по видам в навигационном меню
  * <p>
- * Ожидаемый результат:
+ * Expected result:
  * 1. Открываются шаблоны по видам. Название вида отображается в левом хедере
  */
 

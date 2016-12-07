@@ -9,12 +9,12 @@ import static org.testng.Assert.assertTrue;
 import org.testng.annotations.Test;
 
 /**
- * Тестовый сценарий:
+ * Test case:
  * 1. Зайти на проект (индексная страница)
  * 2. Заполнить корректными значениями поля чата Your Name и Email Address
  * 3. Нажать Enter/кнопку Start Chat
  * <p>
- * Ожидаемый результат:
+ * Expected result:
  * 1. Успешное подключение к чату (открылся попап http://chat.template-help.com/chat.jsp и произошел коннект (комната Pre-sales Chat))
  */
 public class TM_008_ChatTest extends TemplateMonsterBaseTest {

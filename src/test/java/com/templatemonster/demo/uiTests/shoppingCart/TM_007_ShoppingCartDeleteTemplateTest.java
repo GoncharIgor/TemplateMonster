@@ -5,13 +5,13 @@ import com.templatemonster.demo.pages.pagesWithHeader.TemplateSearchResultPage;
 import org.testng.annotations.Test;
 
 /**
- * Тестовый сценарий:
- * Предусловие: в корзине пользователя хранятся продукты
+ * Test case:
+ * Precondition: Chart has some products
  * 1. Незалогиненным пользователем положить в корзину продукты
  * 2. Авторизоваться на степе 1 чекаута
  * 3. Перейти на страницу шоппинг карты и удалить некоторые продукты из корзины (нажать крестик возле выбранного продукта)
  * <p>
- * Ожидаемый результат:
+ * Expected result:
  * 1. В блоке Cart Summary удаляются соответствующие продукты
  * 2. Subtotal: и Order Total: пересчитываются с вычетом стоимости удалённых продуктов
  */

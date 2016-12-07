@@ -8,11 +8,11 @@ import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 /**
- * Тестовый сценарий:
+ * Test case:
  * Предусловие: юзер залогинен в систему
  * 1. Юзер жмет на аватар аккаунта > Sign out
  * <p>
- * Ожидаемый результат:
+ * Expected result:
  * 1. Пользователь вылогинен из системы
  */
 

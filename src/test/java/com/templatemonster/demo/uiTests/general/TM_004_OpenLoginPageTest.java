@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertTrue;
 
 /**
- * Тестовый сценарий:
- * 1. Открыть форму Sign in в хедере
+ * Test case:
+ * 1. Open 'Sign in' form header
  * <p>
- * Ожидаемый результат:
- * 1. Открывается страница с логин формой
+ * Expected result:
+ * 1. Page with login form is opened
  */
 public class TM_004_OpenLoginPageTest extends TemplateMonsterBaseTest {
     private LoginPage loginPage;
