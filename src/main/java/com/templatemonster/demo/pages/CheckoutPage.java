@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
+import java.util.List;
+
 import static com.codeborne.selenide.Selenide.$;
 
 /**
@@ -72,7 +74,7 @@ public class CheckoutPage extends BasePage {
         return this;
     }
 
-    public boolean addInvalidEmailsToCheckout(String... invalidEmails) {
+    public boolean addInvalidEmailsToCheckout(List<String> invalidEmails) {
         int alertNotificationsAmount = 0;
         for (String email : invalidEmails) {
             addInvalidEmailToCheckout(email);
@@ -80,7 +82,7 @@ public class CheckoutPage extends BasePage {
                 alertNotificationsAmount++;
             }
         }
-        return alertNotificationsAmount == invalidEmails.length;
+        return alertNotificationsAmount == invalidEmails.size();
     }
 
     private void addInvalidEmailToCheckout(String email) {
