@@ -13,6 +13,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.*;
 import org.testng.log4testng.Logger;
@@ -54,7 +55,9 @@ public class BaseTest {
         if (browser != null) {
             if (browser.equalsIgnoreCase("firefox")) {
                 FirefoxDriverManager.getInstance().setup();
-                driver = new FirefoxDriver();
+                FirefoxProfile profile = new FirefoxProfile();
+                profile.setPreference( "intl.accept_languages", "en" );
+                driver = new FirefoxDriver(profile);
             } else if (browser.equalsIgnoreCase("chrome")) {
                 ChromeDriverManager.getInstance().setup();
                 ChromeOptions options = new ChromeOptions();
