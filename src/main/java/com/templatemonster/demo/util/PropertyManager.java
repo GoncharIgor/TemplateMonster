@@ -1,7 +1,5 @@
 package com.templatemonster.demo.util;
 
-import org.testng.log4testng.Logger;
-
 import java.util.Properties;
 
 public class PropertyManager extends BaseUtils{
