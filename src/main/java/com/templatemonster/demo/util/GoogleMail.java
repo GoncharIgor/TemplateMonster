@@ -49,10 +49,9 @@ public class GoogleMail extends BaseUtils {
 
         // -- Set message body --
         msg.setSubject(title);
-        msg.setText(message, "utf-8");
-        if (attachmentPath.length() > 0) {
-            msg = attachFile(attachmentPath, msg);
-        }
+       // msg.setText(message, "utf-8");
+        msg = attachFile(attachmentPath, message, msg);
+
         msg.setSentDate(new Date());
 
         // -- Send message --
@@ -63,15 +62,20 @@ public class GoogleMail extends BaseUtils {
         t.close();
     }
 
-    public MimeMessage attachFile(String path, MimeMessage message) {
+    public MimeMessage attachFile(String path, String messageText, MimeMessage message) {
         Multipart multipart = new MimeMultipart();
         MimeBodyPart messageBodyPart = new MimeBodyPart();
         File file = new File(path);
         try {
-            DataSource source = new FileDataSource(path);
-            messageBodyPart.setDataHandler(new DataHandler(source));
-            messageBodyPart.setFileName(file.getName());
+            messageBodyPart.setText(messageText);
             multipart.addBodyPart(messageBodyPart);
+            if (path.length() > 0) {
+                messageBodyPart = new MimeBodyPart();
+                DataSource source = new FileDataSource(path);
+                messageBodyPart.setDataHandler(new DataHandler(source));
+                messageBodyPart.setFileName(file.getName());
+                multipart.addBodyPart(messageBodyPart);
+            }
             message.setContent(multipart);
         } catch (MessagingException e) {
             LOGGER.error("Attachment was not set to the message body");
