@@ -6,17 +6,11 @@
     <test name="SystemTest" parallel="false" preserve-order="true">
         <parameter name="browser" value="firefox"/>
 
-        <!-- <groups>
-             <run>
-                 <include name="userLoginTests"/>
-             </run>
-         </groups>-->
-
         <classes>
-            <!--<class name="com.templatemonster.demo.uiTests.general.TM_001_LoginPositiveTest"/>-->
-            <!--<class name="com.templatemonster.demo.uiTests.general.TM_002_LoginNegativeTest"/>-->
-            <!--<class name="com.templatemonster.demo.uiTests.general.TM_003_LogoutTest"/>
-            <class name="com.templatemonster.demo.uiTests.general.TM_018_ChangeLocalizationTest"/>
+            <class name="com.templatemonster.demo.uiTests.general.TM_001_LoginPositiveTest"/>
+            <class name="com.templatemonster.demo.uiTests.general.TM_002_LoginNegativeTest"/>
+            <class name="com.templatemonster.demo.uiTests.general.TM_003_LogoutTest"/>
+            <!--<class name="com.templatemonster.demo.uiTests.general.TM_018_ChangeLocalizationTest"/>
             <class name="com.templatemonster.demo.uiTests.template.TM_005_DownloadSampleAsGuest"/>
             <class name="com.templatemonster.demo.uiTests.shoppingCart.TM_006_ShoppingCartMergeTest"/>
             <class name="com.templatemonster.demo.uiTests.shoppingCart.TM_007_ShoppingCartDeleteTemplateTest"/>-->
@@ -31,7 +25,7 @@
             <class name="com.templatemonster.demo.uiTests.template.TM_016_SearchTemplateTest"/>
             <class name="com.templatemonster.demo.uiTests.template.TM_017_BuyTemplateWithPayPalTest"/>
             <class name="com.templatemonster.demo.uiTests.general.TM_004_OpenLoginPageTest"/>-->
-            <class name="com.templatemonster.demo.uiTests.general.TM_019_UserRegistrationTest"/>
+            <!--<class name="com.templatemonster.demo.uiTests.general.TM_019_UserRegistrationTest"/>-->
         </classes>
 
     </test>

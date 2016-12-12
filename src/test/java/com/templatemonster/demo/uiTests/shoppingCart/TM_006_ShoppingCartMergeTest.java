@@ -54,6 +54,6 @@ public class TM_006_ShoppingCartMergeTest extends TemplateMonsterBaseTest {
         shoppingCartPage = homePage.navigateToShoppingCart()
                 .deleteAllTemplatesFromCart();
 
-        WaitHelper.waitAdditional(5000);
+        WaitHelper.waitAdditional(5);
     }
 }
