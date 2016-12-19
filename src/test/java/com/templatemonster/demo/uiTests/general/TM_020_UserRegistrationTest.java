@@ -11,7 +11,7 @@ import static org.testng.Assert.assertTrue;
 /**
  * Created by i.gonchar on 28.11.2016.
  */
-public class TM_019_UserRegistrationTest extends TemplateMonsterBaseTest {
+public class TM_020_UserRegistrationTest extends TemplateMonsterBaseTest {
     private UserRegistrationPage userRegistrationPage;
 
     @Test(groups = {"userLoginTests"})

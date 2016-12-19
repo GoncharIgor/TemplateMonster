@@ -16,15 +16,17 @@ import java.util.List;
  * Expected result:
  * 1. All major web-site elements are translated to Russian language
  */
-public class TM_018_ChangeLocalizationTest extends TemplateMonsterBaseTest {
-    private BasePageHeader basePageHeader;
+public class TM_019_ChangeLocalizationTest extends TemplateMonsterBaseTest {
+    private HomePage homePage;
 
     @Test(dataProviderClass = TestDataProvider.class, dataProvider = TestDataProvider.TM_018_CHANGE_LOCALIZATION_TEST)
     public void userChangesLocalizationToRu(List<String> testData) {
 
-        basePageHeader = openHomePage()
-                .checkLocalizationSelected(testData.get(0))
-                .changeLocalization(testData.get(2))
-                .checkLocalizationSelected(testData.get(2));
+        homePage = openHomePage();
+        for (int i = 1; i < testData.size(); i++) {
+            homePage.changeLocalization(testData.get(i))
+                    .checkLocalizationSelected(testData.get(i));
+        }
+
     }
 }

@@ -16,6 +16,7 @@ public class HomePage extends BasePageHeader {
     private By CHAT_PASSWORD_INPUT_LOCATOR = By.id("live-chat-consultant-form-email");
     private By START_CHAT_BUTTON_LOCATOR = By.xpath("//button[contains(.,'Start Chat')]");
     private By LOCALIZATION_COUNTRY_CODE_LOCATOR = By.cssSelector(".user-menu-element.language-pick.user-menu-dropdown span");
+    private By USER_ACCOUNT_LOCATOR = By.cssSelector("#header-signin-link .menu-element-text");
 
     private static final Map<String, String> LOCALIZATION_MAP = new HashMap<>();
 
@@ -54,6 +55,7 @@ public class HomePage extends BasePageHeader {
 
     public HomePage checkLocalizationSelected(String countryCode) {
         $(LOCALIZATION_COUNTRY_CODE_LOCATOR).shouldHave(text(countryCode));
+        $(USER_ACCOUNT_LOCATOR).shouldHave(text(LOCALIZATION_MAP.get(countryCode)));
         return this;
     }
 
