@@ -5,7 +5,11 @@ import com.templatemonster.demo.pages.pagesWithHeader.HomePage;
 import org.testng.annotations.Test;
 
 /**
- * Created by i.gonchar on 19.12.2016.
+ * Test case:
+ * 1. Open index page
+ * <p>
+ * Expected result:
+ * 1. US localization is selected by default
  */
 public class TM_018_CheckDefaultLocalization extends TemplateMonsterBaseTest {
     private HomePage homePage;
