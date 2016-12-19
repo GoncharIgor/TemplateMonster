@@ -1,8 +1,12 @@
 package com.templatemonster.demo.uiTests.general;
 
 import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
+import com.templatemonster.demo.dataProviders.TestDataProvider;
+import com.templatemonster.demo.pages.basePages.BasePageHeader;
 import com.templatemonster.demo.pages.pagesWithHeader.HomePage;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 /**
  * Test case:
@@ -13,14 +17,14 @@ import org.testng.annotations.Test;
  * 1. All major web-site elements are translated to Russian language
  */
 public class TM_018_ChangeLocalizationTest extends TemplateMonsterBaseTest {
-    private HomePage homePage;
+    private BasePageHeader basePageHeader;
 
-    @Test
-    public void userChangesLocalizationToRu() {
+    @Test(dataProviderClass = TestDataProvider.class, dataProvider = TestDataProvider.TM_018_CHANGE_LOCALIZATION_TEST)
+    public void userChangesLocalizationToRu(List<String> testData) {
 
-        homePage = openHomePage()
-                .checkLocalizationSelected("US")
-                .changeLocalization("RU")
-                .checkLocalizationSelected("RU");
+        basePageHeader = openHomePage()
+                .checkLocalizationSelected(testData.get(0))
+                .changeLocalization(testData.get(2))
+                .checkLocalizationSelected(testData.get(2));
     }
 }

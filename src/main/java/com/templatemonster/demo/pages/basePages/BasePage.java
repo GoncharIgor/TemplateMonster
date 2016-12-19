@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class BasePage {
+public abstract class BasePage {
     protected static final Logger LOGGER = Logger.getLogger(WaitHelper.class);
     protected WebDriver driver;
     protected JavascriptExecutor javaScriptExecutor;
