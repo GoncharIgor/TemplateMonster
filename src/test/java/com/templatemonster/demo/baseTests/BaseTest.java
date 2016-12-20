@@ -1,16 +1,13 @@
 package com.templatemonster.demo.baseTests;
 
-import com.templatemonster.demo.util.FileUtils;
-import com.templatemonster.demo.util.PropertyManager;
-import com.templatemonster.demo.util.WaitHelper;
-import com.templatemonster.demo.util.WebDriverManager;
+import com.templatemonster.demo.util.*;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-import org.testng.log4testng.Logger;
+import org.apache.logging.log4j.Logger;
 
 public class BaseTest {
-    protected static final Logger LOGGER = Logger.getLogger(BaseTest.class);
+    protected static final Logger LOGGER = LoggerUtil.createLogger();
     protected static PropertyManager propertyManager;
     protected WebDriver driver;
     protected FileUtils fileUtils;
@@ -37,7 +34,7 @@ public class BaseTest {
             try {
                 driver.quit();
             } catch (Exception e) {
-                LOGGER.info("Failed to close browser. Error message:" + e.getMessage());
+                LOGGER.error("Failed to close browser. Error message:" + e.getMessage());
             }
         }
     }
