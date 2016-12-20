@@ -13,6 +13,7 @@ public class TestDataProvider {
 
     @DataProvider(name = "templates_examples")
     public static Object[][] getTemplateExamples() {
+
         return new Object[][]{
                 {"53590"},
                 {"53088"}
@@ -31,6 +32,7 @@ public class TestDataProvider {
     private static Object[][] tm_002_login_negative_test() {
         ExcelUtils excelUtils = new ExcelUtils("./src/test/resources/testData/general.xls");
         List<String> tm_002_testData = excelUtils.getDataFromOneRowInExcelFile(2);
+
         return new Object[][]{{tm_002_testData}};
     }
 
@@ -54,6 +56,7 @@ public class TestDataProvider {
     private static Object[][] tm_018_change_localization_test() {
         List<String> localizationsList = new ArrayList<>(Arrays.asList("US", "ES", "RU", "DE", "PL", "IT", "TR", "FR", "BR", "NL", "CN", "CZ", "UA", "HU"));
         Map<String, String> lozalizationMap = new HashMap<>();
+
         return new Object[][]{{localizationsList}};
     }
 }

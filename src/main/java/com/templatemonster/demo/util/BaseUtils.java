@@ -1,8 +1,7 @@
 package com.templatemonster.demo.util;
 
+import org.apache.logging.log4j.Logger;
 
-import org.apache.log4j.Logger;
-
-public class BaseUtils {
-    protected static final Logger LOGGER = Logger.getLogger(WaitHelper.class);
+public abstract class BaseUtils {
+    protected static final Logger LOGGER = LoggerUtil.createLogger();
 }

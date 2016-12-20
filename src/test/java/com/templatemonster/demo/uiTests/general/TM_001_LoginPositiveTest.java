@@ -29,6 +29,7 @@ public class TM_001_LoginPositiveTest extends TemplateMonsterBaseTest {
                 .navigateToLoginPage()
                 .fillLoginFormWithAnyCredentials(testData.get(0), testData.get(1))
                 .submitLoginForm();
+
         assertTrue(homePage.isUserLoggedIn(), "User is not logged into the system");
         assertEquals(homePage.getValueOfCookie("wac"), "1", "'wac' cookie value is not correct");
     }

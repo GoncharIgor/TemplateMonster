@@ -4,18 +4,18 @@
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout pattern="[%-5level] %d{yyyyMMdd-HHmmss} [%t] %M- %msg%n"/>
         </Console>
+
+        <RollingFile name="rollingfile" fileName=".\target\log.log" filePattern=".\target\log-%d{yyyyMMddHHss}.log">
+            <PatternLayout>
+                <pattern>[%-5level] %d{yyyyMMdd-HHmmss} [%t] %M- %msg%n
+                </pattern>
+            </PatternLayout>
+            <Policies>
+                <OnStartupTriggeringPolicy/>
+            </Policies>
+
+        </RollingFile>
     </Appenders>
-
-    <RollingFile name="rollingfile" fileName=".\log.log" filePattern=".\log-%d{yyyyMMddHHss}.log">
-        <PatternLayout>
-            <pattern>[%-5level] %d{yyyyMMdd-HHmmss} [%t] %M- %msg%n
-            </pattern>
-        </PatternLayout>
-        <Policies>
-            <OnStartupTriggeringPolicy/>
-        </Policies>
-
-    </RollingFile>
 
     <Loggers>
         <Root level="all">

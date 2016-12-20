@@ -11,12 +11,12 @@ import java.io.IOException;
  * Created by i.gonchar on 20.12.2016.
  */
 public class LoggerUtil {
-    private static String loggerFilePath = "./log.log";
+    private static String loggerFilePath = "./target/log.log";
 
     public static Logger createLogger() {
-        Logger aLogger = LogManager.getRootLogger();
-        aLogger.info("Logger was created");
-        return aLogger;
+        Logger logger = LogManager.getRootLogger();
+        logger.info("Logger was initialized");
+        return logger;
     }
 
     public static void createLogFile(FirefoxProfile profile) throws IOException {

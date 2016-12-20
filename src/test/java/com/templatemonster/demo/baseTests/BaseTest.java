@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import org.apache.logging.log4j.Logger;
 
-public class BaseTest {
+public abstract class BaseTest {
     protected static final Logger LOGGER = LoggerUtil.createLogger();
     protected static PropertyManager propertyManager;
     protected WebDriver driver;

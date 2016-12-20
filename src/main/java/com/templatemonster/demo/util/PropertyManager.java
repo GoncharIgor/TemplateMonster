@@ -8,17 +8,19 @@ public class PropertyManager extends BaseUtils{
     public void generateProperty() {
         try {
             properties.load(getClass().getClassLoader().getResourceAsStream("properties/environment.properties"));
+            LOGGER.info("properties were generated from file: test/resources/properties/environment.properties");
         } catch (Exception e) {
-            System.out.println("Prop were NOT generated");
-            LOGGER.info("Failed to load properties:" + e.getMessage());
+            LOGGER.error("Failed to load properties:" + e.getMessage());
         }
     }
 
     public String getProperty(String propertyKey) {
         if (!properties.containsKey(propertyKey)) {
+            LOGGER.debug("No property key was passed");
             return null;
         }
         if (properties.getProperty(propertyKey).equals("")) {
+            LOGGER.info("Empty property key was passed");
             return null;
         }
 

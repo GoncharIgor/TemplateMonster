@@ -30,6 +30,7 @@ public class TM_010_InvalidEmailCheckoutTest extends TemplateMonsterBaseTest {
         checkoutPage = openHomePage()
                 .searchForTemplate(templateId)
                 .addOpenedTemplateToCartAndCheckout();
+
         assertTrue(checkoutPage.addInvalidEmailsToCheckout(invalidEmails), "Not all emails were correctly validated");
     }
 }
