@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>TestNgProject</groupId>
-    <artifactId>TestNgProject</artifactId>
+    <artifactId>TemplateMonster</artifactId>
     <version>1.0</version>
     <name>${project.artifactId}</name>
     <description>
@@ -85,6 +85,18 @@
             <groupId>com.sun.mail</groupId>
             <artifactId>javax.mail</artifactId>
             <version>${javax.mail.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>1.2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>1.1.5</version>
         </dependency>
 
         <dependency> <!--Excell manager-->
