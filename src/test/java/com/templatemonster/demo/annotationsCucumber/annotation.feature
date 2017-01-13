@@ -6,6 +6,7 @@ Feature: annotation
   I am on Facebook login page
 
 #Scenario with AND
+  @SmokeTest #this is a tag
   Scenario:
     When I enter username as "TOM"
     And I enter password as "JERRY"
