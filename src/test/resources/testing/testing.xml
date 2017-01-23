@@ -11,9 +11,9 @@
             <!--<class name="com.templatemonster.demo.uiTests.general.TM_003_LogoutTest"/>-->
             <!--<class name="com.templatemonster.demo.uiTests.general.TM_004_OpenLoginPageTest"/>-->
             <!--<class name="com.templatemonster.demo.uiTests.template.TM_005_DownloadSampleAsGuest"/>-->
-            <class name="com.templatemonster.demo.uiTests.shoppingCart.TM_006_ShoppingCartMergeTest"/>
+            <!--<class name="com.templatemonster.demo.uiTests.shoppingCart.TM_006_ShoppingCartMergeTest"/>-->
             <!-- <class name="com.templatemonster.demo.uiTests.shoppingCart.TM_007_ShoppingCartDeleteTemplateTest"/>-->
-            <!--<class name="com.templatemonster.demo.uiTests.TM_008_ChatTest"/>-->
+            <class name="com.templatemonster.demo.uiTests.TM_008_ChatTest"/>
             <!--<class name="com.templatemonster.demo.uiTests.TM_009_PageScrollTest"/>-->
             <!--<class name="com.templatemonster.demo.uiTests.TM_010_InvalidEmailCheckoutTest"/>-->
             <!--<class name="com.templatemonster.demo.restTests.TM_011_OpenWordPressTemplates"/>
