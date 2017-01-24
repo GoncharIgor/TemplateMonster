@@ -105,7 +105,7 @@ public class TemplateSearchResultPage extends BasePageHeader {
 
     public TemplateSearchResultPage checkWhatTemplateInfoTabIsSelected(int tabNumber) {
         int selectedTab = 0;
-        $$(TEMPLATE_INFORMATION_TABS_LOCATOR).shouldHave(CollectionCondition.size(3));
+        $$(TEMPLATE_INFORMATION_TABS_LOCATOR).shouldHave(CollectionCondition.size(4));
         for (int i = 1; i <= $$(TEMPLATE_INFORMATION_TABS_LOCATOR).size(); i++) {
             if ($$(TEMPLATE_INFORMATION_TABS_LOCATOR).get(i - 1).getAttribute("class").equals("active")) {
                 selectedTab = i;
