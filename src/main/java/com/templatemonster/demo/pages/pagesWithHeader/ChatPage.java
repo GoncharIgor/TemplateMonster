@@ -15,7 +15,7 @@ public class ChatPage extends BasePageHeader {
 
     public boolean isChatPageOpened() {
         String currentUrl = driver.getCurrentUrl();
-        return currentUrl.contains("http://chat.template-help.com/chat.jsp");
+        return currentUrl.contains("http://chat.template-help.com/chaaat.jsp");
     }
 
     public boolean isChatPreSalesRoomOpened() {
