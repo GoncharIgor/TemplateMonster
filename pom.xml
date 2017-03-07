@@ -14,7 +14,8 @@
     </description>
 
     <properties>
-        <selenium_drivers.version>2.53.1</selenium_drivers.version>
+        <!--<selenium_drivers.version>2.53.1</selenium_drivers.version>-->
+        <selenium_drivers.version>3.2.0</selenium_drivers.version>
         <testNG.version>6.9.6</testNG.version>
         <log4j2.version>2.3</log4j2.version>
         <application.environment>prod</application.environment>
@@ -200,6 +201,15 @@
             </plugin>
 
         </plugins>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>*.properties</include>
+                </includes>
+            </testResource>
+        </testResources>
     </build>
 
     <reporting>
