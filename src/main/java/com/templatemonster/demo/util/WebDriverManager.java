@@ -13,6 +13,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by i.gonchar on 12.12.2016.
  */
@@ -20,6 +24,7 @@ public class WebDriverManager extends BaseUtils {
     private static WebDriver driver;
 
     public static WebDriver initializeWebDriver(String browser) {
+        // if (WebDriverRunner.hasWebDriverStarted()) return;
         if (browser != null) {
             if (browser.equalsIgnoreCase("firefox")) {
                 FirefoxDriverManager.getInstance().setup();
@@ -30,6 +35,13 @@ public class WebDriverManager extends BaseUtils {
                 ChromeDriverManager.getInstance().setup();
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--lang=en");
+                //capabilities.setCapability("chrome.switches", Arrays.asList("--disable-extensions"));
+                //options.addArguments("chrome.switches","--disable-extensions");
+                Map<String, Object> prefs = new HashMap<>();
+                prefs.put("credentials_enable_service", false);
+                prefs.put("profile.password_manager_enabled", false);
+                options.setExperimentalOption("prefs", prefs);
+                options.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
                 driver = new ChromeDriver(options);
             } else if (browser.equalsIgnoreCase("ie")) {
                 InternetExplorerDriverManager.getInstance().setup();

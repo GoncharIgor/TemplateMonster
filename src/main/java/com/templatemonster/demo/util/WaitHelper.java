@@ -1,6 +1,5 @@
 package com.templatemonster.demo.util;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -36,7 +35,7 @@ public class WaitHelper extends BaseUtils{
     public static void waitUntilElementIsLoaded(WebDriver driver, final By by, long timeOutInSeconds) {
         WebDriverWait driverWait = new WebDriverWait(driver, timeOutInSeconds);
         LOGGER.debug("Waiting for Element to be loaded by locator" + by);
-        driverWait.until(ExpectedConditions.presenceOfElementLocated(by));
+    //    driverWait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 }
 

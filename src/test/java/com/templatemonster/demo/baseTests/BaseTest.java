@@ -1,5 +1,6 @@
 package com.templatemonster.demo.baseTests;
 
+import com.codeborne.selenide.WebDriverRunner;
 import com.templatemonster.demo.util.*;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
@@ -33,6 +34,7 @@ public abstract class BaseTest {
         if (driver != null) {
             try {
                 driver.quit();
+                LOGGER.info("Webdriver was closed");
             } catch (Exception e) {
                 LOGGER.error("Failed to close browser. Error message:" + e.getMessage());
             }

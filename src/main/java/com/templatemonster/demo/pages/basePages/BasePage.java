@@ -31,9 +31,9 @@ public abstract class BasePage {
         return !classAttributeValue.contains("hidden");
     }
 
-    public WebElement getElementUntilItIsLoaded(By locator, int time) {
+    public void getElementUntilItIsLoaded(By locator, int time) {
         WebDriverWait waitForElement = new WebDriverWait(driver, time);
-        return waitForElement.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        //return waitForElement.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     public void areElementsNotVisibleNow(SelenideElement... selenideElements) {
@@ -79,7 +79,7 @@ public abstract class BasePage {
                     }
                 };
         WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(pageLoadCondition);
+        //wait.until(pageLoadCondition);
     }
 
     public boolean isElementDisplayed(WebElement webElement) {

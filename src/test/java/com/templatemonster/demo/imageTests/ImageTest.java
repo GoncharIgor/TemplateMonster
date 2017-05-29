@@ -8,9 +8,6 @@ import org.testng.annotations.Test;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-/**
- * Created by i.gonchar on 21/03/2017.
- */
 public class ImageTest extends TemplateMonsterBaseTest {
     private ScreenShotUtil screenShotUtil;
     private By logoLocator = By.cssSelector(".logo-icon.svg");

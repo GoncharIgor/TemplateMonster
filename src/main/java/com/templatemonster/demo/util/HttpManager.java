@@ -21,8 +21,6 @@ public class HttpManager extends BaseUtils{
         try {
             HttpResponse response = HttpClientBuilder.create().build().execute(request);
             statusCode = response.getStatusLine().getStatusCode();
-
-
         } catch (IOException e) {
             LOGGER.error("Could not execute Http reauest");
         }

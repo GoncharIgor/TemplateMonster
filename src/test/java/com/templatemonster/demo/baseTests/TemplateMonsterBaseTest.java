@@ -21,8 +21,7 @@ public class TemplateMonsterBaseTest extends BaseTest {
     }
 
     public HomePage loginToSystem(String email, String password) {
-        LoginPage loginPage = new LoginPage(driver);
-        open(LOGIN_PAGE_URL);
+        LoginPage loginPage = openLoginPage();
         loginPage.fillLoginFormWithAnyCredentials(email, password);
         $(SIGN_IN_FORM_LOCATOR).submit();
         return new HomePage(driver);

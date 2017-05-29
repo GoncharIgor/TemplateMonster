@@ -80,9 +80,8 @@ public class ScreenShotUtil {
         }
         double n = width1 * height1 * 3;
         double p = diff / n / 255.0;
-        // System.out.println("diff percent: " + (p * 100.0));
 
-        return Double.parseDouble(df.format(p * 100.0));
+        return Double.parseDouble(df.format(p * 100.0)); //"diff percent: " + (p * 100.0)
     }
 
 }
