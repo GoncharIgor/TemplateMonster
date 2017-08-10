@@ -3,6 +3,7 @@ package com.templatemonster.demo.util;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
+import org.testng.annotations.DataProvider;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -78,5 +79,14 @@ public class ExcelUtils extends BaseUtils {
             LOGGER.error(e.getMessage());
             throw (e);
         }
+    }
+
+    @DataProvider
+    public Object[][] testData(){
+        return new Object[][]{
+                new Object[]{"aas", "23", "asd"},
+                new Object[]{"aas", "23", "asd"},
+                new Object[]{"aas", "23", "asd"}
+        };
     }
 }

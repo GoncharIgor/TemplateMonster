@@ -13,7 +13,6 @@ public class TestDataProvider {
 
     @DataProvider(name = "templates_examples")
     public static Object[][] getTemplateExamples() {
-
         return new Object[][]{
                 {"53590"},
                 {"53088"}

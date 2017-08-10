@@ -35,13 +35,17 @@ public class WebDriverManager extends BaseUtils {
                 ChromeDriverManager.getInstance().setup();
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--lang=en");
-                //capabilities.setCapability("chrome.switches", Arrays.asList("--disable-extensions"));
-                //options.addArguments("chrome.switches","--disable-extensions");
+                //Fix for browser remember password pop-ups
                 Map<String, Object> prefs = new HashMap<>();
                 prefs.put("credentials_enable_service", false);
                 prefs.put("profile.password_manager_enabled", false);
                 options.setExperimentalOption("prefs", prefs);
+                //Fix for browser is being under automated device
                 options.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
+                //Fix for cannot get automation extension
+                options.addArguments("disable-extensions");
+                options.addArguments("--start-maximized");
+                //options.addArguments("--headless");
                 driver = new ChromeDriver(options);
             } else if (browser.equalsIgnoreCase("ie")) {
                 InternetExplorerDriverManager.getInstance().setup();

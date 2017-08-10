@@ -1,10 +1,12 @@
 package com.templatemonster.demo.restTests;
 
 import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.config.RestAssuredConfig;
 import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.path.json.JsonPath;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.response.ValidatableResponse;
+import com.jayway.restassured.specification.RequestSpecification;
 import org.apache.http.HttpStatus;
 import org.apache.tools.ant.taskdefs.condition.Http;
 import org.hamcrest.Matchers;
@@ -145,6 +147,11 @@ public class TM_022_RestAssured {
         System.out.println(response);
         RestAssured.given().param("login", "ggobi").param("id").when().get(jsonUrl).then().assertThat().statusCode(HttpStatus.SC_OK).and()
                 .assertThat().body("login", Matchers.hasItems("ggobi"));
+    }
+
+    @Test
+    public void logResult() {
+        RestAssured.given().get(jsonUrl).then().log().all(); //souts the response
     }
 }
 
