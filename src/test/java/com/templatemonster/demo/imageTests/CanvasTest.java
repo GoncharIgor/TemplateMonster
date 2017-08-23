@@ -14,8 +14,8 @@ import java.io.IOException;
 import static com.codeborne.selenide.Selenide.$;
 
 public class CanvasTest {
-    WebDriver driver;
-    ScreenShotUtil screenShotUtil;
+    private WebDriver driver;
+    private ScreenShotUtil screenShotUtil;
     private By canvasLoocator = By.xpath("//*[@id=\"container-panel-260341\"]/div/div/div[3]/div/div/div/div/ui-bb-loading-indicator-ng/ui-bb-substitute-error-ng/ng-transclude/div/div/ui-bb-empty-state-ng/ng-transclude/ui-bb-chartjs-chart-bar/canvas");
 
     @Test
@@ -28,10 +28,7 @@ public class CanvasTest {
         $(By.name("password")).submit();
         $(By.linkText("Home")).shouldBe(Condition.visible);
         driver.get("http://small-fog-24-editorial.backbase.dev:9080/portalserver/retail-banking-demo/insights?enable-mocks");
-        //$(By.linkText("Spending Analysis")).shouldBe(Condition.visible).click();
         $(By.linkText("Spending Analysis")).shouldBe(Condition.visible);
-        //JavascriptExecutor jse = (JavascriptExecutor) driver;
-        //jse.executeScript("return document.getElementsByClassName('my-canvas')[0].toDataURL('image/png');");
 
         SelenideElement canvas = $(canvasLoocator);
 

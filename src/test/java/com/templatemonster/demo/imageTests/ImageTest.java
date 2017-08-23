@@ -3,6 +3,8 @@ package com.templatemonster.demo.imageTests;
 import com.templatemonster.demo.baseTests.TemplateMonsterBaseTest;
 import com.templatemonster.demo.util.ScreenShotUtil;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 import java.awt.image.BufferedImage;

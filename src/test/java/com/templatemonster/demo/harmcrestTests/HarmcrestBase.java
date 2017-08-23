@@ -23,8 +23,8 @@ public class HarmcrestBase {
     @Test
     public void testNumber() {
         List<Integer> list = Arrays.asList(5);
-        Assert.assertThat(list, Matchers.hasItem(5));
+        Assert.assertThat(list, Matchers.hasItem(5)); //Junit assert
         int a = 12;
-        assertThat(a, Matchers.lessThanOrEqualTo(12));
+        assertThat(a, Matchers.lessThanOrEqualTo(12)); //Harmcrest assert
     }
 }
